@@ -2,7 +2,6 @@ import { SpacingSizesEnum } from './household.types'
 import { withRem } from './household.utils'
 
 const BASE_SPACING = 1 // rem
-export const ROOT_FONT_SIZE = 16
 
 export const SizesMap = {
 	[SpacingSizesEnum.tiny]: withRem(BASE_SPACING * 0.25),
