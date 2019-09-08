@@ -10,8 +10,7 @@ import {
 import { SizesMap } from './household.constants'
 import { HouseholdParentProps } from './household.types'
 import { margin, padding, position as positionPolished } from 'polished'
-
-export const isBool = (val: any) => 'boolean' === typeof val
+import { isBool } from './household.utils'
 
 export const getHouseholdCommonProps = ({
 	spacing = SpacingSizesEnum.default,
