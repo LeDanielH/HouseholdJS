@@ -3,6 +3,7 @@
 	"version": "1.0.0",
 	"description": "styled layout components made out of household members",
 	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
 	"scripts": {
 		"test": "jest --config jestconfig.json",
 		"preview": "webpack-dev-server",
@@ -17,7 +18,8 @@
 		"layout",
 		"react",
 		"styled",
-		"components"
+		"components",
+		"styled-components"
 	],
 	"author": "Daniel Zeman ledaniel.zeman@gmail.com",
 	"license": "ISC",
