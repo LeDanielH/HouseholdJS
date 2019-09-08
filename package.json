@@ -1,50 +1,55 @@
 {
-  "name": "householdjs",
-  "version": "1.0.0",
-  "description": "styled layout components made out of household members",
-  "main": "dist/index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server",
-    "build": "webpack -p",
-    "prettier": "prettier --write \"./src/**/*.{ts,tsx}\"",
-    "typescript": "tsc -p ./tsconfig.json --pretty --noEmit"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/LeDanielH/HouseholdJS.git"
-  },
-  "keywords": [
-    "layout",
-    "react",
-    "styled",
-    "components"
-  ],
-  "author": "Daniel Zeman ledaniel.zeman@gmail.com",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/LeDanielH/HouseholdJS/issues"
-  },
-  "homepage": "https://github.com/LeDanielH/HouseholdJS#readme",
-  "devDependencies": {
-    "@babel/core": "^7.5.5",
-    "@types/react": "^16.8.23",
-    "@types/react-dom": "^16.8.5",
-    "@types/styled-components": "^4.1.18",
-    "awesome-typescript-loader": "^5.2.1",
-    "babel-loader": "^8.0.6",
-    "html-webpack-plugin": "^3.2.0",
-    "prettier": "^1.18.2",
-    "webpack": "^4.38.0",
-    "webpack-cli": "^3.3.6",
-    "webpack-dev-server": "^3.7.2",
-    "webpack-node-externals": "^1.7.2"
-  },
-  "dependencies": {
-    "polished": "^3.4.1",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "styled-components": "^4.3.2",
-    "typescript": "^3.5.3"
-  }
+	"name": "householdjs",
+	"version": "1.0.0",
+	"description": "styled layout components made out of household members",
+	"main": "dist/index.js",
+	"scripts": {
+		"test": "jest --config jestconfig.json",
+		"preview": "webpack-dev-server",
+		"build": "tsc",
+		"prettier": "prettier --write \"./src/**/*.{ts,tsx}\""
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/LeDanielH/HouseholdJS.git"
+	},
+	"keywords": [
+		"layout",
+		"react",
+		"styled",
+		"components"
+	],
+	"author": "Daniel Zeman ledaniel.zeman@gmail.com",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/LeDanielH/HouseholdJS/issues"
+	},
+	"homepage": "https://github.com/LeDanielH/HouseholdJS#readme",
+	"devDependencies": {
+		"@babel/core": "^7.5.5",
+		"@types/jest": "^24.0.18",
+		"@types/react": "^16.8.23",
+		"@types/react-dom": "^16.8.5",
+		"@types/styled-components": "^4.1.18",
+		"awesome-typescript-loader": "^5.2.1",
+		"babel-loader": "^8.0.6",
+		"html-webpack-plugin": "^3.2.0",
+		"jest": "^24.9.0",
+		"prettier": "^1.18.2",
+		"ts-jest": "^24.0.2",
+		"webpack": "^4.38.0",
+		"webpack-cli": "^3.3.6",
+		"webpack-dev-server": "^3.7.2",
+		"webpack-node-externals": "^1.7.2"
+	},
+	"dependencies": {
+		"polished": "^3.4.1",
+		"react": "^16.8.6",
+		"react-dom": "^16.8.6",
+		"styled-components": "^4.3.2",
+		"typescript": "^3.5.3"
+	},
+	"files": [
+		"dist/**/*"
+	]
 }
