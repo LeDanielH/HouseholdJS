@@ -1,0 +1,46 @@
+{
+	"name": "householdjs",
+	"version": "1.0.2",
+	"description": "styled layout components made out of household members",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"scripts": {
+		"test": "jest --config jestconfig.json",
+		"build": "tsc",
+		"prettier": "prettier --write \"./src/**/*.{ts,tsx}\""
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/LeDanielH/HouseholdJS.git"
+	},
+	"keywords": [
+		"layout",
+		"react",
+		"styled",
+		"components",
+		"styled-components"
+	],
+	"author": "Daniel Zeman ledaniel.zeman@gmail.com",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/LeDanielH/HouseholdJS/issues"
+	},
+	"homepage": "https://github.com/LeDanielH/HouseholdJS#readme",
+	"devDependencies": {
+		"@types/jest": "^24.0.18",
+		"@types/react": "^16.8.23",
+		"@types/styled-components": "^4.1.18",
+		"jest": "^24.9.0",
+		"prettier": "^1.18.2",
+		"ts-jest": "^24.0.2"
+	},
+	"dependencies": {
+		"polished": "^3.4.1",
+		"react": "^16.8.6",
+		"styled-components": "^4.3.2",
+		"typescript": "^3.5.3"
+	},
+	"files": [
+		"dist/**/*"
+	]
+}
