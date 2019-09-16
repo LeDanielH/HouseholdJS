@@ -1,5 +1,22 @@
 import * as CSS from 'csstype'
 import React from 'react'
+import { GlobalsNumber } from 'csstype'
+import { RequireAtLeastOne } from '../../utils/typescript'
+
+interface PositionedProps {
+	zIndex?: number
+	position?: Extract<CSS.PositionProperty, 'absolute' | 'fixed' | 'relative'>
+}
+
+interface LocationWithoutAtLeastOneRequired {
+	top?: boolean | string
+	right?: boolean | string
+	bottom?: boolean | string
+	left?: boolean | string
+	all?: boolean | string
+	vertical?: boolean | string
+	horizontal?: boolean | string
+}
 
 export enum SpacingSizesEnum {
 	huge = 'huge',
@@ -22,16 +39,10 @@ export interface HouseholdCommonProps extends DivType {
 	fullWidth?: boolean
 	maxWidth?: CSS.MaxWidthProperty<string>
 }
-
-export interface HouseholdLocationProps {
-	top?: boolean | string
-	right?: boolean | string
-	bottom?: boolean | string
-	left?: boolean | string
-	all?: boolean | string
-	vertical?: boolean | string
-	horizontal?: boolean | string
-}
+export type HouseholdLocationProps = RequireAtLeastOne<
+	LocationWithoutAtLeastOneRequired,
+	keyof LocationWithoutAtLeastOneRequired
+>
 
 export interface HouseholdParentProps extends HouseholdCommonProps {
 	alignItems?: CSS.AlignItemsProperty
@@ -44,17 +55,16 @@ export interface HouseholdParentProps extends HouseholdCommonProps {
 
 export interface HouseholdChildProps
 	extends Omit<HouseholdCommonProps, 'maxWidth' | 'fullWidth' | 'isInline'> {
-	grow?: boolean | number
-	shrink?: boolean | number
+	grow?: boolean | number | GlobalsNumber
+	shrink?: boolean | number | GlobalsNumber
 	width?: string
 	noFontSize?: boolean
 	justifySelfEnd?: boolean
 }
 
-export interface HouseholdPetProps extends DivType, HouseholdLocationProps {
-	zIndex?: number
-	position?: Extract<CSS.PositionProperty, 'absolute' | 'fixed' | 'relative'>
-}
+export type HouseholdPetProps = DivType &
+	HouseholdLocationProps &
+	PositionedProps
 
 export type HouseholdWallProps = DivType &
 	HouseholdLocationProps &

@@ -21,24 +21,23 @@ export const getHouseholdCommonProps = ({
 	withPointer = false,
 	fullWidth = false,
 	maxWidth
-}: HouseholdCommonProps) =>
-	({
-		height,
-		background,
-		maxWidth,
-		...(isRelative && {
-			position: 'relative'
-		}),
-		...(withPointer && {
-			cursor: 'pointer'
-		}),
-		...(fullWidth && {
-			width: '100%'
-		}),
-		...(withBottomSpacing && {
-			marginBottom: SizesMap[spacing]
-		})
-	} as CSSObject)
+}: HouseholdCommonProps): CSSObject => ({
+	height,
+	background,
+	maxWidth,
+	...(isRelative && {
+		position: 'relative'
+	}),
+	...(withPointer && {
+		cursor: 'pointer'
+	}),
+	...(fullWidth && {
+		width: '100%'
+	}),
+	...(withBottomSpacing && {
+		marginBottom: SizesMap[spacing]
+	})
+})
 
 export const getHouseholdParentProps = ({
 	fillHeight,
@@ -49,27 +48,26 @@ export const getHouseholdParentProps = ({
 	alignItems,
 	isInline,
 	...rest
-}: HouseholdParentProps) =>
-	({
-		...getHouseholdCommonProps(rest),
-		justifyContent,
-		alignItems,
-		...(fillHeight && {
-			height: '100%'
-		}),
-		...(column && {
-			flexDirection: 'column'
-		}),
-		...(reverse && {
-			flexDirection: column ? 'column-reverse' : 'row-reverse'
-		}),
-		...(wrap && {
-			flexWrap: 'wrap'
-		}),
-		...(isInline && {
-			display: 'inline-flex'
-		})
-	} as CSSObject)
+}: HouseholdParentProps): CSSObject => ({
+	...getHouseholdCommonProps(rest),
+	justifyContent,
+	alignItems,
+	...(fillHeight && {
+		height: '100%'
+	}),
+	...(column && {
+		flexDirection: 'column'
+	}),
+	...(reverse && {
+		flexDirection: column ? 'column-reverse' : 'row-reverse'
+	}),
+	...(wrap && {
+		flexWrap: 'wrap'
+	}),
+	...(isInline && {
+		display: 'inline-flex'
+	})
+})
 
 export const getHouseholdChildProps = ({
 	grow,
@@ -78,28 +76,27 @@ export const getHouseholdChildProps = ({
 	noFontSize,
 	justifySelfEnd,
 	...rest
-}: HouseholdChildProps) =>
-	({
-		...getHouseholdCommonProps(rest),
-		display: 'inline-block',
-		flexGrow: +isBool(grow) || grow,
-		flexShrink: +isBool(shrink) || shrink,
-		...(width && {
-			maxWidth: width
-		}),
-		flexBasis: width || 'auto',
-		...(noFontSize && {
-			fontSize: 0
-		}),
-		...(justifySelfEnd && {
-			marginLeft: 'auto'
-		})
-	} as CSSObject)
+}: HouseholdChildProps): CSSObject => ({
+	...getHouseholdCommonProps(rest),
+	display: 'inline-block',
+	flexGrow: +isBool(grow) || (grow as number),
+	flexShrink: +isBool(shrink) || (shrink as number),
+	...(width && {
+		maxWidth: width
+	}),
+	flexBasis: width || 'auto',
+	...(noFontSize && {
+		fontSize: 0
+	}),
+	...(justifySelfEnd && {
+		marginLeft: 'auto'
+	})
+})
 
 export const getHouseholdGrandParentProps = ({
 	center,
 	...rest
-}: HouseholdGrandparentProps) => ({
+}: HouseholdGrandparentProps): CSSObject => ({
 	...getHouseholdCommonProps(rest),
 	...(center && {
 		...margin(null, 'auto')
@@ -116,40 +113,39 @@ export const getHouseholdPetProps = ({
 	horizontal,
 	zIndex,
 	position = 'absolute'
-}: HouseholdPetProps) =>
-	({
-		position,
-		zIndex,
-		...(top && {
-			top: isBool(top) ? 0 : top
-		}),
-		...(right && {
-			right: isBool(right) ? 0 : right
-		}),
-		...(bottom && {
-			bottom: isBool(bottom) ? 0 : bottom
-		}),
-		...(left && {
-			left: isBool(left) ? 0 : left
-		}),
-		...(all && {
-			...positionPolished(position, isBool(all) ? 0 : (all as string))
-		}),
-		...(vertical && {
-			...positionPolished(
-				position,
-				isBool(vertical) ? 0 : (vertical as string),
-				null
-			)
-		}),
-		...(horizontal && {
-			...positionPolished(
-				position,
-				null,
-				isBool(horizontal) ? 0 : (horizontal as string)
-			)
-		})
-	} as CSSObject)
+}: HouseholdPetProps): CSSObject => ({
+	position,
+	zIndex,
+	...(top && {
+		top: isBool(top) ? 0 : (top as string)
+	}),
+	...(right && {
+		right: isBool(right) ? 0 : (right as string)
+	}),
+	...(bottom && {
+		bottom: isBool(bottom) ? 0 : (bottom as string)
+	}),
+	...(left && {
+		left: isBool(left) ? 0 : (left as string)
+	}),
+	...(all && {
+		...positionPolished(position, isBool(all) ? 0 : (all as string))
+	}),
+	...(vertical && {
+		...positionPolished(
+			position,
+			isBool(vertical) ? 0 : (vertical as string),
+			null
+		)
+	}),
+	...(horizontal && {
+		...positionPolished(
+			position,
+			null,
+			isBool(horizontal) ? 0 : (horizontal as string)
+		)
+	})
+})
 
 export const getHouseholdWallProps = ({
 	top,
@@ -160,29 +156,35 @@ export const getHouseholdWallProps = ({
 	horizontal,
 	all,
 	spacing = SpacingSizesEnum.default
-}: HouseholdWallProps) =>
-	({
-		...(top && {
-			paddingTop: isBool(top) ? SizesMap[spacing] : top
-		}),
-		...(right && {
-			paddingRight: isBool(right) ? SizesMap[spacing] : right
-		}),
-		...(bottom && {
-			paddingBottom: isBool(bottom) ? SizesMap[spacing] : bottom
-		}),
-		...(left && {
-			paddingLeft: isBool(left) ? SizesMap[spacing] : left
-		}),
-		...(vertical && {
-			paddingTop: isBool(vertical) ? SizesMap[spacing] : vertical,
-			paddingBottom: isBool(vertical) ? SizesMap[spacing] : vertical
-		}),
-		...(horizontal && {
-			paddingLeft: isBool(horizontal) ? SizesMap[spacing] : horizontal,
-			paddingRight: isBool(horizontal) ? SizesMap[spacing] : horizontal
-		}),
-		...(all && {
-			...padding(isBool(all) ? SizesMap[spacing] : (all as string))
-		})
-	} as CSSObject)
+}: HouseholdWallProps): CSSObject | {} => ({
+	// the object can be empty
+	...(top && {
+		paddingTop: isBool(top) ? SizesMap[spacing] : (top as string)
+	}),
+	...(right && {
+		paddingRight: isBool(right) ? SizesMap[spacing] : (right as string)
+	}),
+	...(bottom && {
+		paddingBottom: isBool(bottom) ? SizesMap[spacing] : (bottom as string)
+	}),
+	...(left && {
+		paddingLeft: isBool(left) ? SizesMap[spacing] : (left as string)
+	}),
+	...(vertical && {
+		paddingTop: isBool(vertical) ? SizesMap[spacing] : (vertical as string),
+		paddingBottom: isBool(vertical)
+			? SizesMap[spacing]
+			: (vertical as string)
+	}),
+	...(horizontal && {
+		paddingLeft: isBool(horizontal)
+			? SizesMap[spacing]
+			: (horizontal as string),
+		paddingRight: isBool(horizontal)
+			? SizesMap[spacing]
+			: (horizontal as string)
+	}),
+	...(all && {
+		...padding(isBool(all) ? SizesMap[spacing] : (all as string))
+	})
+})

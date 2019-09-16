@@ -1,4 +1,4 @@
-import styled, { CSSObject } from 'styled-components'
+import styled from 'styled-components'
 import {
 	HouseholdChildProps,
 	HouseholdGrandparentProps,
@@ -13,24 +13,29 @@ import {
 	getHouseholdPetProps,
 	getHouseholdWallProps
 } from './household.params'
+import { RequireAtLeastOne } from '../../utils/typescript'
 
 export const HHParent = styled('div')<HouseholdParentProps>(
-	(props: HouseholdParentProps) => getHouseholdParentProps(props) as CSSObject
+	(props: HouseholdParentProps) => getHouseholdParentProps(props)
 )
 
 export const HHChild = styled('div')<HouseholdChildProps>(
-	(props: HouseholdChildProps) => getHouseholdChildProps(props) as CSSObject
+	(props: HouseholdChildProps) => getHouseholdChildProps(props)
 )
 
 export const HHGrandParent = styled('div')<HouseholdGrandparentProps>(
-	(props: HouseholdGrandparentProps) =>
-		getHouseholdGrandParentProps(props) as CSSObject
+	(props: HouseholdGrandparentProps) => getHouseholdGrandParentProps(props)
 )
 
 export const HHPet = styled('div')<HouseholdPetProps>(
-	(props: HouseholdPetProps) => getHouseholdPetProps(props) as CSSObject
+	(props: HouseholdPetProps) => getHouseholdPetProps(props)
 )
 
-export const HHWall = styled('div')<HouseholdWallProps>(
-	(props: HouseholdWallProps) => getHouseholdWallProps(props) as CSSObject
+type HHWallProps = RequireAtLeastOne<
+	HouseholdWallProps,
+	'top' | 'right' | 'bottom' | 'left' | 'vertical' | 'horizontal' | 'all'
+>
+
+export const HHWall = styled('div')<HHWallProps>((props: HHWallProps) =>
+	getHouseholdWallProps(props)
 )
