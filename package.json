@@ -5,7 +5,7 @@
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
 	"scripts": {
-		"test": "jest --config jestconfig.json",
+		"test": "jest",
 		"build": "tsc",
 		"prettier": "prettier --write \"./src/**/*.{ts,tsx}\""
 	},
@@ -15,9 +15,6 @@
 	},
 	"keywords": [
 		"layout",
-		"react",
-		"styled",
-		"components",
 		"styled-components"
 	],
 	"author": "Daniel Zeman ledaniel.zeman@gmail.com",
