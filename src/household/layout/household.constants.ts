@@ -1,13 +1,13 @@
-import { SpacingSizesEnum } from './household.types'
-import { withRem } from './household.utils'
+import { HHSpacingSizesEnum } from './household.types'
+import { withRem } from '../../utils/withRem'
 
 const BASE_SPACING = 1 // rem
 type SizeMapType = { [key: string]: string }
 
 export const SizesMap: SizeMapType = {
-	[SpacingSizesEnum.tiny]: withRem(BASE_SPACING * 0.25),
-	[SpacingSizesEnum.small]: withRem(BASE_SPACING * 0.5),
-	[SpacingSizesEnum.default]: withRem(BASE_SPACING),
-	[SpacingSizesEnum.big]: withRem(BASE_SPACING * 2),
-	[SpacingSizesEnum.huge]: withRem(BASE_SPACING * 4)
+	[HHSpacingSizesEnum.tiny]: withRem(BASE_SPACING * 0.25),
+	[HHSpacingSizesEnum.small]: withRem(BASE_SPACING * 0.5),
+	[HHSpacingSizesEnum.default]: withRem(BASE_SPACING),
+	[HHSpacingSizesEnum.big]: withRem(BASE_SPACING * 2),
+	[HHSpacingSizesEnum.huge]: withRem(BASE_SPACING * 4)
 }

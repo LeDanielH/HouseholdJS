@@ -1,18 +1,20 @@
 import { CSSObject } from 'styled-components'
 import {
-	HouseholdChildProps,
-	HouseholdCommonProps,
-	HouseholdGrandparentProps,
-	HouseholdPetProps,
-	HouseholdWallProps,
-	SpacingSizesEnum
+	HHChildProps,
+	HHCommonProps,
+	HHGrandparentProps,
+	HHPetProps,
+	HHWallProps,
+	HHSpacingSizesEnum
 } from './household.types'
 import { SizesMap } from './household.constants'
-import { HouseholdParentProps } from './household.types'
-import { getSpacingOrString, getZeroOrString, isBool } from './household.utils'
+import { HHParentProps } from './household.types'
+import { isBool } from '../../utils/isBool'
+import { getZeroOrString } from '../../utils/getZeroOrString'
+import { getSpacingOrString } from '../../utils/getSpacingOrString'
 
-export const getHouseholdCommonProps = ({
-	spacing = SpacingSizesEnum.default,
+export const getHHCommonProps = ({
+	spacing = HHSpacingSizesEnum.default,
 	withBottomSpacing = false,
 	height,
 	background,
@@ -20,7 +22,7 @@ export const getHouseholdCommonProps = ({
 	withPointer = false,
 	fullWidth = false,
 	maxWidth
-}: HouseholdCommonProps): CSSObject => ({
+}: HHCommonProps): CSSObject => ({
 	height,
 	background,
 	maxWidth,
@@ -38,7 +40,7 @@ export const getHouseholdCommonProps = ({
 	})
 })
 
-export const getHouseholdParentProps = ({
+export const getHHParentProps = ({
 	fillHeight,
 	column,
 	reverse,
@@ -47,8 +49,8 @@ export const getHouseholdParentProps = ({
 	alignItems,
 	isInline,
 	...rest
-}: HouseholdParentProps): CSSObject => ({
-	...getHouseholdCommonProps(rest),
+}: HHParentProps): CSSObject => ({
+	...getHHCommonProps(rest),
 	justifyContent,
 	alignItems,
 	...(fillHeight && {
@@ -68,15 +70,15 @@ export const getHouseholdParentProps = ({
 	})
 })
 
-export const getHouseholdChildProps = ({
+export const getHHChildProps = ({
 	grow,
 	shrink,
 	width,
 	noFontSize,
 	justifySelfEnd,
 	...rest
-}: HouseholdChildProps): CSSObject => ({
-	...getHouseholdCommonProps(rest),
+}: HHChildProps): CSSObject => ({
+	...getHHCommonProps(rest),
 	display: 'inline-block',
 	flexGrow: +isBool(grow) || (grow as number),
 	flexShrink: +isBool(shrink) || (shrink as number),
@@ -92,18 +94,18 @@ export const getHouseholdChildProps = ({
 	})
 })
 
-export const getHouseholdGrandParentProps = ({
+export const getHHGrandparentProps = ({
 	center,
 	...rest
-}: HouseholdGrandparentProps): CSSObject => ({
-	...getHouseholdCommonProps(rest),
+}: HHGrandparentProps): CSSObject => ({
+	...getHHCommonProps(rest),
 	...(center && {
 		marginLeft: 'auto',
 		marginRight: 'auto'
 	})
 })
 
-export const getHouseholdPetProps = ({
+export const getHHPetProps = ({
 	top,
 	right,
 	bottom,
@@ -113,7 +115,7 @@ export const getHouseholdPetProps = ({
 	horizontal,
 	zIndex,
 	position = 'absolute'
-}: HouseholdPetProps): CSSObject => ({
+}: HHPetProps): CSSObject => ({
 	position,
 	zIndex,
 	...(top && {
@@ -144,7 +146,7 @@ export const getHouseholdPetProps = ({
 	})
 })
 
-export const getHouseholdWallProps = ({
+export const getHHWallProps = ({
 	top,
 	right,
 	bottom,
@@ -152,8 +154,8 @@ export const getHouseholdWallProps = ({
 	vertical,
 	horizontal,
 	all,
-	spacing = SpacingSizesEnum.default
-}: HouseholdWallProps): CSSObject | {} => ({
+	spacing = HHSpacingSizesEnum.default
+}: HHWallProps): CSSObject | {} => ({
 	// the object can be empty
 	...(top && {
 		paddingTop: getSpacingOrString(top, spacing)

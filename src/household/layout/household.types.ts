@@ -1,7 +1,7 @@
 import * as CSS from 'csstype'
 import React from 'react'
 import { GlobalsNumber } from 'csstype'
-import { RequireAtLeastOne } from '../../utils/typescript'
+import { RequireAtLeastOne } from '../../utils/types.utils'
 
 interface PositionedProps {
 	zIndex?: number
@@ -18,7 +18,7 @@ export interface LocationProps {
 	horizontal?: boolean | string
 }
 
-export enum SpacingSizesEnum {
+export enum HHSpacingSizesEnum {
 	huge = 'huge',
 	big = 'big',
 	default = 'default',
@@ -26,11 +26,11 @@ export enum SpacingSizesEnum {
 	tiny = 'tiny'
 }
 
-export type DivType = Omit<React.HTMLProps<HTMLDivElement>, 'wrap'>
+export type HHDivType = Omit<React.HTMLProps<HTMLDivElement>, 'wrap'>
 
-export interface HouseholdCommonProps extends DivType {
+export interface HHCommonProps extends HHDivType {
 	isInline?: boolean
-	spacing?: SpacingSizesEnum
+	spacing?: HHSpacingSizesEnum
 	withBottomSpacing?: boolean
 	height?: string
 	background?: CSS.BackgroundProperty<string>
@@ -39,12 +39,12 @@ export interface HouseholdCommonProps extends DivType {
 	fullWidth?: boolean
 	maxWidth?: CSS.MaxWidthProperty<string>
 }
-export type HouseholdLocationProps = RequireAtLeastOne<
+export type HHLocationProps = RequireAtLeastOne<
 	LocationProps,
 	keyof LocationProps
 >
 
-export interface HouseholdParentProps extends HouseholdCommonProps {
+export interface HHParentProps extends HHCommonProps {
 	alignItems?: CSS.AlignItemsProperty
 	justifyContent?: CSS.JustifyContentProperty
 	wrap?: boolean
@@ -53,8 +53,8 @@ export interface HouseholdParentProps extends HouseholdCommonProps {
 	fillHeight?: boolean
 }
 
-export interface HouseholdChildProps
-	extends Omit<HouseholdCommonProps, 'maxWidth' | 'fullWidth' | 'isInline'> {
+export interface HHChildProps
+	extends Omit<HHCommonProps, 'maxWidth' | 'fullWidth' | 'isInline'> {
 	grow?: boolean | number | GlobalsNumber
 	shrink?: boolean | number | GlobalsNumber
 	width?: string
@@ -62,14 +62,17 @@ export interface HouseholdChildProps
 	justifySelfEnd?: boolean
 }
 
-export type HouseholdPetProps = DivType &
-	HouseholdLocationProps &
-	PositionedProps
+export type HHPetProps = HHDivType & HHLocationProps & PositionedProps
 
-export type HouseholdWallProps = DivType &
-	HouseholdLocationProps &
-	Pick<HouseholdCommonProps, 'spacing'>
+export type HHWallPropsWithoutRequired = HHDivType &
+	HHLocationProps &
+	Pick<HHCommonProps, 'spacing'>
 
-export interface HouseholdGrandparentProps extends HouseholdCommonProps {
+export type HHWallProps = RequireAtLeastOne<
+	HHWallPropsWithoutRequired,
+	'top' | 'right' | 'bottom' | 'left' | 'vertical' | 'horizontal' | 'all'
+>
+
+export interface HHGrandparentProps extends HHCommonProps {
 	center?: boolean
 }

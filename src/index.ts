@@ -7,22 +7,22 @@ export {
 	HHWall
 } from './household/layout/household.styled'
 export {
-	getHouseholdChildProps,
-	getHouseholdParentProps,
-	getHouseholdPetProps,
-	getHouseholdCommonProps,
-	getHouseholdWallProps,
-	getHouseholdGrandParentProps
+	getHHChildProps,
+	getHHParentProps,
+	getHHPetProps,
+	getHHCommonProps,
+	getHHWallProps,
+	getHHGrandparentProps
 } from './household/layout/household.params'
 
 export {
-	HouseholdCommonProps,
-	HouseholdChildProps,
-	HouseholdGrandparentProps,
-	HouseholdLocationProps,
-	HouseholdPetProps,
-	DivType,
-	SpacingSizesEnum,
-	HouseholdWallProps,
-	HouseholdParentProps
+	HHCommonProps,
+	HHChildProps,
+	HHGrandparentProps,
+	HHLocationProps,
+	HHPetProps,
+	HHDivType,
+	HHSpacingSizesEnum,
+	HHWallProps,
+	HHParentProps
 } from './household/layout/household.types'
