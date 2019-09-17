@@ -14,7 +14,7 @@
 		"sourceMap": true,
 		"strictNullChecks": true,
 		"skipLibCheck": true,
-		"noImplicitAny": false,
+		"noImplicitAny": true,
 		"jsx": "react"
 	},
 	"include": ["src"],
