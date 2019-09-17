@@ -8,7 +8,7 @@ interface PositionedProps {
 	position?: Extract<CSS.PositionProperty, 'absolute' | 'fixed' | 'relative'>
 }
 
-interface LocationWithoutAtLeastOneRequired {
+export interface LocationProps {
 	top?: boolean | string
 	right?: boolean | string
 	bottom?: boolean | string
@@ -40,8 +40,8 @@ export interface HouseholdCommonProps extends DivType {
 	maxWidth?: CSS.MaxWidthProperty<string>
 }
 export type HouseholdLocationProps = RequireAtLeastOne<
-	LocationWithoutAtLeastOneRequired,
-	keyof LocationWithoutAtLeastOneRequired
+	LocationProps,
+	keyof LocationProps
 >
 
 export interface HouseholdParentProps extends HouseholdCommonProps {
