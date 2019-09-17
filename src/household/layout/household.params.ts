@@ -9,8 +9,7 @@ import {
 } from './household.types'
 import { SizesMap } from './household.constants'
 import { HouseholdParentProps } from './household.types'
-import { margin, padding, position as positionPolished } from 'polished'
-import { isBool } from './household.utils'
+import { getSpacingOrString, getZeroOrString, isBool } from './household.utils'
 
 export const getHouseholdCommonProps = ({
 	spacing = SpacingSizesEnum.default,
@@ -99,7 +98,8 @@ export const getHouseholdGrandParentProps = ({
 }: HouseholdGrandparentProps): CSSObject => ({
 	...getHouseholdCommonProps(rest),
 	...(center && {
-		...margin(null, 'auto')
+		marginLeft: 'auto',
+		marginRight: 'auto'
 	})
 })
 
@@ -117,33 +117,30 @@ export const getHouseholdPetProps = ({
 	position,
 	zIndex,
 	...(top && {
-		top: isBool(top) ? 0 : (top as string)
+		top: getZeroOrString(top)
 	}),
 	...(right && {
-		right: isBool(right) ? 0 : (right as string)
+		right: getZeroOrString(right)
 	}),
 	...(bottom && {
-		bottom: isBool(bottom) ? 0 : (bottom as string)
+		bottom: getZeroOrString(bottom)
 	}),
 	...(left && {
-		left: isBool(left) ? 0 : (left as string)
+		left: getZeroOrString(left)
 	}),
 	...(all && {
-		...positionPolished(position, isBool(all) ? 0 : (all as string))
+		top: getZeroOrString(all),
+		right: getZeroOrString(all),
+		bottom: getZeroOrString(all),
+		left: getZeroOrString(all)
 	}),
 	...(vertical && {
-		...positionPolished(
-			position,
-			isBool(vertical) ? 0 : (vertical as string),
-			null
-		)
+		top: getZeroOrString(vertical),
+		bottom: getZeroOrString(vertical)
 	}),
 	...(horizontal && {
-		...positionPolished(
-			position,
-			null,
-			isBool(horizontal) ? 0 : (horizontal as string)
-		)
+		right: getZeroOrString(horizontal),
+		left: getZeroOrString(horizontal)
 	})
 })
 
@@ -159,32 +156,26 @@ export const getHouseholdWallProps = ({
 }: HouseholdWallProps): CSSObject | {} => ({
 	// the object can be empty
 	...(top && {
-		paddingTop: isBool(top) ? SizesMap[spacing] : (top as string)
+		paddingTop: getSpacingOrString(top, spacing)
 	}),
 	...(right && {
-		paddingRight: isBool(right) ? SizesMap[spacing] : (right as string)
+		paddingRight: getSpacingOrString(right, spacing)
 	}),
 	...(bottom && {
-		paddingBottom: isBool(bottom) ? SizesMap[spacing] : (bottom as string)
+		paddingBottom: getSpacingOrString(bottom, spacing)
 	}),
 	...(left && {
-		paddingLeft: isBool(left) ? SizesMap[spacing] : (left as string)
+		paddingLeft: getSpacingOrString(left, spacing)
 	}),
 	...(vertical && {
-		paddingTop: isBool(vertical) ? SizesMap[spacing] : (vertical as string),
-		paddingBottom: isBool(vertical)
-			? SizesMap[spacing]
-			: (vertical as string)
+		paddingTop: getSpacingOrString(vertical, spacing),
+		paddingBottom: getSpacingOrString(vertical, spacing)
 	}),
 	...(horizontal && {
-		paddingLeft: isBool(horizontal)
-			? SizesMap[spacing]
-			: (horizontal as string),
-		paddingRight: isBool(horizontal)
-			? SizesMap[spacing]
-			: (horizontal as string)
+		paddingLeft: getSpacingOrString(horizontal, spacing),
+		paddingRight: getSpacingOrString(horizontal, spacing)
 	}),
 	...(all && {
-		...padding(isBool(all) ? SizesMap[spacing] : (all as string))
+		padding: getSpacingOrString(all, spacing)
 	})
 })
