@@ -1,7 +1,7 @@
 import { HHSpacingSizesEnum } from './household.types'
 import { withRem } from '../../utils/withRem'
 
-const BASE_SPACING = 1 // rem
+const BASE_SPACING = 16 // px value
 type SizeMapType = { [key: string]: string }
 
 export const SizesMap: SizeMapType = {
