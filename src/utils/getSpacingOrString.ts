@@ -5,4 +5,4 @@ import { isBool } from './isBool'
 export const getSpacingOrString = (
 	val: boolean | string,
 	spacing: HHSpacingSizesEnum = HHSpacingSizesEnum.default
-): string => isBool(val) ? SizesMap[spacing] : (val as string)
+): string => (isBool(val) ? SizesMap[spacing] : (val as string))

@@ -51,6 +51,7 @@ export const getHHParentProps = ({
 	...rest
 }: HHParentProps): CSSObject => ({
 	...getHHCommonProps(rest),
+	display: isInline ? 'inline-flex' : 'flex',
 	justifyContent,
 	alignItems,
 	...(fillHeight && {
@@ -64,9 +65,6 @@ export const getHHParentProps = ({
 	}),
 	...(wrap && {
 		flexWrap: 'wrap'
-	}),
-	...(isInline && {
-		display: 'inline-flex'
 	})
 })
 
@@ -96,12 +94,16 @@ export const getHHChildProps = ({
 
 export const getHHGrandparentProps = ({
 	center,
+	isInline,
 	...rest
 }: HHGrandparentProps): CSSObject => ({
 	...getHHCommonProps(rest),
 	...(center && {
 		marginLeft: 'auto',
 		marginRight: 'auto'
+	}),
+	...(isInline && {
+		display: 'inline-block'
 	})
 })
 
