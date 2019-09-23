@@ -7,11 +7,11 @@ import {
 	HHWallProps,
 	HHSpacingSizesEnum
 } from './household.types'
-import { SizesMap } from './household.constants'
 import { HHParentProps } from './household.types'
 import { isBool } from '../../utils/isBool'
 import { getZeroOrString } from '../../utils/getZeroOrString'
 import { getSpacingOrString } from '../../utils/getSpacingOrString'
+import { HHTheme } from '../theme'
 
 export const getHHCommonProps = ({
 	spacing = HHSpacingSizesEnum.default,
@@ -36,7 +36,7 @@ export const getHHCommonProps = ({
 		width: '100%'
 	}),
 	...(withBottomSpacing && {
-		marginBottom: SizesMap[spacing]
+		marginBottom: HHTheme.spacing[spacing]
 	})
 })
 
