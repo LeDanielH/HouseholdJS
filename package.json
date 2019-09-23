@@ -1,6 +1,6 @@
 {
 	"name": "householdjs",
-	"version": "1.0.10",
+	"version": "1.1.0",
 	"description": "styled layout components made out of household members",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
@@ -8,7 +8,9 @@
 		"test": "jest",
 		"build": "tsc",
 		"prettier": "prettier --write \"./src/**/*.{ts,tsx}\"",
-		"publish": "npm publish"
+		"publish": "npm publish",
+		"clean": "rimraf dist/",
+		"clean:node_modules": "rimraf node_modules/"
 	},
 	"repository": {
 		"type": "git",
@@ -26,16 +28,17 @@
 	"homepage": "https://github.com/LeDanielH/HouseholdJS#readme",
 	"devDependencies": {
 		"@types/jest": "^24.0.18",
-		"@types/react": "^16.8.23",
+		"@types/react": "^16.9.2",
 		"@types/styled-components": "^4.1.19",
 		"jest": "^24.9.0",
 		"prettier": "^1.18.2",
-		"ts-jest": "^24.0.2"
+		"rimraf": "^3.0.0",
+		"ts-jest": "^24.1.0"
 	},
 	"dependencies": {
-		"react": "^16.8.6",
-		"styled-components": "^4.3.2",
-		"typescript": "^3.5.3"
+		"react": "^16.9.0",
+		"styled-components": "^4.4.0",
+		"typescript": "^3.6.3"
 	},
 	"files": [
 		"dist/**/*"
