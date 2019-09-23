@@ -1,6 +1,6 @@
 {
 	"name": "householdjs",
-	"version": "1.0.8",
+	"version": "1.0.10",
 	"description": "styled layout components made out of household members",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",

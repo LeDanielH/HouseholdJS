@@ -1,5 +1,5 @@
-import { isBool } from './isBool'
-import { toTest } from '../tests/tests.utils'
+import { isBool } from '../src/utils/isBool'
+import { toTest } from './tests.utils'
 
 toTest('isBool - 1', isBool, [1], false)
 toTest('isBool - undefined', isBool, [undefined], false)
