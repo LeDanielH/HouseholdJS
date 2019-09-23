@@ -2,6 +2,8 @@ import * as CSS from 'csstype'
 import React from 'react'
 import { GlobalsNumber } from 'csstype'
 import { RequireAtLeastOne } from '../../utils/types.utils'
+import { HHThemeType } from '../theme'
+import { HHWithChildrenProps } from '../../types'
 
 interface PositionedProps {
 	zIndex?: number
@@ -76,3 +78,9 @@ export type HHWallProps = RequireAtLeastOne<
 export interface HHGrandparentProps extends HHCommonProps {
 	center?: boolean
 }
+
+export type HHWithThemeProps = {
+	theme?: HHThemeType
+}
+
+export type HHProviderProps = HHWithThemeProps & HHWithChildrenProps

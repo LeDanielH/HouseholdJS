@@ -4,7 +4,7 @@ const SPACING = {
 	baseSpacing: 16
 }
 
-type HHThemeType = typeof theme
+export type HHThemeType = typeof theme
 
 const theme = {
 	spacing: {

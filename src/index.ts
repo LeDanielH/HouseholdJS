@@ -1,4 +1,5 @@
 export { HH } from './household/household'
+
 export {
 	HHParent,
 	HHChild,
@@ -6,6 +7,7 @@ export {
 	HHPet,
 	HHWall
 } from './household/layout/household.styled'
+
 export {
 	getHHChildProps,
 	getHHParentProps,
@@ -24,5 +26,8 @@ export {
 	HHDivType,
 	HHSpacingSizesEnum,
 	HHWallProps,
-	HHParentProps
+	HHParentProps,
+	HHWithThemeProps
 } from './household/layout/household.types'
+
+export { HHProvider, HHConsumer } from './household/layout/household.context'

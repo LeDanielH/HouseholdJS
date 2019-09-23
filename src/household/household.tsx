@@ -6,6 +6,7 @@ import {
 	HHPet,
 	HHWall
 } from './layout/household.styled'
+import { HHConsumer, HHProvider } from './layout/household.context'
 
 export class HH extends PureComponent {
 	static Parent = HHParent
@@ -13,4 +14,6 @@ export class HH extends PureComponent {
 	static GrandParent = HHGrandParent
 	static Pet = HHPet
 	static Wall = HHWall
+	static Provider = HHProvider
+	static Consumer = HHConsumer
 }
