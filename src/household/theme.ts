@@ -1,7 +1,10 @@
-import { withRem } from '../utils/withRem'
+import { ROOT_FONT_SIZE, withRem } from '../utils/withRem'
 
+/**
+ * @ignore
+ */
 const SPACING = {
-	baseSpacing: 16
+	baseSpacing: ROOT_FONT_SIZE
 }
 
 export type HHThemeType = typeof theme

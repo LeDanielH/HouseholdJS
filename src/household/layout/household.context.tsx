@@ -3,6 +3,9 @@ import { HHTheme } from '../theme'
 import { HHWithChildrenProps } from '../../types'
 import { HHProviderProps, HHWithThemeProps } from './household.types'
 
+/**
+ * @ignore
+ */
 export const ThemeContext = React.createContext({ theme: HHTheme })
 
 export const HHProvider = ({ theme = HHTheme, children }: HHProviderProps) => (
