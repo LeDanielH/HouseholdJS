@@ -28,6 +28,9 @@ export enum HHSpacingSizesEnum {
 	tiny = 'tiny'
 }
 
+/**
+ * @ignore
+ */
 export type HHDivType = Omit<React.HTMLProps<HTMLDivElement>, 'wrap'>
 
 export interface HHCommonProps extends HHDivType {
@@ -66,6 +69,11 @@ export interface HHChildProps
 
 export type HHPetProps = HHDivType & HHLocationProps & PositionedProps
 
+export type HHPositionedProps = HHPetProps
+
+/**
+ * @ignore
+ */
 export type HHWallPropsWithoutRequired = HHDivType &
 	HHLocationProps &
 	Pick<HHCommonProps, 'spacing'>
@@ -75,9 +83,13 @@ export type HHWallProps = RequireAtLeastOne<
 	'top' | 'right' | 'bottom' | 'left' | 'vertical' | 'horizontal' | 'all'
 >
 
+export type HHSpacerProps = HHWallProps
+
 export interface HHGrandparentProps extends HHCommonProps {
 	center?: boolean
 }
+
+export type HHSimpleProps = HHGrandparentProps
 
 export type HHWithThemeProps = {
 	theme?: HHThemeType

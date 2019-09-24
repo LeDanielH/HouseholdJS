@@ -5,7 +5,10 @@ export {
 	HHChild,
 	HHGrandParent,
 	HHPet,
-	HHWall
+	HHWall,
+	HHSimple,
+	HHPositioned,
+	HHSpacer
 } from './household/layout/household.styled'
 
 export {
@@ -14,7 +17,10 @@ export {
 	getHHPetProps,
 	getHHCommonProps,
 	getHHWallProps,
-	getHHGrandparentProps
+	getHHGrandparentProps,
+	getHHPositionedProps,
+	getHHSimpleProps,
+	getHHSpacerProps
 } from './household/layout/household.params'
 
 export {
@@ -27,7 +33,11 @@ export {
 	HHSpacingSizesEnum,
 	HHWallProps,
 	HHParentProps,
-	HHWithThemeProps
+	HHWithThemeProps,
+	HHPositionedProps,
+	HHSimpleProps,
+	HHSpacerProps,
+	HHProviderProps
 } from './household/layout/household.types'
 
 export { HHProvider, HHConsumer } from './household/layout/household.context'

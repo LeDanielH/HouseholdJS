@@ -26,10 +26,16 @@ export const HHGrandParent = styled('div')<HHGrandparentProps>(
 	(props: HHGrandparentProps): CSSObject => getHHGrandparentProps(props)
 )
 
+export const HHSimple = HHGrandParent
+
 export const HHPet = styled('div')<HHPetProps>(
 	(props: HHPetProps): CSSObject => getHHPetProps(props)
 )
 
+export const HHPositioned = HHPet
+
 export const HHWall = styled('div')<HHWallProps>(
 	(props: HHWallProps): CSSObject => getHHWallProps(props)
 )
+
+export const HHSpacer = HHWall

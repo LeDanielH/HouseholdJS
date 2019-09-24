@@ -107,6 +107,8 @@ export const getHHGrandparentProps = ({
 	})
 })
 
+export const getHHSimpleProps = getHHGrandparentProps
+
 export const getHHPetProps = ({
 	top,
 	right,
@@ -148,6 +150,8 @@ export const getHHPetProps = ({
 	})
 })
 
+export const getHHPositionedProps = getHHPetProps
+
 export const getHHWallProps = ({
 	top,
 	right,
@@ -183,3 +187,5 @@ export const getHHWallProps = ({
 		padding: getSpacingOrString(all, spacing)
 	})
 })
+
+export const getHHSpacerProps = getHHWallProps
