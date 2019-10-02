@@ -32,6 +32,8 @@ export enum HHSpacingSizesEnum {
  * @ignore
  */
 export type HHDivType = Omit<React.HTMLProps<HTMLDivElement>, 'wrap'>
+export type HHWindowProps = React.HTMLProps<HTMLImageElement>
+export type HHImageProps = HHWindowProps
 
 export interface HHCommonProps extends HHDivType {
 	isInline?: boolean

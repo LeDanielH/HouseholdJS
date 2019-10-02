@@ -7,7 +7,9 @@ import {
 	HHWall,
 	HHPositioned,
 	HHSimple,
-	HHSpacer
+	HHSpacer,
+	HHWindow,
+	HHImage
 } from './layout/household.styled'
 import { HHConsumer, HHProvider } from './layout/household.context'
 
@@ -20,6 +22,8 @@ export class HH extends PureComponent {
 	static Spacer = HHSpacer
 	static Positioned = HHPositioned
 	static Simple = HHSimple
+	static Window = HHWindow
+	static Image = HHImage
 	static Provider = HHProvider
 	static Consumer = HHConsumer
 }

@@ -8,7 +8,9 @@ export {
 	HHWall,
 	HHSimple,
 	HHPositioned,
-	HHSpacer
+	HHSpacer,
+	HHWindow,
+	HHImage
 } from './household/layout/household.styled'
 
 export {
@@ -20,7 +22,9 @@ export {
 	getHHGrandparentProps,
 	getHHPositionedProps,
 	getHHSimpleProps,
-	getHHSpacerProps
+	getHHSpacerProps,
+	getHHWindowProps,
+	getHHImageProps
 } from './household/layout/household.params'
 
 export {
@@ -37,7 +41,9 @@ export {
 	HHPositionedProps,
 	HHSimpleProps,
 	HHSpacerProps,
-	HHProviderProps
+	HHProviderProps,
+	HHWindowProps,
+	HHImageProps
 } from './household/layout/household.types'
 
 export { HHProvider, HHConsumer } from './household/layout/household.context'

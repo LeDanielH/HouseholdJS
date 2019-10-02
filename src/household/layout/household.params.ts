@@ -189,3 +189,11 @@ export const getHHWallProps = ({
 })
 
 export const getHHSpacerProps = getHHWallProps
+
+export const getHHWindowProps = (): CSSObject => ({
+	display: 'block',
+	width: '100%',
+	height: 'auto'
+})
+
+export const getHHImageProps = getHHWindowProps

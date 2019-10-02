@@ -2,6 +2,7 @@ import styled, { CSSObject } from 'styled-components'
 import {
 	HHChildProps,
 	HHGrandparentProps,
+	HHWindowProps,
 	HHParentProps,
 	HHPetProps,
 	HHWallProps
@@ -11,7 +12,8 @@ import {
 	getHHGrandparentProps,
 	getHHParentProps,
 	getHHPetProps,
-	getHHWallProps
+	getHHWallProps,
+	getHHWindowProps
 } from './household.params'
 
 export const HHParent = styled('div')<HHParentProps>(
@@ -39,3 +41,9 @@ export const HHWall = styled('div')<HHWallProps>(
 )
 
 export const HHSpacer = HHWall
+
+export const HHWindow = styled('img')<HHWindowProps>(
+	getHHWindowProps() as CSSObject
+)
+
+export const HHImage = HHWindow
