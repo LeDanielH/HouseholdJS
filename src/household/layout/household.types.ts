@@ -31,11 +31,11 @@ export enum HHSpacingSizesEnum {
 /**
  * @ignore
  */
-export type HHDivType = Omit<React.HTMLProps<HTMLDivElement>, 'wrap'>
+export type HHDivProps = Omit<React.HTMLProps<HTMLDivElement>, 'wrap'>
 export type HHWindowProps = React.HTMLProps<HTMLImageElement>
 export type HHImageProps = HHWindowProps
 
-export interface HHCommonProps extends HHDivType {
+export interface HHCommonProps extends HHDivProps {
 	isInline?: boolean
 	spacing?: HHSpacingSizesEnum
 	withBottomSpacing?: boolean
@@ -69,14 +69,14 @@ export interface HHChildProps
 	justifySelfEnd?: boolean
 }
 
-export type HHPetProps = HHDivType & HHLocationProps & PositionedProps
+export type HHPetProps = HHDivProps & HHLocationProps & PositionedProps
 
 export type HHPositionedProps = HHPetProps
 
 /**
  * @ignore
  */
-export type HHWallPropsWithoutRequired = HHDivType &
+export type HHWallPropsWithoutRequired = HHDivProps &
 	HHLocationProps &
 	Pick<HHCommonProps, 'spacing'>
 

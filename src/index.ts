@@ -14,17 +14,17 @@ export {
 } from './household/layout/household.styled'
 
 export {
-	getHHChildProps,
-	getHHParentProps,
-	getHHPetProps,
-	getHHCommonProps,
-	getHHWallProps,
-	getHHGrandparentProps,
-	getHHPositionedProps,
-	getHHSimpleProps,
-	getHHSpacerProps,
-	getHHWindowProps,
-	getHHImageProps
+	getHHChildStyles,
+	getHHParentStyles,
+	getHHPetStyles,
+	getHHCommonStyles,
+	getHHWallStyles,
+	getHHGrandparentStyles,
+	getHHPositionedStyles,
+	getHHSimpleStyles,
+	getHHSpacerStyles,
+	getHHWindowStyles,
+	getHHImageStyles
 } from './household/layout/household.params'
 
 export {
@@ -33,7 +33,7 @@ export {
 	HHGrandparentProps,
 	HHLocationProps,
 	HHPetProps,
-	HHDivType,
+	HHDivProps,
 	HHSpacingSizesEnum,
 	HHWallProps,
 	HHParentProps,

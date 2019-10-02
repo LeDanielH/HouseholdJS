@@ -13,7 +13,7 @@ import { getZeroOrString } from '../../utils/getZeroOrString'
 import { getSpacingOrString } from '../../utils/getSpacingOrString'
 import { HHTheme } from '../theme'
 
-export const getHHCommonProps = ({
+export const getHHCommonStyles = ({
 	spacing = HHSpacingSizesEnum.default,
 	withBottomSpacing = false,
 	height,
@@ -40,7 +40,7 @@ export const getHHCommonProps = ({
 	})
 })
 
-export const getHHParentProps = ({
+export const getHHParentStyles = ({
 	fillHeight,
 	column,
 	reverse,
@@ -50,7 +50,7 @@ export const getHHParentProps = ({
 	isInline,
 	...rest
 }: HHParentProps): CSSObject => ({
-	...getHHCommonProps(rest),
+	...getHHCommonStyles(rest),
 	display: isInline ? 'inline-flex' : 'flex',
 	justifyContent,
 	alignItems,
@@ -68,7 +68,7 @@ export const getHHParentProps = ({
 	})
 })
 
-export const getHHChildProps = ({
+export const getHHChildStyles = ({
 	grow,
 	shrink,
 	width,
@@ -76,7 +76,7 @@ export const getHHChildProps = ({
 	justifySelfEnd,
 	...rest
 }: HHChildProps): CSSObject => ({
-	...getHHCommonProps(rest),
+	...getHHCommonStyles(rest),
 	display: 'inline-block',
 	flexGrow: +isBool(grow) || (grow as number),
 	flexShrink: +isBool(shrink) || (shrink as number),
@@ -92,12 +92,12 @@ export const getHHChildProps = ({
 	})
 })
 
-export const getHHGrandparentProps = ({
+export const getHHGrandparentStyles = ({
 	center,
 	isInline,
 	...rest
 }: HHGrandparentProps): CSSObject => ({
-	...getHHCommonProps(rest),
+	...getHHCommonStyles(rest),
 	...(center && {
 		marginLeft: 'auto',
 		marginRight: 'auto'
@@ -107,9 +107,9 @@ export const getHHGrandparentProps = ({
 	})
 })
 
-export const getHHSimpleProps = getHHGrandparentProps
+export const getHHSimpleStyles = getHHGrandparentStyles
 
-export const getHHPetProps = ({
+export const getHHPetStyles = ({
 	top,
 	right,
 	bottom,
@@ -150,9 +150,9 @@ export const getHHPetProps = ({
 	})
 })
 
-export const getHHPositionedProps = getHHPetProps
+export const getHHPositionedStyles = getHHPetStyles
 
-export const getHHWallProps = ({
+export const getHHWallStyles = ({
 	top,
 	right,
 	bottom,
@@ -188,12 +188,12 @@ export const getHHWallProps = ({
 	})
 })
 
-export const getHHSpacerProps = getHHWallProps
+export const getHHSpacerStyles = getHHWallStyles
 
-export const getHHWindowProps = (): CSSObject => ({
+export const getHHWindowStyles = (): CSSObject => ({
 	display: 'block',
 	width: '100%',
 	height: 'auto'
 })
 
-export const getHHImageProps = getHHWindowProps
+export const getHHImageStyles = getHHWindowStyles
