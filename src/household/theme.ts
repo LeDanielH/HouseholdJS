@@ -17,6 +17,10 @@ const theme = {
 		default: withRem(SPACING.baseSpacing),
 		big: withRem(SPACING.baseSpacing * 2),
 		huge: withRem(SPACING.baseSpacing * 4)
+	},
+	transition: {
+		easing: 'ease',
+		duration: 300
 	}
 }
 
