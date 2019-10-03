@@ -10,10 +10,19 @@ export const extractNumberAndUnitFromString = (
 	const unit = numberWithString.match(extractStringRegex)
 	if (!number) {
 		throw new Error(
-			'extractNumberAndUnitFromString - expected formats are 1, 1.223, 1,2223, have not found any such number'
+			'extractNumberAndUnitFromString - expected number formats are 1, 1.223, 1,2223, have not found any such number'
 		)
 	}
 	const numberExtracted = Number(number[0])
 	const unitExtracted = unit ? unit[0] : ''
 	return [numberExtracted, unitExtracted]
+}
+
+export const calculateNumberWithUnit = (
+	numberWithString: string,
+	multiplier: number
+): string => {
+	const extractedData = extractNumberAndUnitFromString(numberWithString)
+	const [number, unit] = extractedData
+	return `${number * multiplier}${unit}`
 }
