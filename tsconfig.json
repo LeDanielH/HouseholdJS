@@ -17,6 +17,9 @@
 		"noImplicitAny": true,
 		"jsx": "react"
 	},
+	"plugins": [
+		{ "transform": "ts-optchain/transform" }
+	],
 	"include": ["src"],
 	"exclude": ["node_modules", "tests"]
 }
