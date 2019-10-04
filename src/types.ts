@@ -5,7 +5,6 @@ export type HHWithChildrenProps = { children: ReactNode }
 export type HHExtractNumberAndStringType = [number, string]
 
 export interface HHTransitionOptions {
-	timing?: CSSObject["transitionTimingFunction"];
-	durationInMs?: number;
+	timing?: CSSObject['transitionTimingFunction']
+	durationInMs?: number
 }
-

@@ -1,4 +1,4 @@
-import { ROOT_FONT_SIZE, withRem } from '../utils/withRem'
+import { withRem, ROOT_FONT_SIZE } from '../utils/withUnit'
 
 /**
  * @ignore
