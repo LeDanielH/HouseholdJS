@@ -1,6 +1,10 @@
 import React, { Children, isValidElement, cloneElement } from 'react'
 import { HHTheme } from './household.theme'
-import { HHProviderProps, HHWithChildrenProps, HHWithThemeProps } from './household.types'
+import {
+	HHProviderProps,
+	HHWithChildrenProps,
+	HHWithThemeProps
+} from './household.types'
 
 /**
  * @ignore

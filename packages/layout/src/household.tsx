@@ -9,22 +9,32 @@ import {
 	HHSimple,
 	HHSpacer,
 	HHWindow,
-	HHImage
+	HHImage,
+	HHFlexParent,
+	HHFlexChild
 } from './household.styled'
 import { HHConsumer, HHProvider } from './household.context'
 import {
 	HHAssignType,
 	HHChildProps,
-	HHGrandparentProps, HHImageProps,
-	HHParentProps, HHPositionedProps, HHSimpleProps,
+	HHGrandparentProps,
+	HHImageProps,
+	HHParentProps,
+	HHPositionedProps,
+	HHSimpleProps,
 	HHSpacerProps,
-	HHWallProps, HHWindowProps,
-	HHPetProps
+	HHWallProps,
+	HHWindowProps,
+	HHPetProps,
+	HHFlexChildProps,
+	HHFlexParentProps
 } from './household.types'
 
 export class HH extends PureComponent {
 	static Parent: HHAssignType<HHParentProps, 'div'> = HHParent
 	static Child: HHAssignType<HHChildProps, 'div'> = HHChild
+	static FlexParent: HHAssignType<HHFlexParentProps, 'div'> = HHFlexParent
+	static FlexChild: HHAssignType<HHFlexChildProps, 'div'> = HHFlexChild
 	static GrandParent: HHAssignType<HHGrandparentProps, 'div'> = HHGrandParent
 	static Pet: HHAssignType<HHPetProps, 'div'> = HHPet
 	static Wall: HHAssignType<HHWallProps, 'div'> = HHWall

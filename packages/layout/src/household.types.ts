@@ -3,6 +3,7 @@ import React, { ReactNode } from 'react'
 import { GlobalsNumber } from 'csstype'
 import { HHThemeType } from './household.theme'
 import { StyledComponent } from 'styled-components'
+import { HHSpacingEnum } from '@householdjs/utils'
 
 export type HHWithChildrenProps = { children: ReactNode }
 
@@ -36,14 +37,6 @@ export type HHAssignType<
 	T extends {},
 	E extends keyof JSX.IntrinsicElements | React.ComponentType<any>
 > = StyledComponent<E, any, T, never>
-
-export enum HHSpacingEnum {
-	huge = 'huge',
-	big = 'big',
-	default = 'default',
-	small = 'small',
-	tiny = 'tiny'
-}
 
 /**
  * @ignore
@@ -81,6 +74,8 @@ export interface HHParentProps extends HHCommonProps {
 	fillHeight?: boolean
 }
 
+export type HHFlexParentProps = HHParentProps
+
 export interface HHChildProps
 	extends Omit<HHCommonProps, 'maxWidth' | 'fullWidth' | 'isInline'> {
 	grow?: boolean | number | GlobalsNumber
@@ -89,6 +84,8 @@ export interface HHChildProps
 	noFontSize?: boolean
 	justifySelfEnd?: boolean
 }
+
+export type HHFlexChildProps = HHChildProps
 
 export type HHPetProps = HHDivProps & HHLocationProps & PositionedProps
 

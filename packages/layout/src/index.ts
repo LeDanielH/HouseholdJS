@@ -10,7 +10,9 @@ export {
 	HHPositioned,
 	HHSpacer,
 	HHWindow,
-	HHImage
+	HHImage,
+	HHFlexParent,
+	HHFlexChild
 } from './household.styled'
 
 export {
@@ -24,7 +26,9 @@ export {
 	getHHSimpleStyles,
 	getHHSpacerStyles,
 	getHHWindowStyles,
-	getHHImageStyles
+	getHHImageStyles,
+	getHHFlexParentStyles,
+	getHHFlexChildStyles
 } from './household.params'
 
 export {
@@ -34,7 +38,6 @@ export {
 	HHLocationProps,
 	HHPetProps,
 	HHDivProps,
-	HHSpacingEnum,
 	HHWallProps,
 	HHParentProps,
 	HHWithThemeProps,
@@ -43,7 +46,9 @@ export {
 	HHSpacerProps,
 	HHProviderProps,
 	HHWindowProps,
-	HHImageProps
+	HHImageProps,
+	HHFlexParentProps,
+	HHFlexChildProps
 } from './household.types'
 
 export { HHProvider, HHConsumer } from './household.context'

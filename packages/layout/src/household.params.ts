@@ -5,11 +5,15 @@ import {
 	HHGrandparentProps,
 	HHPetProps,
 	HHWallProps,
-	HHSpacingEnum,
 	HHParentProps
 } from './household.types'
 import { HHTheme } from './household.theme'
-import { getSpacingOrValue, getZeroOrValue, isBool } from '@householdjs/utils'
+import {
+	getSpacingOrValue,
+	getZeroOrValue,
+	HHSpacingEnum,
+	isBool
+} from '@householdjs/utils'
 
 export const getHHCommonStyles = ({
 	spacing = HHSpacingEnum.default,
@@ -66,6 +70,8 @@ export const getHHParentStyles = ({
 	})
 })
 
+export const getHHFlexParentStyles = getHHParentStyles
+
 export const getHHChildStyles = ({
 	grow,
 	shrink,
@@ -89,6 +95,8 @@ export const getHHChildStyles = ({
 		marginLeft: 'auto'
 	})
 })
+
+export const getHHFlexChildStyles = getHHChildStyles
 
 export const getHHGrandparentStyles = ({
 	center,
