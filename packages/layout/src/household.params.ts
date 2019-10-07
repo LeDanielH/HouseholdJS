@@ -5,16 +5,14 @@ import {
 	HHGrandparentProps,
 	HHPetProps,
 	HHWallProps,
-	HHSpacingSizesEnum
+	HHSpacingEnum,
+	HHParentProps
 } from './household.types'
-import { HHParentProps } from './household.types'
-import { isBool } from '../../utils/isBool'
-import { getZeroOrString } from '../../utils/getZeroOrString'
-import { getSpacingOrString } from '../../utils/getSpacingOrString'
-import { HHTheme } from '../theme'
+import { HHTheme } from './household.theme'
+import { getSpacingOrValue, getZeroOrValue, isBool } from '@householdjs/utils'
 
 export const getHHCommonStyles = ({
-	spacing = HHSpacingSizesEnum.default,
+	spacing = HHSpacingEnum.default,
 	withBottomSpacing = false,
 	height,
 	background,
@@ -123,30 +121,30 @@ export const getHHPetStyles = ({
 	position,
 	zIndex,
 	...(top && {
-		top: getZeroOrString(top)
+		top: getZeroOrValue(top)
 	}),
 	...(right && {
-		right: getZeroOrString(right)
+		right: getZeroOrValue(right)
 	}),
 	...(bottom && {
-		bottom: getZeroOrString(bottom)
+		bottom: getZeroOrValue(bottom)
 	}),
 	...(left && {
-		left: getZeroOrString(left)
+		left: getZeroOrValue(left)
 	}),
 	...(all && {
-		top: getZeroOrString(all),
-		right: getZeroOrString(all),
-		bottom: getZeroOrString(all),
-		left: getZeroOrString(all)
+		top: getZeroOrValue(all),
+		right: getZeroOrValue(all),
+		bottom: getZeroOrValue(all),
+		left: getZeroOrValue(all)
 	}),
 	...(vertical && {
-		top: getZeroOrString(vertical),
-		bottom: getZeroOrString(vertical)
+		top: getZeroOrValue(vertical),
+		bottom: getZeroOrValue(vertical)
 	}),
 	...(horizontal && {
-		right: getZeroOrString(horizontal),
-		left: getZeroOrString(horizontal)
+		right: getZeroOrValue(horizontal),
+		left: getZeroOrValue(horizontal)
 	})
 })
 
@@ -160,31 +158,31 @@ export const getHHWallStyles = ({
 	vertical,
 	horizontal,
 	all,
-	spacing = HHSpacingSizesEnum.default
+	spacing = HHSpacingEnum.default
 }: HHWallProps): CSSObject | {} => ({
 	// the object can be empty
 	...(top && {
-		paddingTop: getSpacingOrString(top, spacing)
+		paddingTop: getSpacingOrValue(top, spacing)
 	}),
 	...(right && {
-		paddingRight: getSpacingOrString(right, spacing)
+		paddingRight: getSpacingOrValue(right, spacing)
 	}),
 	...(bottom && {
-		paddingBottom: getSpacingOrString(bottom, spacing)
+		paddingBottom: getSpacingOrValue(bottom, spacing)
 	}),
 	...(left && {
-		paddingLeft: getSpacingOrString(left, spacing)
+		paddingLeft: getSpacingOrValue(left, spacing)
 	}),
 	...(vertical && {
-		paddingTop: getSpacingOrString(vertical, spacing),
-		paddingBottom: getSpacingOrString(vertical, spacing)
+		paddingTop: getSpacingOrValue(vertical, spacing),
+		paddingBottom: getSpacingOrValue(vertical, spacing)
 	}),
 	...(horizontal && {
-		paddingLeft: getSpacingOrString(horizontal, spacing),
-		paddingRight: getSpacingOrString(horizontal, spacing)
+		paddingLeft: getSpacingOrValue(horizontal, spacing),
+		paddingRight: getSpacingOrValue(horizontal, spacing)
 	}),
 	...(all && {
-		padding: getSpacingOrString(all, spacing)
+		padding: getSpacingOrValue(all, spacing)
 	})
 })
 

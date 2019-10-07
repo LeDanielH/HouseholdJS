@@ -3,21 +3,13 @@ import { UnitType } from './types'
 /**
  * @ignore
  */
-export const ROOT_FONT_SIZE = 16
-
-/**
- * @ignore
- */
 export const withUnit = (value: number, unit: UnitType): string =>
 	`${value}${unit}`
 
 /**
  * @ignore
  */
-export const withRem = (
-	value: number,
-	rootFontSize: number = ROOT_FONT_SIZE
-): string => withUnit(value / rootFontSize, 'rem')
+export const withRem = (value: number): string => withUnit(value, 'rem')
 
 /**
  * @ignore
