@@ -10,7 +10,7 @@
     "speed",
     "styling"
   ],
-  "author": "ledanielz <ledaniel.zeman@gmail.com>",
+  "author": "Daniel Zeman <ledaniel.zeman@gmail.com>",
   "homepage": "https://github.com/LeDanielH/HouseholdJS#readme",
   "license": "ISC",
   "main": "lib/index.js",
@@ -27,7 +27,7 @@
     "url": "git+https://github.com/LeDanielH/HouseholdJS.git"
   },
   "scripts": {
-    "build": "npm run clean && npm run tsc",
+    "build": "npm run cleanup && npm run tsc",
     "cleanup": "rimraf ./lib && rimraf tsconfig.tsbuildinfo",
     "tsc": "tsc -b tsconfig.json"
   },
