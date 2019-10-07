@@ -1,7 +1,6 @@
 import React, { Children, isValidElement, cloneElement } from 'react'
-import { HHTheme } from '../theme'
-import { HHWithChildrenProps } from '../../types'
-import { HHProviderProps, HHWithThemeProps } from './household.types'
+import { HHTheme } from './household.theme'
+import { HHProviderProps, HHWithChildrenProps, HHWithThemeProps } from './household.types'
 
 /**
  * @ignore

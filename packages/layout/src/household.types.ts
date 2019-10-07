@@ -1,14 +1,26 @@
 import * as CSS from 'csstype'
-import React from 'react'
+import React, { ReactNode } from 'react'
 import { GlobalsNumber } from 'csstype'
-import { RequireAtLeastOne } from '../../utils/types.utils'
-import { HHThemeType } from '../theme'
-import { HHWithChildrenProps } from '../../types'
+import { HHThemeType } from './household.theme'
+import { StyledComponent } from 'styled-components'
+
+export type HHWithChildrenProps = { children: ReactNode }
 
 interface PositionedProps {
 	zIndex?: number
 	position?: Extract<CSS.PositionProperty, 'absolute' | 'fixed' | 'relative'>
 }
+
+/**
+ * @ignore
+ */
+export type RequireAtLeastOne<T, Keys extends keyof T = keyof T> = Pick<
+	T,
+	Exclude<keyof T, Keys>
+> &
+	{
+		[K in Keys]-?: Required<Pick<T, K>> & Partial<Pick<T, Exclude<Keys, K>>>
+	}[Keys]
 
 export interface LocationProps {
 	top?: boolean | string
@@ -20,7 +32,12 @@ export interface LocationProps {
 	horizontal?: boolean | string
 }
 
-export enum HHSpacingSizesEnum {
+export type HHAssignType<
+	T extends {},
+	E extends keyof JSX.IntrinsicElements | React.ComponentType<any>
+> = StyledComponent<E, any, T, never>
+
+export enum HHSpacingEnum {
 	huge = 'huge',
 	big = 'big',
 	default = 'default',
@@ -31,13 +48,16 @@ export enum HHSpacingSizesEnum {
 /**
  * @ignore
  */
-export type HHDivProps = Omit<React.HTMLProps<HTMLDivElement>, 'wrap'>
+export type HHDivProps = Omit<
+	React.HTMLProps<HTMLDivElement>,
+	'wrap' | 'ref' | 'as'
+>
 export type HHWindowProps = React.HTMLProps<HTMLImageElement>
 export type HHImageProps = HHWindowProps
 
 export interface HHCommonProps extends HHDivProps {
 	isInline?: boolean
-	spacing?: HHSpacingSizesEnum
+	spacing?: HHSpacingEnum
 	withBottomSpacing?: boolean
 	height?: string
 	background?: CSS.BackgroundProperty<string>
@@ -46,6 +66,7 @@ export interface HHCommonProps extends HHDivProps {
 	fullWidth?: boolean
 	maxWidth?: CSS.MaxWidthProperty<string>
 }
+
 export type HHLocationProps = RequireAtLeastOne<
 	LocationProps,
 	keyof LocationProps

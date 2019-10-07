@@ -1,4 +1,4 @@
-export { HH } from './household/household'
+export { HH } from './household'
 
 export {
 	HHParent,
@@ -11,7 +11,7 @@ export {
 	HHSpacer,
 	HHWindow,
 	HHImage
-} from './household/layout/household.styled'
+} from './household.styled'
 
 export {
 	getHHChildStyles,
@@ -25,7 +25,7 @@ export {
 	getHHSpacerStyles,
 	getHHWindowStyles,
 	getHHImageStyles
-} from './household/layout/household.params'
+} from './household.params'
 
 export {
 	HHCommonProps,
@@ -34,7 +34,7 @@ export {
 	HHLocationProps,
 	HHPetProps,
 	HHDivProps,
-	HHSpacingSizesEnum,
+	HHSpacingEnum,
 	HHWallProps,
 	HHParentProps,
 	HHWithThemeProps,
@@ -44,6 +44,6 @@ export {
 	HHProviderProps,
 	HHWindowProps,
 	HHImageProps
-} from './household/layout/household.types'
+} from './household.types'
 
-export { HHProvider, HHConsumer } from './household/layout/household.context'
+export { HHProvider, HHConsumer } from './household.context'
