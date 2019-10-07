@@ -1,52 +1,24 @@
 {
-	"name": "householdjs",
-	"version": "1.1.3",
-	"description": "styled layout components made out of household members",
-	"main": "dist/index.js",
-	"types": "dist/index.d.ts",
-	"scripts": {
-		"test": "jest",
-		"build": "npm run clean:dist && tsc",
-		"prettier": "prettier --write \"./src/**/*.{ts,tsx}\"",
-		"publish": "npm publish",
-		"clean": "npm run clean:dist & npm run clean:doc",
-		"clean:dist": "rimraf dist/",
-		"clean:node_modules": "rimraf node_modules/",
-		"clean:doc": "rimraf docs",
-		"doc": "npm run clean:doc & npm run doc:generate",
-		"doc:generate": "typedoc --out docs/ src/household/ --mode file --readme none --theme minimal"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/LeDanielH/HouseholdJS.git"
-	},
-	"keywords": [
-		"layout",
-		"styled-components"
-	],
-	"author": "Daniel Zeman ledaniel.zeman@gmail.com",
-	"license": "ISC",
-	"bugs": {
-		"url": "https://github.com/LeDanielH/HouseholdJS/issues"
-	},
-	"homepage": "https://github.com/LeDanielH/HouseholdJS#readme",
+	"name": "householdjs-monorepo",
+	"version": "1.1.3-monorepo",
+	"private": true,
 	"devDependencies": {
+		"@types/node": "^12.7.11",
+		"lerna": "^3.16.4",
+		"typescript": "^3.6.3",
+		"ts-optchain": "^0.1.8",
 		"@types/jest": "^24.0.18",
-		"@types/react": "^16.9.4",
-		"@types/styled-components": "^4.1.19",
 		"jest": "^24.9.0",
 		"prettier": "^1.18.2",
 		"rimraf": "^3.0.0",
 		"ts-jest": "^24.1.0",
 		"typedoc": "^0.15.0"
 	},
-	"dependencies": {
-		"react": "^16.10.1",
-		"styled-components": "^4.4.0",
-		"ts-optchain": "^0.1.8",
-		"typescript": "^3.6.3"
-	},
-	"files": [
-		"dist/**/*"
-	]
+	"scripts": {
+		"bootstrap": "lerna exec npm install",
+		"build": "lerna run build",
+		"cleanup": "lerna run cleanup && lerna clean",
+		"prettier": "prettier --write \"./src/**/*.{ts,tsx}\"",
+		"test": "jest"
+	}
 }
