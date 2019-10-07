@@ -9,4 +9,4 @@ export const multiplyStringValue = (
 	return `${number * multiplier}${unit}`
 }
 
-export const mvws = multiplyStringValue;
+export const mvws = multiplyStringValue

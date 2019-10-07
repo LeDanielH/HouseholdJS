@@ -1,7 +1,9 @@
 import { CSSObject } from 'styled-components'
 
-
-export const withPseudo = (styles: CSSObject, pseudo: 'before' | 'after'): CSSObject => ({
+export const withPseudo = (
+	styles: CSSObject,
+	pseudo: 'before' | 'after'
+): CSSObject => ({
 	[`&:${pseudo}`]: {
 		content: '',
 		display: 'block',
@@ -9,7 +11,8 @@ export const withPseudo = (styles: CSSObject, pseudo: 'before' | 'after'): CSSOb
 	}
 })
 
+export const withBefore = (styles: CSSObject): CSSObject =>
+	withPseudo(styles, 'before')
 
-export const withBefore = (styles: CSSObject): CSSObject => withPseudo(styles, 'before');
-
-export const withAfter = (styles: CSSObject): CSSObject => withPseudo(styles, 'after');
+export const withAfter = (styles: CSSObject): CSSObject =>
+	withPseudo(styles, 'after')

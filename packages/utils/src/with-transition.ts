@@ -2,7 +2,10 @@ import { withMs } from './with-unit'
 import { oc } from 'ts-optchain'
 import { CSSObject } from 'styled-components'
 import { HHTransitionOptions } from './types'
-import { TRANSITION_DURATION_DEFAULT, TRANSITION_EASING_DEFAULT } from './constants'
+import {
+	TRANSITION_DURATION_DEFAULT,
+	TRANSITION_EASING_DEFAULT
+} from './constants'
 
 const defaultTransitionOptions: Required<HHTransitionOptions> = {
 	durationInMs: TRANSITION_DURATION_DEFAULT,
@@ -31,7 +34,9 @@ export const withTransition = (
 			defaultTransitionOptions.timing
 		),
 		transitionDuration: withMs(
-			oc(transitionOptions).durationInMs(defaultTransitionOptions.durationInMs)
+			oc(transitionOptions).durationInMs(
+				defaultTransitionOptions.durationInMs
+			)
 		)
 	}
 }

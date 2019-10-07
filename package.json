@@ -18,7 +18,7 @@
 		"bootstrap": "lerna exec npm install",
 		"build": "lerna run build",
 		"cleanup": "lerna run cleanup && lerna clean",
-		"prettier": "prettier --write \"./src/**/*.{ts,tsx}\"",
+		"prettier": "prettier --write \"./**/*.{ts,tsx}\"",
 		"test": "jest"
 	}
 }
