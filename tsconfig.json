@@ -1,10 +1,16 @@
 {
 	"defaultSeverity": "warning",
 	"compilerOptions": {
+		"baseUrl": "./packages",
+		"paths": {
+			"@householdjs/layout": ["layout/src"],
+			"@householdjs/ui": ["ui/src"],
+			"@householdjs/utils": ["utils/src"],
+			"@householdjs": ["*"]
+		},
 		"target": "es5",
 		"module": "commonjs",
 		"declaration": true,
-		"outDir": "./dist",
 		"strict": true,
 		"allowSyntheticDefaultImports": true,
 		"esModuleInterop": true,
@@ -15,11 +21,15 @@
 		"strictNullChecks": true,
 		"skipLibCheck": true,
 		"noImplicitAny": true,
-		"jsx": "react"
+		"jsx": "react",
+		"noLib": false,
+		"removeComments": true,
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true,
+		"composite": true
 	},
 	"plugins": [
 		{ "transform": "ts-optchain/transform" }
 	],
-	"include": ["src"],
-	"exclude": ["node_modules", "tests"]
+	"exclude": ["node_modules", "tests", "lib", "__tests__"]
 }
