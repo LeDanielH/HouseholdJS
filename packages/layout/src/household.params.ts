@@ -7,12 +7,12 @@ import {
 	HHWallProps,
 	HHParentProps
 } from './household.types'
-import { HHTheme } from './household.theme'
 import {
 	getSpacingOrValue,
 	getZeroOrValue,
 	HHSpacingEnum,
-	isBool
+	isBool,
+	HHSpacing
 } from '@householdjs/utils'
 
 export const getHHCommonStyles = ({
@@ -38,7 +38,7 @@ export const getHHCommonStyles = ({
 		width: '100%'
 	}),
 	...(withBottomSpacing && {
-		marginBottom: HHTheme.spacing[spacing]
+		marginBottom: HHSpacing[spacing]
 	})
 })
 

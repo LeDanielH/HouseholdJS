@@ -13,7 +13,7 @@ import {
 	HHFlexParent,
 	HHFlexChild
 } from './household.styled'
-import { HHConsumer, HHProvider } from './household.context'
+
 import {
 	HHAssignType,
 	HHChildProps,
@@ -43,6 +43,4 @@ export class HH extends PureComponent {
 	static Simple: HHAssignType<HHSimpleProps, 'div'> = HHSimple
 	static Window: HHAssignType<HHWindowProps, 'img'> = HHWindow
 	static Image: HHAssignType<HHImageProps, 'img'> = HHImage
-	static Provider = HHProvider
-	static Consumer = HHConsumer
 }

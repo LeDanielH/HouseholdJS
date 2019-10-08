@@ -1,11 +1,9 @@
 import * as CSS from 'csstype'
-import React, { ReactNode } from 'react'
+import React from 'react'
 import { GlobalsNumber } from 'csstype'
-import { HHThemeType } from './household.theme'
 import { StyledComponent } from 'styled-components'
 import { HHSpacingEnum } from '@householdjs/utils'
 
-export type HHWithChildrenProps = { children: ReactNode }
 
 interface PositionedProps {
 	zIndex?: number
@@ -110,9 +108,3 @@ export interface HHGrandparentProps extends HHCommonProps {
 }
 
 export type HHSimpleProps = HHGrandparentProps
-
-export type HHWithThemeProps = {
-	theme?: HHThemeType
-}
-
-export type HHProviderProps = HHWithThemeProps & HHWithChildrenProps

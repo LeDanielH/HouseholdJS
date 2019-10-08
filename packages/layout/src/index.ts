@@ -40,15 +40,12 @@ export {
 	HHDivProps,
 	HHWallProps,
 	HHParentProps,
-	HHWithThemeProps,
 	HHPositionedProps,
 	HHSimpleProps,
 	HHSpacerProps,
-	HHProviderProps,
 	HHWindowProps,
 	HHImageProps,
 	HHFlexParentProps,
 	HHFlexChildProps
 } from './household.types'
 
-export { HHProvider, HHConsumer } from './household.context'
