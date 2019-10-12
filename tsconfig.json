@@ -3,10 +3,9 @@
 	"compilerOptions": {
 		"baseUrl": "./packages",
 		"paths": {
-			"@householdjs/layout": ["layout/src"],
-			"@householdjs/ui": ["ui/src"],
-			"@householdjs/utils": ["utils/src"],
-			"@householdjs": ["*"]
+			"@householdjs": ["householdjs/src"],
+			"@householdjs/ui": ["householdjs-ui/src"],
+			"@householdjs/utils": ["householdjs-utils/src"]
 		},
 		"target": "es5",
 		"module": "commonjs",

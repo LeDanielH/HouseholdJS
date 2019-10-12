@@ -4,7 +4,6 @@ import { GlobalsNumber } from 'csstype'
 import { StyledComponent } from 'styled-components'
 import { HHSpacingEnum } from '@householdjs/utils'
 
-
 interface PositionedProps {
 	zIndex?: number
 	position?: Extract<CSS.PositionProperty, 'absolute' | 'fixed' | 'relative'>

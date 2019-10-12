@@ -4,12 +4,10 @@
 		"outDir": "./lib",
 		"rootDir": "./src"
 	},
-	"include": ["src/**/*"],
-
-	"references": [
-		{
-			"path": "../utils/tsconfig.json"
-		},
-		{ "path": "../layout/tsconfig.json" }
+	"references": [{
+		"path": "../utils/tsconfig.json"
+	}],
+	"include": [
+		"src/**/*"
 	]
 }
