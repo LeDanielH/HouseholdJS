@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { HHSimple, HHSimpleProps } from '@householdjs/layout'
+import { HHSimple, HHSimpleProps } from 'householdjs'
 import { DropdownStyledProps } from './dropdown.types'
 import { CLASS_IS_OPEN } from '../constants'
 import { pxToRem, withTransition } from '@householdjs/utils'

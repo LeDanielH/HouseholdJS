@@ -5,7 +5,7 @@
 		"rootDir": "./src"
 	},
 	"references": [{
-		"path": "../utils/tsconfig.json"
+		"path": "../householdjs-utils/tsconfig.json"
 	}],
 	"include": [
 		"src/**/*"

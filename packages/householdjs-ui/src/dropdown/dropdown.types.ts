@@ -1,4 +1,4 @@
-import { HHSimpleProps } from '@householdjs/layout'
+import { HHSimpleProps } from 'householdjs'
 import { DropdownProps, DropdownState } from './dropdown'
 
 export type DropdownStyledProps = Omit<

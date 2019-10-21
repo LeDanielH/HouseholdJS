@@ -8,8 +8,8 @@
 
 	"references": [
 		{
-			"path": "../utils/tsconfig.json"
+			"path": "../householdjs-utils/tsconfig.json"
 		},
-		{ "path": "../layout/tsconfig.json" }
+		{ "path": "../householdjs/tsconfig.json" }
 	]
 }
