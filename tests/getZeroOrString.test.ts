@@ -1,5 +1,5 @@
 import { toTest } from './tests.utils'
-import { getZeroOrString } from '../src/utils/getZeroOrString'
+import { getZeroOrValue } from '../packages/utils/src'
 
-toTest('getZeroOrString - true boolean', getZeroOrString, [true], 0) // ROOT_FONT_SIZE IS 16
-toTest('getZeroOrString - string 20%', getZeroOrString, ['20%'], '20%') // ROOT_FONT_SIZE IS 16
+toTest('getZeroOrValue - true boolean', getZeroOrValue, [true], 0) // ROOT_FONT_SIZE IS 16
+toTest('getZeroOrValue - string 20%', getZeroOrValue, ['20%'], '20%') // ROOT_FONT_SIZE IS 16

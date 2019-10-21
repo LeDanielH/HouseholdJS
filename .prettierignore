@@ -3,6 +3,7 @@ package-lock.json
 node_modules/
 public/
 .cache/
+packages/*/node_modules
 
 # Build directory
 /public

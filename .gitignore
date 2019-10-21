@@ -1,2 +1,7 @@
-node_modules
-dist/
+node_modules/
+lerna-debug.log
+npm-debug.log
+packages/*/lib
+.idea
+packages/*/tsconfig.tsbuildinfo
+packages/*/node_modules
