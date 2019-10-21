@@ -1,7 +1,6 @@
 // @flow
 
 declare module '@household/layout' {
-
 	declare export type HHSpacingEnum =
 		| 'huge'
 		| 'big'
@@ -35,7 +34,7 @@ declare module '@household/layout' {
 		fullWidth?: boolean,
 		maxWidth?: string
 	}
-	declare export type HHParent = HHCommon & {
+	declare export type HHFlexParent = HHCommon & {
 		alignItems?: string,
 		justifyContent?: string,
 		wrap?: boolean,
@@ -44,9 +43,7 @@ declare module '@household/layout' {
 		fillHeight?: boolean
 	}
 
-	declare export type HHFlexParent = HHParent
-
-	declare export type HHChild = $Diff<
+	declare export type HHFlexChild = $Diff<
 		HHCommon,
 		{
 			maxWidth: *,
@@ -61,19 +58,11 @@ declare module '@household/layout' {
 		justifySelfEnd?: boolean
 	}
 
-	declare export type HHFlexChild = HHChild
+	declare export type HHPositioned = HHLocation & Positioned
 
-	declare export type HHPet = HHLocation & Positioned
-
-	declare export type HHPositioned = HHPet
-
-	declare export type HHWall = HHLocation & {
+	declare export type HHSpacer = HHLocation & {
 		spacing: $PropertyType<HHCommon, 'spacing'>
 	}
 
-	declare export type HHSpacer = HHWall
-
-	declare export type HHGrandparent = HHCommon & { center?: boolean }
-
-	declare export type HHSimple = HHGrandparent
+	declare export type HHSimple = HHCommon & { center?: boolean }
 }

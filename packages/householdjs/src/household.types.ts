@@ -42,8 +42,7 @@ export type HHDivProps = Omit<
 	React.HTMLProps<HTMLDivElement>,
 	'wrap' | 'ref' | 'as'
 >
-export type HHWindowProps = React.HTMLProps<HTMLImageElement>
-export type HHImageProps = HHWindowProps
+export type HHImageProps = React.HTMLProps<HTMLImageElement>
 
 export interface HHCommonProps extends HHDivProps {
 	isInline?: boolean
@@ -62,7 +61,7 @@ export type HHLocationProps = RequireAtLeastOne<
 	keyof LocationProps
 >
 
-export interface HHParentProps extends HHCommonProps {
+export interface HHFlexParentProps extends HHCommonProps {
 	alignItems?: CSS.AlignItemsProperty
 	justifyContent?: CSS.JustifyContentProperty
 	wrap?: boolean
@@ -71,9 +70,7 @@ export interface HHParentProps extends HHCommonProps {
 	fillHeight?: boolean
 }
 
-export type HHFlexParentProps = HHParentProps
-
-export interface HHChildProps
+export interface HHFlexChildProps
 	extends Omit<HHCommonProps, 'maxWidth' | 'fullWidth' | 'isInline'> {
 	grow?: boolean | number | GlobalsNumber
 	shrink?: boolean | number | GlobalsNumber
@@ -82,11 +79,7 @@ export interface HHChildProps
 	justifySelfEnd?: boolean
 }
 
-export type HHFlexChildProps = HHChildProps
-
-export type HHPetProps = HHDivProps & HHLocationProps & PositionedProps
-
-export type HHPositionedProps = HHPetProps
+export type HHPositionedProps = HHDivProps & HHLocationProps & PositionedProps
 
 /**
  * @ignore
@@ -102,8 +95,6 @@ export type HHWallProps = RequireAtLeastOne<
 
 export type HHSpacerProps = HHWallProps
 
-export interface HHGrandparentProps extends HHCommonProps {
+export interface HHSimpleProps extends HHCommonProps {
 	center?: boolean
 }
-
-export type HHSimpleProps = HHGrandparentProps

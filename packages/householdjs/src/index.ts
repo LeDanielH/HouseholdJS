@@ -1,50 +1,33 @@
 export { HH } from './household'
 
 export {
-	HHParent,
-	HHChild,
-	HHGrandParent,
-	HHPet,
-	HHWall,
+	HHFlexParent,
+	HHFlexChild,
 	HHSimple,
 	HHPositioned,
 	HHSpacer,
-	HHWindow,
-	HHImage,
-	HHFlexParent,
-	HHFlexChild
+	HHImage
 } from './household.styled'
 
 export {
-	getHHChildStyles,
-	getHHParentStyles,
-	getHHPetStyles,
-	getHHCommonStyles,
-	getHHWallStyles,
-	getHHGrandparentStyles,
-	getHHPositionedStyles,
-	getHHSimpleStyles,
-	getHHSpacerStyles,
-	getHHWindowStyles,
-	getHHImageStyles,
+	getHHFlexChildStyles,
 	getHHFlexParentStyles,
-	getHHFlexChildStyles
+	getHHPositionedStyles,
+	getHHCommonStyles,
+	getHHSpacerStyles,
+	getHHSimpleStyles,
+	getHHImageStyles
 } from './household.params'
 
 export {
 	HHCommonProps,
-	HHChildProps,
-	HHGrandparentProps,
+	HHFlexChildProps,
+	HHSimpleProps,
 	HHLocationProps,
-	HHPetProps,
+	HHPositionedProps,
 	HHDivProps,
 	HHWallProps,
-	HHParentProps,
-	HHPositionedProps,
-	HHSimpleProps,
-	HHSpacerProps,
-	HHWindowProps,
-	HHImageProps,
 	HHFlexParentProps,
-	HHFlexChildProps
+	HHSpacerProps,
+	HHImageProps
 } from './household.types'
