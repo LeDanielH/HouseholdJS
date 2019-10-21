@@ -19,6 +19,7 @@
 		"build": "lerna run build",
 		"cleanup": "lerna run cleanup && lerna clean",
 		"prettier": "prettier --write \"./**/*.{ts,tsx}\"",
-		"test": "jest"
+		"test": "jest",
+		"publish": "lerna publish"
 	}
 }
