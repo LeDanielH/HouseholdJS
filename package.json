@@ -24,6 +24,6 @@
 		"prettier": "prettier --write \"./**/*.{ts,tsx}\"",
 		"test": "jest",
 		"publish": "lerna publish",
-		"docGenerate": "lerna run docs"
+		"docs": "lerna run docs"
 	}
 }
