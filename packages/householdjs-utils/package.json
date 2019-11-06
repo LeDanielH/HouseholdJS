@@ -33,7 +33,8 @@
 		"clean:lib": "rimraf lib",
 		"clean:tsbuildinfo": "rimraf tsconfig.tsbuildinfo",
 		"docs": "npm run clean:docs & npm run docs:generate",
-		"docs:generate": "typedoc --out docs/ src/ --mode file --readme none --theme minimal"
+		"docs:generate": "typedoc --out docs/ src/ --mode file --readme none --theme minimal",
+		"upgrade": "ncu -u"
 	},
 	"bugs": {
 		"url": "https://github.com/LeDanielH/HouseholdJS/issues"
