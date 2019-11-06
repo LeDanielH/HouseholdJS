@@ -23,7 +23,7 @@
 		"url": "git+https://github.com/LeDanielH/HouseholdJS.git"
 	},
 	"scripts": {
-		"build": "npm run clean && npm run tsc",
+		"build": "npm run clean && npm run tsc && npm run docs:generate",
 		"clean": "npm run clean:lib && npm run clean:tsbuildinfo && npm run clean:docs",
 		"tsc": "tsc -b tsconfig.json",
 		"clean:docs": "rimraf docs",
