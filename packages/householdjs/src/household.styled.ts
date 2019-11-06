@@ -2,10 +2,9 @@ import styled, { CSSObject } from 'styled-components'
 import {
 	HHFlexParentProps,
 	HHPositionedProps,
-	HHWallProps,
+	HHSpacerProps,
 	HHAssignType,
 	HHSimpleProps,
-	HHSpacerProps,
 	HHImageProps,
 	HHFlexChildProps
 } from './household.types'
@@ -39,8 +38,8 @@ export const HHPositioned: HHAssignType<HHPositionedProps, 'div'> = styled(
 )
 
 export const HHSpacer: HHAssignType<HHSpacerProps, 'div'> = styled('div')<
-	HHWallProps
->((props: HHWallProps): CSSObject => getHHSpacerStyles(props))
+	HHSpacerProps
+>((props: HHSpacerProps): CSSObject => getHHSpacerStyles(props))
 
 export const HHImage: HHAssignType<HHImageProps, 'img'> = styled('img')<
 	HHImageProps

@@ -30,6 +30,9 @@ export interface LocationProps {
 	horizontal?: boolean | string
 }
 
+/**
+ * @ignore
+ */
 export type HHAssignType<
 	T extends {},
 	E extends keyof JSX.IntrinsicElements | React.ComponentType<any>
@@ -42,6 +45,7 @@ export type HHDivProps = Omit<
 	React.HTMLProps<HTMLDivElement>,
 	'wrap' | 'ref' | 'as'
 >
+
 export type HHImageProps = React.HTMLProps<HTMLImageElement>
 
 export interface HHCommonProps extends HHDivProps {
@@ -81,19 +85,14 @@ export interface HHFlexChildProps
 
 export type HHPositionedProps = HHDivProps & HHLocationProps & PositionedProps
 
-/**
- * @ignore
- */
-export type HHWallPropsWithoutRequired = HHDivProps &
+export type HHSpacerPropsWithoutRequired = HHDivProps &
 	HHLocationProps &
 	Pick<HHCommonProps, 'spacing'>
 
-export type HHWallProps = RequireAtLeastOne<
-	HHWallPropsWithoutRequired,
+export type HHSpacerProps = RequireAtLeastOne<
+	HHSpacerPropsWithoutRequired,
 	'top' | 'right' | 'bottom' | 'left' | 'vertical' | 'horizontal' | 'all'
 >
-
-export type HHSpacerProps = HHWallProps
 
 export interface HHSimpleProps extends HHCommonProps {
 	center?: boolean
