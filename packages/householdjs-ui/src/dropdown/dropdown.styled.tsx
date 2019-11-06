@@ -1,13 +1,13 @@
-import React from 'react'
 import styled from 'styled-components'
-import { HHSimple, HHSimpleProps } from 'householdjs'
+import { HHSimple } from 'householdjs'
 import { DropdownStyledProps } from './dropdown.types'
 import { CLASS_IS_OPEN } from '../constants'
 import { pxToRem, withTransition } from '@householdjs/utils'
 
-export const DropdownStyled = styled(({ ...rest }: HHSimpleProps) => (
-	<HHSimple {...rest} />
-))<DropdownStyledProps>(({ maxHeight }: DropdownStyledProps) => ({
+/**
+ * @ignore
+ */
+export const DropdownStyled = styled(HHSimple)<DropdownStyledProps>(({ maxHeight }: DropdownStyledProps) => ({
 	overflow: 'hidden',
 	pointerEvents: 'none',
 	maxHeight: 0,
