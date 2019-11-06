@@ -1,8 +1,18 @@
 import { HHExtractNumberAndUnitType } from './types'
 
+/**
+ * @ignore
+ */
 const extractNumberRegex = /[\d|,|.|\+]+/g
+
+/**
+ * @ignore
+ */
 const extractStringRegex = /[^\d|,|.|\+]+/g
 
+/**
+ * @ignore
+ */
 export const extractNumberAndUnitFromString = (
 	numberWithUnit: string
 ): HHExtractNumberAndUnitType => {
@@ -18,4 +28,7 @@ export const extractNumberAndUnitFromString = (
 	return [numberExtracted, unitExtracted]
 }
 
+/**
+ * @ignore
+ */
 export const enaufs = extractNumberAndUnitFromString

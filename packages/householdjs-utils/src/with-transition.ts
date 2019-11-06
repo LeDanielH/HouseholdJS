@@ -7,6 +7,9 @@ import {
 	TRANSITION_EASING_DEFAULT
 } from './constants'
 
+/**
+ * @ignore
+ */
 const defaultTransitionOptions: Required<HHTransitionOptions> = {
 	durationInMs: TRANSITION_DURATION_DEFAULT,
 	timing: TRANSITION_EASING_DEFAULT

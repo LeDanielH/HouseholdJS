@@ -9,6 +9,9 @@ export const HHSpacing = {
 	huge: '4rem'
 }
 
+/**
+ * @ignore
+ */
 export const getSpacingOrValue = (
 	val: boolean | string,
 	spacing: HHSpacingEnum = HHSpacingEnum.default
