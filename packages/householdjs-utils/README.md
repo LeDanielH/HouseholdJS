@@ -1,11 +1,1 @@
-# `index`
-
-> TODO: description
-
-## Usage
-
-```
-const index = require('index');
-
-// TODO: DEMONSTRATE API
-```
+[householdjs-utils documentation](http://htmlpreview.github.io/?https://github.com/LeDanielH/HouseholdJS/blob/master/packages/householdjs-utils/docs/index.html)
