@@ -40,11 +40,11 @@
 		"url": "https://github.com/LeDanielH/HouseholdJS/issues"
 	},
 	"dependencies": {
-		"styled-components": "^4.4.0"
+		"styled-components": "^4.4.1"
 	},
 	"devDependencies": {
-		"@types/styled-components": "^4.1.19",
-		"typescript": "^3.6.3"
+		"@types/styled-components": "^4.1.21",
+		"typescript": "^3.7.2"
 	},
 	"publishConfig": {
 		"access": "public"

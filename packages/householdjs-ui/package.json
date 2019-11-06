@@ -41,13 +41,13 @@
 	"dependencies": {
 		"@householdjs/utils": "^1.2.0",
 		"householdjs": "^1.2.0",
-		"react": "^16.10.2",
-		"styled-components": "^4.4.0"
+		"react": "^16.11.0",
+		"styled-components": "^4.4.1"
 	},
 	"devDependencies": {
-		"@types/react": "^16.9.5",
-		"@types/styled-components": "^4.1.19",
-		"typescript": "^3.6.3"
+		"@types/react": "^16.9.11",
+		"@types/styled-components": "^4.1.21",
+		"typescript": "^3.7.2"
 	},
 	"publishConfig": {
 		"access": "public"

@@ -3,29 +3,28 @@
 	"version": "1.2.0",
 	"private": true,
 	"devDependencies": {
-		"@types/jest": "^24.0.18",
-		"@types/node": "^12.7.11",
+		"@types/jest": "^24.0.22",
+		"@types/node": "^12.12.6",
 		"jest": "^24.9.0",
-		"lerna": "^3.16.4",
-		"npm-check-updates": "^3.2.0",
+		"lerna": "^3.18.3",
 		"prettier": "^1.18.2",
 		"rimraf": "^3.0.0",
 		"ts-jest": "^24.1.0",
 		"ts-optchain": "^0.1.8",
 		"typedoc": "^0.15.0",
-		"typescript": "^3.6.3"
+		"typescript": "^3.7.2"
 	},
 	"scripts": {
 		"install": "lerna exec npm install",
 		"build": "lerna run build",
 		"clean": "npm run clean:household && npm run clean:household",
-		"clean:node_modules": "lerna clean",
+		"clean:node_modules": "lerna clean && rimraf node_modules",
 		"clean:household": "lerna run clean",
 		"clean:docs": "lerna run clean:docs",
 		"prettier": "prettier --write \"./**/*.{ts,tsx}\"",
 		"test": "jest",
 		"publish": "lerna publish",
 		"docs": "lerna run docs",
-		"upgrade": "lerna run upgrade && ncu -u"
+		"upgrade": "ncu -u"
 	}
 }
