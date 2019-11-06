@@ -2,10 +2,16 @@ import React, { PureComponent } from 'react'
 import { DropdownStyled } from './dropdown.styled'
 import { CLASS_IS_OPEN } from '../constants'
 
+/**
+ * @ignore
+ */
 const initialState = {
 	maxHeight: 0
 }
 
+/**
+ * @ignore
+ */
 const initialProps = {
 	checkDOMUpdate: false,
 	isOpen: false,
@@ -14,7 +20,11 @@ const initialProps = {
 	// also use it wherever possible, detecting element.offsetHeight comes with layout reflow expense
 }
 
+/**
+ * @ignore
+ */
 export type DropdownState = typeof initialState
+
 export type DropdownProps = typeof initialProps
 
 export class Dropdown extends PureComponent<DropdownProps, DropdownState> {

@@ -26,8 +26,7 @@ export {
 	HHLocationProps,
 	HHPositionedProps,
 	HHDivProps,
-	HHWallProps,
-	HHFlexParentProps,
 	HHSpacerProps,
+	HHFlexParentProps,
 	HHImageProps
 } from './household.types'

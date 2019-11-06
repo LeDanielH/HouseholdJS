@@ -1,6 +1,3 @@
-/**
- * @ignore
- */
 import { withRem } from './with-unit'
 import { ROOT_FONT_SIZE } from './constants'
 

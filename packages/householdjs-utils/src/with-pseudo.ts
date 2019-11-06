@@ -1,5 +1,8 @@
 import { CSSObject } from 'styled-components'
 
+/**
+ * @ignore
+ */
 export const withPseudo = (
 	styles: CSSObject,
 	pseudo: 'before' | 'after'

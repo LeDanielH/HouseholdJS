@@ -4,7 +4,7 @@ import {
 	HHCommonProps,
 	HHSimpleProps,
 	HHPositionedProps,
-	HHWallProps,
+	HHSpacerProps,
 	HHFlexParentProps
 } from './household.types'
 import {
@@ -15,6 +15,9 @@ import {
 	HHSpacing
 } from '@householdjs/utils'
 
+/**
+ * @ignore
+ */
 export const getHHCommonStyles = ({
 	spacing = HHSpacingEnum.default,
 	withBottomSpacing = false,
@@ -42,6 +45,9 @@ export const getHHCommonStyles = ({
 	})
 })
 
+/**
+ * @ignore
+ */
 export const getHHFlexParentStyles = ({
 	fillHeight,
 	column,
@@ -70,6 +76,9 @@ export const getHHFlexParentStyles = ({
 	})
 })
 
+/**
+ * @ignore
+ */
 export const getHHFlexChildStyles = ({
 	grow,
 	shrink,
@@ -94,6 +103,9 @@ export const getHHFlexChildStyles = ({
 	})
 })
 
+/**
+ * @ignore
+ */
 export const getHHSimpleStyles = ({
 	center,
 	isInline,
@@ -109,6 +121,9 @@ export const getHHSimpleStyles = ({
 	})
 })
 
+/**
+ * @ignore
+ */
 export const getHHPositionedStyles = ({
 	top,
 	right,
@@ -150,6 +165,9 @@ export const getHHPositionedStyles = ({
 	})
 })
 
+/**
+ * @ignore
+ */
 export const getHHSpacerStyles = ({
 	top,
 	right,
@@ -159,7 +177,7 @@ export const getHHSpacerStyles = ({
 	horizontal,
 	all,
 	spacing = HHSpacingEnum.default
-}: HHWallProps): CSSObject | {} => ({
+}: HHSpacerProps): CSSObject | {} => ({
 	// the object can be empty
 	...(top && {
 		paddingTop: getSpacingOrValue(top, spacing)
@@ -186,6 +204,9 @@ export const getHHSpacerStyles = ({
 	})
 })
 
+/**
+ * @ignore
+ */
 export const getHHImageStyles = (): CSSObject => ({
 	display: 'block',
 	width: '100%',
