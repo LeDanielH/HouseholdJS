@@ -1,4 +1,4 @@
 ## DOCUMENTATION
-+ [householdjs](http://htmlpreview.github.io/?https://github.com/LeDanielH/HouseholdJS/blob/master/packages/householdjs/docs/index.html)
-+ [householdjs-utils](http://htmlpreview.github.io/?https://github.com/LeDanielH/HouseholdJS/blob/master/packages/householdjs-utils/docs/index.html)
-+ [householdjs-ui](http://htmlpreview.github.io/?https://github.com/LeDanielH/HouseholdJS/blob/master/packages/householdjs-ui/docs/index.html)
++ [householdjs](https://github.com/LeDanielH/HouseholdJS/tree/master/packages/householdjs)
++ [householdjs-utils](https://github.com/LeDanielH/HouseholdJS/tree/master/packages/householdjs-utils)
++ [householdjs-ui](https://github.com/LeDanielH/HouseholdJS/tree/master/packages/householdjs-ui)
