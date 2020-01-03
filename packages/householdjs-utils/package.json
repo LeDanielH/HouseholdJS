@@ -43,8 +43,8 @@
 		"styled-components": "^4.4.1"
 	},
 	"devDependencies": {
-		"@types/styled-components": "^4.1.21",
-		"typescript": "^3.7.2"
+		"@types/styled-components": "^4.4.1",
+		"typescript": "^3.7.4"
 	},
 	"publishConfig": {
 		"access": "public"
