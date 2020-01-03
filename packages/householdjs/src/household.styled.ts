@@ -3,7 +3,6 @@ import {
 	HHFlexParentProps,
 	HHPositionedProps,
 	HHSpacerProps,
-	HHAssignType,
 	HHSimpleProps,
 	HHImageProps,
 	HHFlexChildProps
@@ -17,30 +16,30 @@ import {
 	getHHImageStyles
 } from './household.params'
 
-export const HHFlexParent: HHAssignType<HHFlexParentProps, 'div'> = styled(
+export const HHFlexParent = styled(
 	'div'
 )<HHFlexParentProps>(
 	(props: HHFlexParentProps): CSSObject => getHHFlexParentStyles(props)
 )
 
-export const HHFlexChild: HHAssignType<HHFlexChildProps, 'div'> = styled('div')<
+export const HHFlexChild = styled('div')<
 	HHFlexChildProps
 >((props: HHFlexChildProps): CSSObject => getHHFlexChildStyles(props))
 
-export const HHSimple: HHAssignType<HHSimpleProps, 'div'> = styled('div')<
+export const HHSimple = styled('div')<
 	HHSimpleProps
 >((props: HHSimpleProps): CSSObject => getHHSimpleStyles(props))
 
-export const HHPositioned: HHAssignType<HHPositionedProps, 'div'> = styled(
+export const HHPositioned = styled(
 	'div'
 )<HHPositionedProps>(
 	(props: HHPositionedProps): CSSObject => getHHPositionedStyles(props)
 )
 
-export const HHSpacer: HHAssignType<HHSpacerProps, 'div'> = styled('div')<
+export const HHSpacer = styled('div')<
 	HHSpacerProps
 >((props: HHSpacerProps): CSSObject => getHHSpacerStyles(props))
 
-export const HHImage: HHAssignType<HHImageProps, 'img'> = styled('img')<
+export const HHImage = styled('img')<
 	HHImageProps
->(getHHImageStyles() as CSSObject)
+>(getHHImageStyles())
