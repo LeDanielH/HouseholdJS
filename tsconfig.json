@@ -2,6 +2,11 @@
 	"defaultSeverity": "warning",
 	"compilerOptions": {
 		"baseUrl": "./packages",
+		"paths": {
+			"householdjs": ["householdjs/src"],
+			"@householdjs/ui": ["householdjs-ui/src"],
+			"@householdjs/utils": ["householdjs-utils/src"]
+		},
 		"target": "es5",
 		"module": "commonjs",
 		"declaration": true,

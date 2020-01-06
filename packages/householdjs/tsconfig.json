@@ -3,5 +3,11 @@
 	"compilerOptions": {
 		"outDir": "./lib",
 		"rootDir": "./src"
-	}
+	},
+	"references": [{
+		"path": "../householdjs-utils/tsconfig.json"
+	}],
+	"include": [
+		"src/**/*"
+	]
 }

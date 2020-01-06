@@ -4,5 +4,12 @@
 		"outDir": "./lib",
 		"rootDir": "./src"
 	},
-	"include": ["src/**/*"]
+	"include": ["src/**/*"],
+
+	"references": [
+		{
+			"path": "../householdjs-utils/tsconfig.json"
+		},
+		{ "path": "../householdjs/tsconfig.json" }
+	]
 }
