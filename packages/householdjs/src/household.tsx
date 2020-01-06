@@ -1,18 +1,18 @@
 import { PureComponent } from 'react'
 import {
-	HHFlexParent,
-	HHFlexChild,
-	HHSimple,
-	HHPositioned,
-	HHSpacer,
-	HHImage
+	FlexParent,
+	FlexChild,
+	SimpleWrapper,
+	Positioned,
+	Spacer,
+	Image
 } from './household.styled'
 
 export class HH extends PureComponent {
-	static FlexParent = HHFlexParent
-	static FlexChild = HHFlexChild
-	static Spacer = HHSpacer
-	static Positioned = HHPositioned
-	static Simple = HHSimple
-	static Image = HHImage
+	static FlexParent = FlexParent
+	static FlexChild = FlexChild
+	static Spacer = Spacer
+	static Positioned = Positioned
+	static SimpleWrapper = SimpleWrapper
+	static Image = Image
 }

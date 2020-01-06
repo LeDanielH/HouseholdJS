@@ -1,7 +1,7 @@
 import { isBool } from './is-bool'
-import { HHSpacingEnum } from './types'
+import { SpacingEnum } from './types'
 
-export const HHSpacing = {
+export const Spacing = {
 	tiny: '0.25rem',
 	small: '0.5rem',
 	default: '1rem',
@@ -14,5 +14,5 @@ export const HHSpacing = {
  */
 export const getSpacingOrValue = (
 	val: boolean | string,
-	spacing: HHSpacingEnum = HHSpacingEnum.default
-): string => (isBool(val) ? HHSpacing[spacing] : (val as string))
+	spacing: SpacingEnum = SpacingEnum.default
+): string => (isBool(val) ? Spacing[spacing] : (val as string))

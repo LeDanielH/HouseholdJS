@@ -1,4 +1,4 @@
-import { HHSimpleProps } from 'householdjs'
+import { SimpleWrapperProps } from 'householdjs'
 import { DropdownProps, DropdownState } from './dropdown'
 
 /**
@@ -9,4 +9,4 @@ export type DropdownStyledProps = Omit<
 	'checkDOMUpdate' | 'isOpen' | 'maxHeightDefined'
 > &
 	DropdownState &
-	HHSimpleProps
+	SimpleWrapperProps

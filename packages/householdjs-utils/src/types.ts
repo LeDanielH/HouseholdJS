@@ -16,12 +16,13 @@ export type HHExtractNumberAndUnitType = [number, string]
 export interface HHTransitionOptions {
 	timing?: CSSObject['transitionTimingFunction']
 	durationInMs?: number
+	willChange?: boolean
 }
 
 /**
  * @ignore
  */
-export enum HHSpacingEnum {
+export enum SpacingEnum {
 	huge = 'huge',
 	big = 'big',
 	default = 'default',

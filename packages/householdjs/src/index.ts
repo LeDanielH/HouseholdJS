@@ -1,32 +1,32 @@
 export { HH } from './household'
 
 export {
-	HHFlexParent,
-	HHFlexChild,
-	HHSimple,
-	HHPositioned,
-	HHSpacer,
-	HHImage
+	FlexParent,
+	FlexChild,
+	SimpleWrapper,
+	Positioned,
+	Spacer,
+	Image
 } from './household.styled'
 
 export {
-	getHHFlexChildStyles,
-	getHHFlexParentStyles,
-	getHHPositionedStyles,
-	getHHCommonStyles,
-	getHHSpacerStyles,
-	getHHSimpleStyles,
-	getHHImageStyles
+	getFlexChildStyles,
+	getFlexParentStyles,
+	getPositionedStyles,
+	getCommonStyles,
+	getSpacerStyles,
+	getSimpleWrapperStyles,
+	getImageStyles
 } from './household.params'
 
 export {
-	HHCommonProps,
-	HHFlexChildProps,
-	HHSimpleProps,
-	HHLocationProps,
-	HHPositionedProps,
-	HHDivProps,
-	HHSpacerProps,
-	HHFlexParentProps,
-	HHImageProps
+	CommonHHElementProps,
+	FlexChildProps,
+	SimpleWrapperProps,
+	LocationProps,
+	PositionedProps,
+	DivProps,
+	SpacerProps,
+	FlexParentProps,
+	ImageProps
 } from './household.types'

@@ -1,25 +1,25 @@
 import { CSSObject } from 'styled-components'
 import {
-	HHFlexChildProps,
-	HHCommonProps,
-	HHSimpleProps,
-	HHPositionedProps,
-	HHSpacerProps,
-	HHFlexParentProps
+	FlexChildProps,
+	CommonHHElementProps,
+	SimpleWrapperProps,
+	PositionedProps,
+	SpacerProps,
+	FlexParentProps
 } from './household.types'
 import {
 	getSpacingOrValue,
 	getZeroOrValue,
-	HHSpacingEnum,
+	SpacingEnum,
 	isBool,
-	HHSpacing
+	Spacing
 } from '@householdjs/utils'
 
 /**
  * @ignore
  */
-export const getHHCommonStyles = ({
-	spacing = HHSpacingEnum.default,
+export const getCommonStyles = ({
+	spacing = SpacingEnum.default,
 	withBottomSpacing = false,
 	height,
 	background,
@@ -27,7 +27,7 @@ export const getHHCommonStyles = ({
 	withPointer = false,
 	fullWidth = false,
 	maxWidth
-}: HHCommonProps): CSSObject => ({
+}: CommonHHElementProps): CSSObject => ({
 	height,
 	background,
 	maxWidth,
@@ -41,14 +41,14 @@ export const getHHCommonStyles = ({
 		width: '100%'
 	}),
 	...(withBottomSpacing && {
-		marginBottom: HHSpacing[spacing]
+		marginBottom: Spacing[spacing]
 	})
 })
 
 /**
  * @ignore
  */
-export const getHHFlexParentStyles = ({
+export const getFlexParentStyles = ({
 	fillHeight,
 	column,
 	reverse,
@@ -57,8 +57,8 @@ export const getHHFlexParentStyles = ({
 	alignItems,
 	isInline,
 	...rest
-}: HHFlexParentProps): CSSObject => ({
-	...getHHCommonStyles(rest),
+}: FlexParentProps): CSSObject => ({
+	...getCommonStyles(rest),
 	display: isInline ? 'inline-flex' : 'flex',
 	justifyContent,
 	alignItems,
@@ -79,15 +79,15 @@ export const getHHFlexParentStyles = ({
 /**
  * @ignore
  */
-export const getHHFlexChildStyles = ({
+export const getFlexChildStyles = ({
 	grow,
 	shrink,
 	width,
 	noFontSize,
 	justifySelfEnd,
 	...rest
-}: HHFlexChildProps): CSSObject => ({
-	...getHHCommonStyles(rest),
+}: FlexChildProps): CSSObject => ({
+	...getCommonStyles(rest),
 	display: 'inline-block',
 	flexGrow: +isBool(grow) || (grow as number),
 	flexShrink: +isBool(shrink) || (shrink as number),
@@ -106,12 +106,12 @@ export const getHHFlexChildStyles = ({
 /**
  * @ignore
  */
-export const getHHSimpleStyles = ({
+export const getSimpleWrapperStyles = ({
 	center,
 	isInline,
 	...rest
-}: HHSimpleProps): CSSObject => ({
-	...getHHCommonStyles(rest),
+}: SimpleWrapperProps): CSSObject => ({
+	...getCommonStyles(rest),
 	...(center && {
 		marginLeft: 'auto',
 		marginRight: 'auto'
@@ -124,7 +124,7 @@ export const getHHSimpleStyles = ({
 /**
  * @ignore
  */
-export const getHHPositionedStyles = ({
+export const getPositionedStyles = ({
 	top,
 	right,
 	bottom,
@@ -134,7 +134,7 @@ export const getHHPositionedStyles = ({
 	horizontal,
 	zIndex,
 	position = 'absolute'
-}: HHPositionedProps): CSSObject => ({
+}: PositionedProps): CSSObject => ({
 	position,
 	zIndex,
 	...(top && {
@@ -168,7 +168,7 @@ export const getHHPositionedStyles = ({
 /**
  * @ignore
  */
-export const getHHSpacerStyles = ({
+export const getSpacerStyles = ({
 	top,
 	right,
 	bottom,
@@ -176,8 +176,8 @@ export const getHHSpacerStyles = ({
 	vertical,
 	horizontal,
 	all,
-	spacing = HHSpacingEnum.default
-}: HHSpacerProps): CSSObject | {} => ({
+	spacing = SpacingEnum.default
+}: SpacerProps): CSSObject | {} => ({
 	// the object can be empty
 	...(top && {
 		paddingTop: getSpacingOrValue(top, spacing)
@@ -207,7 +207,7 @@ export const getHHSpacerStyles = ({
 /**
  * @ignore
  */
-export const getHHImageStyles = (): CSSObject => ({
+export const getImageStyles = (): CSSObject => ({
 	display: 'block',
 	width: '100%',
 	height: 'auto'

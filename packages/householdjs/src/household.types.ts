@@ -1,10 +1,9 @@
 import * as CSS from 'csstype'
 import React from 'react'
 import { GlobalsNumber } from 'csstype'
-import { StyledComponent } from 'styled-components'
-import { HHSpacingEnum } from '@householdjs/utils'
+import { SpacingEnum } from '@householdjs/utils'
 
-interface PositionedProps {
+interface PositionedOnlyProps {
 	zIndex?: number
 	position?: Extract<CSS.PositionProperty, 'absolute' | 'fixed' | 'relative'>
 }
@@ -20,7 +19,7 @@ export type RequireAtLeastOne<T, Keys extends keyof T = keyof T> = Pick<
 		[K in Keys]-?: Required<Pick<T, K>> & Partial<Pick<T, Exclude<Keys, K>>>
 	}[Keys]
 
-export interface LocationProps {
+export interface SidesProps {
 	top?: boolean | string
 	right?: boolean | string
 	bottom?: boolean | string
@@ -33,24 +32,16 @@ export interface LocationProps {
 /**
  * @ignore
  */
-export type HHAssignType<
-	T extends {},
-	E extends keyof JSX.IntrinsicElements | React.ComponentType<any>
-> = StyledComponent<E, any, T, never>
-
-/**
- * @ignore
- */
-export type HHDivProps = Omit<
+export type DivProps = Omit<
 	React.HTMLProps<HTMLDivElement>,
 	'wrap' | 'ref' | 'as'
 >
 
-export type HHImageProps = React.HTMLProps<HTMLImageElement>
+export type ImageProps = React.HTMLProps<HTMLImageElement>
 
-export interface HHCommonProps extends HHDivProps {
+export interface CommonHHElementProps extends DivProps {
 	isInline?: boolean
-	spacing?: HHSpacingEnum
+	spacing?: SpacingEnum
 	withBottomSpacing?: boolean
 	height?: string
 	background?: CSS.BackgroundProperty<string>
@@ -60,12 +51,9 @@ export interface HHCommonProps extends HHDivProps {
 	maxWidth?: CSS.MaxWidthProperty<string>
 }
 
-export type HHLocationProps = RequireAtLeastOne<
-	LocationProps,
-	keyof LocationProps
->
+export type LocationProps = RequireAtLeastOne<SidesProps, keyof SidesProps>
 
-export interface HHFlexParentProps extends HHCommonProps {
+export interface FlexParentProps extends CommonHHElementProps {
 	alignItems?: CSS.AlignItemsProperty
 	justifyContent?: CSS.JustifyContentProperty
 	wrap?: boolean
@@ -74,8 +62,8 @@ export interface HHFlexParentProps extends HHCommonProps {
 	fillHeight?: boolean
 }
 
-export interface HHFlexChildProps
-	extends Omit<HHCommonProps, 'maxWidth' | 'fullWidth' | 'isInline'> {
+export interface FlexChildProps
+	extends Omit<CommonHHElementProps, 'maxWidth' | 'fullWidth' | 'isInline'> {
 	grow?: boolean | number | GlobalsNumber
 	shrink?: boolean | number | GlobalsNumber
 	width?: string
@@ -83,17 +71,17 @@ export interface HHFlexChildProps
 	justifySelfEnd?: boolean
 }
 
-export type HHPositionedProps = HHDivProps & HHLocationProps & PositionedProps
+export type PositionedProps = DivProps & LocationProps & PositionedOnlyProps
 
-export type HHSpacerPropsWithoutRequired = HHDivProps &
-	HHLocationProps &
-	Pick<HHCommonProps, 'spacing'>
+export type SpacerPropsWithoutRequired = DivProps &
+	LocationProps &
+	Pick<CommonHHElementProps, 'spacing'>
 
-export type HHSpacerProps = RequireAtLeastOne<
-	HHSpacerPropsWithoutRequired,
+export type SpacerProps = RequireAtLeastOne<
+	SpacerPropsWithoutRequired,
 	'top' | 'right' | 'bottom' | 'left' | 'vertical' | 'horizontal' | 'all'
 >
 
-export interface HHSimpleProps extends HHCommonProps {
+export interface SimpleWrapperProps extends CommonHHElementProps {
 	center?: boolean
 }
