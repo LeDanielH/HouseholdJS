@@ -12,7 +12,8 @@ import {
  */
 const defaultTransitionOptions: Required<HHTransitionOptions> = {
 	durationInMs: TRANSITION_DURATION_DEFAULT,
-	timing: TRANSITION_EASING_DEFAULT
+	timing: TRANSITION_EASING_DEFAULT,
+	willChange: false,
 }
 
 export const withTransition = (
@@ -27,10 +28,12 @@ export const withTransition = (
 		transitionProperties
 	)
 		? transitionProperties.join(',')
-		: transitionProperties
+		: transitionProperties;
+	const withWillChange = transitionOptions.willChange && transitionedProperties;
+
 	return {
 		transitionProperty: transitionedProperties as string,
-		...(transitionedProperties && {
+		...(withWillChange && {
 			willChange: transitionedProperties as string
 		}),
 		transitionTimingFunction: oc(transitionOptions).timing(
