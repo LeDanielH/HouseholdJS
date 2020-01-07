@@ -2,6 +2,7 @@ import * as CSS from 'csstype'
 import React from 'react'
 import { GlobalsNumber } from 'csstype'
 import { SpacingEnum } from '@householdjs/utils'
+import {CSSObject} from "styled-components";
 
 interface PositionedOnlyProps {
 	zIndex?: number
@@ -83,5 +84,7 @@ export type SpacerProps = RequireAtLeastOne<
 >
 
 export interface SimpleWrapperProps extends CommonHHElementProps {
-	center?: boolean
+	center?: boolean,
+	withBefore?: CSSObject,
+	withAfter?: CSSObject,
 }

@@ -54,6 +54,8 @@
 	withPointer?: boolean
 	fullWidth?: boolean
 	maxWidth?: string
+    withBefore?: CSSObject,
+	withAfter?: CSSObject,
     + common <div> element attributes
     + styled components props, e.g `as` => https://www.styled-components.com/docs/api
  ```

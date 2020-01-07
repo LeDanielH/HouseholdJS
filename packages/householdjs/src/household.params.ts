@@ -12,7 +12,9 @@ import {
 	getZeroOrValue,
 	SpacingEnum,
 	isBool,
-	Spacing
+	Spacing,
+	withBefore as withBeforeFn,
+	withAfter as withAfterFn,
 } from '@householdjs/utils'
 
 /**
@@ -109,6 +111,8 @@ export const getFlexChildStyles = ({
 export const getSimpleWrapperStyles = ({
 	center,
 	isInline,
+	withBefore,
+	withAfter,
 	...rest
 }: SimpleWrapperProps): CSSObject => ({
 	...getCommonStyles(rest),
@@ -118,7 +122,9 @@ export const getSimpleWrapperStyles = ({
 	}),
 	...(isInline && {
 		display: 'inline-block'
-	})
+	}),
+	...(withBefore && withBeforeFn(withBefore)),
+	...(withAfter && withAfterFn(withAfter))
 })
 
 /**
