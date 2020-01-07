@@ -20,3 +20,51 @@ const theme = {
 }
  ```
 
+## ___withBefore___, ___withAfter___ 
+ 
+ ```typescript jsx
+// withBefore = (styles?: CSSObject) => CSSObject
+import { withBefore } from '@householdjs/utils'; 
+import { CSSObject } from "styled-components";
+const styles: CSSObject = {
+    display: 'block',
+    ...withBefore({
+        height: '2px',
+        width: '100%'
+    })
+}
+
+/* gerenrates:
+    display: 'block',
+    [`&:before`]: {
+        content: '',
+        display: 'block',
+        height: '2px',
+        width: '100%'
+	}
+*/
+ ```
+ - also as a prop to `<SimpleWrapper />`
+ 
+ ```typescript jsx
+    import { SimpleWrapper } from "householdjs";
+    import { CSSObject } from "styled-components";
+    const withAfterStyles: CSSObject = {
+        height: '5px',
+        width: '100%',
+        position: 'absolute',
+        right: 0,
+        bottom: 0,
+        left: 0,
+        backgroundColor: 'red'
+    }
+    const SimpleComponent = () => 
+        <SimpleWrapper 
+            withAfter={withAfterStyles} 
+            isRelative
+        >
+            <p>hello world</p>
+        </SimpleWrapper>
+```
+
+
