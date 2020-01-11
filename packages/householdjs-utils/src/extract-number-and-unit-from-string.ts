@@ -1,4 +1,4 @@
-import { HHExtractNumberAndUnitType } from './types'
+import { ExtractNumberAndUnitType } from './types'
 
 /**
  * @ignore
@@ -15,7 +15,7 @@ const extractStringRegex = /[^\d|,|.|\+]+/g
  */
 export const extractNumberAndUnitFromString = (
 	numberWithUnit: string
-): HHExtractNumberAndUnitType => {
+): ExtractNumberAndUnitType => {
 	const number = numberWithUnit.match(extractNumberRegex) // creates array from matches
 	const unit = numberWithUnit.match(extractStringRegex)
 	if (!number) {

@@ -8,7 +8,7 @@ export type UnitType = 'px' | 'em' | 'rem' | 'ms' | 's' | 'deg' | '%' // todo ad
 /**
  * @ignore
  */
-export type HHExtractNumberAndUnitType = [number, string]
+export type ExtractNumberAndUnitType = [number, string]
 
 /**
  * @ignore
@@ -37,3 +37,5 @@ export enum SpacingEnum {
 	small = 'small',
 	tiny = 'tiny'
 }
+
+export type FnParameters<T> = T extends (...args: infer T) => any ? T : never

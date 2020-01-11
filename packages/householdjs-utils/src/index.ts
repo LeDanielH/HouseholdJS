@@ -8,7 +8,11 @@ export { isBool } from './is-bool'
 export { multiplyStringValue, mvws } from './multiply-string-value'
 export { pxToRem } from './px-to-rem'
 export { withPseudo, withAfter, withBefore } from './with-pseudo'
-export { SpacingEnum } from './types'
+export {
+	SpacingEnum,
+	WithTransitionProps,
+	TransitionPropertiesType
+} from './types'
 export { withTransition } from './with-transition'
 export {
 	withUnit,
