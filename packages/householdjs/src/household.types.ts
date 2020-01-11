@@ -1,8 +1,8 @@
 import * as CSS from 'csstype'
 import React from 'react'
 import { GlobalsNumber } from 'csstype'
-import { SpacingEnum } from '@householdjs/utils'
-import {CSSObject} from "styled-components";
+import { SpacingEnum, WithTransitionProps } from '@householdjs/utils'
+import { CSSObject } from 'styled-components'
 
 interface PositionedOnlyProps {
 	zIndex?: number
@@ -40,10 +40,11 @@ export type DivProps = Omit<
 
 export type ImageProps = React.HTMLProps<HTMLImageElement>
 
-export interface CommonHHElementProps extends DivProps {
+export interface CommonElementProps
+	extends DivProps,
+		Partial<WithTransitionProps> {
 	isInline?: boolean
-	spacing?: SpacingEnum
-	withBottomSpacing?: boolean
+	withBottomSpacing?: boolean | string | SpacingEnum
 	height?: string
 	background?: CSS.BackgroundProperty<string>
 	isRelative?: boolean
@@ -54,7 +55,7 @@ export interface CommonHHElementProps extends DivProps {
 
 export type LocationProps = RequireAtLeastOne<SidesProps, keyof SidesProps>
 
-export interface FlexParentProps extends CommonHHElementProps {
+export interface FlexParentProps extends CommonElementProps {
 	alignItems?: CSS.AlignItemsProperty
 	justifyContent?: CSS.JustifyContentProperty
 	wrap?: boolean
@@ -64,7 +65,7 @@ export interface FlexParentProps extends CommonHHElementProps {
 }
 
 export interface FlexChildProps
-	extends Omit<CommonHHElementProps, 'maxWidth' | 'fullWidth' | 'isInline'> {
+	extends Omit<CommonElementProps, 'maxWidth' | 'fullWidth' | 'isInline'> {
 	grow?: boolean | number | GlobalsNumber
 	shrink?: boolean | number | GlobalsNumber
 	width?: string
@@ -72,19 +73,20 @@ export interface FlexChildProps
 	justifySelfEnd?: boolean
 }
 
-export type PositionedProps = DivProps & LocationProps & PositionedOnlyProps
-
-export type SpacerPropsWithoutRequired = DivProps &
+export type PositionedProps = DivProps &
 	LocationProps &
-	Pick<CommonHHElementProps, 'spacing'>
+	PositionedOnlyProps &
+	Partial<WithTransitionProps>
+
+export type SpacerPropsWithoutRequired = DivProps & LocationProps
 
 export type SpacerProps = RequireAtLeastOne<
 	SpacerPropsWithoutRequired,
 	'top' | 'right' | 'bottom' | 'left' | 'vertical' | 'horizontal' | 'all'
 >
 
-export interface SimpleWrapperProps extends CommonHHElementProps {
-	center?: boolean,
-	withBefore?: CSSObject,
-	withAfter?: CSSObject,
+export interface SimpleWrapperProps extends CommonElementProps {
+	center?: boolean
+	withBefore?: CSSObject
+	withAfter?: CSSObject
 }

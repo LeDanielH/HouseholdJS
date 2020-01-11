@@ -1,7 +1,7 @@
 import { CSSObject } from 'styled-components'
 import {
 	FlexChildProps,
-	CommonHHElementProps,
+	CommonElementProps,
 	SimpleWrapperProps,
 	PositionedProps,
 	SpacerProps,
@@ -15,7 +15,25 @@ import {
 	Spacing,
 	withBefore as withBeforeFn,
 	withAfter as withAfterFn,
+	withTransition as withTransitionFn,
+	WithTransitionProps
 } from '@householdjs/utils'
+
+export const getTransitionStyles = ({
+	transitionProperties,
+	transitionOptions,
+	disableTransitions
+}: Partial<WithTransitionProps>): CSSObject | {} => ({
+	...(transitionProperties
+		? {
+				...withTransitionFn(
+					transitionProperties,
+					transitionOptions,
+					disableTransitions
+				)
+		  }
+		: {})
+})
 
 /**
  * @ignore
@@ -28,8 +46,11 @@ export const getCommonStyles = ({
 	isRelative = false,
 	withPointer = false,
 	fullWidth = false,
-	maxWidth
-}: CommonHHElementProps): CSSObject => ({
+	maxWidth,
+	transitionProperties,
+	transitionOptions,
+	disableTransitions
+}: CommonElementProps): CSSObject => ({
 	height,
 	background,
 	maxWidth,
@@ -43,7 +64,14 @@ export const getCommonStyles = ({
 		width: '100%'
 	}),
 	...(withBottomSpacing && {
-		marginBottom: Spacing[spacing]
+		marginBottom: getSpacingOrValue(withBottomSpacing)
+	}),
+	...(transitionProperties && {
+		...getTransitionStyles({
+			transitionProperties,
+			transitionOptions,
+			disableTransitions
+		})
 	})
 })
 
@@ -139,7 +167,10 @@ export const getPositionedStyles = ({
 	vertical,
 	horizontal,
 	zIndex,
-	position = 'absolute'
+	position = 'absolute',
+	transitionProperties,
+	transitionOptions,
+	disableTransitions
 }: PositionedProps): CSSObject => ({
 	position,
 	zIndex,
@@ -168,6 +199,13 @@ export const getPositionedStyles = ({
 	...(horizontal && {
 		right: getZeroOrValue(horizontal),
 		left: getZeroOrValue(horizontal)
+	}),
+	...(transitionProperties && {
+		...getTransitionStyles({
+			transitionProperties,
+			transitionOptions,
+			disableTransitions
+		})
 	})
 })
 

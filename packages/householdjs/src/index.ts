@@ -20,7 +20,7 @@ export {
 } from './household.params'
 
 export {
-	CommonHHElementProps,
+	CommonElementProps,
 	FlexChildProps,
 	SimpleWrapperProps,
 	LocationProps,
