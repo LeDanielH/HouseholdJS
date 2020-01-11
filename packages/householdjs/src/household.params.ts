@@ -10,9 +10,7 @@ import {
 import {
 	getSpacingOrValue,
 	getZeroOrValue,
-	SpacingEnum,
 	isBool,
-	Spacing,
 	withBefore as withBeforeFn,
 	withAfter as withAfterFn,
 	withTransition as withTransitionFn,
@@ -39,7 +37,6 @@ export const getTransitionStyles = ({
  * @ignore
  */
 export const getCommonStyles = ({
-	spacing = SpacingEnum.default,
 	withBottomSpacing = false,
 	height,
 	background,
@@ -219,32 +216,31 @@ export const getSpacerStyles = ({
 	left,
 	vertical,
 	horizontal,
-	all,
-	spacing = SpacingEnum.default
+	all
 }: SpacerProps): CSSObject | {} => ({
 	// the object can be empty
 	...(top && {
-		paddingTop: getSpacingOrValue(top, spacing)
+		paddingTop: getSpacingOrValue(top)
 	}),
 	...(right && {
-		paddingRight: getSpacingOrValue(right, spacing)
+		paddingRight: getSpacingOrValue(right)
 	}),
 	...(bottom && {
-		paddingBottom: getSpacingOrValue(bottom, spacing)
+		paddingBottom: getSpacingOrValue(bottom)
 	}),
 	...(left && {
-		paddingLeft: getSpacingOrValue(left, spacing)
+		paddingLeft: getSpacingOrValue(left)
 	}),
 	...(vertical && {
-		paddingTop: getSpacingOrValue(vertical, spacing),
-		paddingBottom: getSpacingOrValue(vertical, spacing)
+		paddingTop: getSpacingOrValue(vertical),
+		paddingBottom: getSpacingOrValue(vertical)
 	}),
 	...(horizontal && {
-		paddingLeft: getSpacingOrValue(horizontal, spacing),
-		paddingRight: getSpacingOrValue(horizontal, spacing)
+		paddingLeft: getSpacingOrValue(horizontal),
+		paddingRight: getSpacingOrValue(horizontal)
 	}),
 	...(all && {
-		padding: getSpacingOrValue(all, spacing)
+		padding: getSpacingOrValue(all)
 	})
 })
 
