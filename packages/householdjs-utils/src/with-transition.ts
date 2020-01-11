@@ -18,7 +18,7 @@ const defaultTransitionOptions: Required<TransitionOptions> = {
 }
 
 export const withTransition = (
-	transitionProperties: WithTransitionProps['transitionProperties'],
+	transitionProperties: WithTransitionProps['transitionProperties'] = 'all',
 	transitionOptions: WithTransitionProps['transitionOptions'] = defaultTransitionOptions,
 	disableTransitions: WithTransitionProps['disableTransitions'] = false // eg. use an .env variable to disable all transitions in the project
 ): CSSObject => {
