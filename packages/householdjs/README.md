@@ -10,14 +10,20 @@
 	reverse?: boolean
 	fillHeight?: boolean
     isInline?: boolean
-	spacing?: 'huge' | 'big' | 'default' | 'small' | 'tiny'
-	withBottomSpacing?: boolean
+	withBottomSpacing?: boolean | 'huge' | 'big' | 'default' | 'small' | 'tiny' | string
 	height?: string
 	background?: string
 	isRelative?: boolean
 	withPointer?: boolean
 	fullWidth?: boolean
 	maxWidth?: string
+    transitionProperties?: string | Array<string>
+	transitionOptions?: { // won't work without
+        timing?: string
+        durationInMs?: number
+        willChange?: boolean
+    }
+	disableTransitions?: boolean
     + common <div> element attributes
     + styled components props, e.g `as` => https://www.styled-components.com/docs/api
  ```
@@ -31,12 +37,18 @@
     width?: string
     noFontSize?: boolean
     justifySelfEnd?: boolean
-    spacing?: 'huge' | 'big' | 'default' | 'small' | 'tiny'
-    withBottomSpacing?: boolean
+    withBottomSpacing?: boolean | 'huge' | 'big' | 'default' | 'small' | 'tiny' | string
     height?: string
     background?: string
     isRelative?: boolean
     withPointer?: boolean
+    transitionProperties?: string | Array<string>
+	transitionOptions?: { // won't work without
+        timing?: string
+        durationInMs?: number
+        willChange?: boolean
+    }
+	disableTransitions?: boolean
     + common <div> element attributes
     + styled components props, e.g `as` => https://www.styled-components.com/docs/api
  ```
@@ -46,16 +58,22 @@
  ```
 	center?: boolean
     isInline?: boolean
-	spacing?: 'huge' | 'big' | 'default' | 'small' | 'tiny'
-	withBottomSpacing?: boolean
+	withBottomSpacing?: boolean | 'huge' | 'big' | 'default' | 'small' | 'tiny' | string
 	height?: string
 	background?: string
 	isRelative?: boolean
 	withPointer?: boolean
 	fullWidth?: boolean
 	maxWidth?: string
-    withBefore?: CSSObject,
-	withAfter?: CSSObject,
+    withBefore?: CSSObject
+	withAfter?: CSSObject
+    transitionProperties?: string | Array<string>
+	transitionOptions?: { // won't work without
+        timing?: string
+        durationInMs?: number
+        willChange?: boolean
+    }
+	disableTransitions?: boolean
     + common <div> element attributes
     + styled components props, e.g `as` => https://www.styled-components.com/docs/api
  ```
@@ -72,6 +90,13 @@
     horizontal?: boolean | string
     zIndex?: number
     position?: 'absolute' | 'fixed' | 'relative'
+    transitionProperties?: string | Array<string>
+	transitionOptions?: { // won't work without
+        timing?: string
+        durationInMs?: number
+        willChange?: boolean
+    }
+	disableTransitions?: boolean
     + common <div> element attributes
     + styled components props, e.g `as` => https://www.styled-components.com/docs/api
  ```
@@ -79,14 +104,13 @@
 ## `<Spacer />`
 + #### props:
  ```
-	top?: boolean | string
-	right?: boolean | string
-	bottom?: boolean | string
-	left?: boolean | string
-	all?: boolean | string
-	vertical?: boolean | string
-	horizontal?: boolean | string
-    spacing?: 'huge' | 'big' | 'default' | 'small' | 'tiny'
+	top?: boolean | 'huge' | 'big' | 'default' | 'small' | 'tiny' | string
+	right?: boolean | 'huge' | 'big' | 'default' | 'small' | 'tiny' | string
+	bottom?: boolean | 'huge' | 'big' | 'default' | 'small' | 'tiny' | string
+	left?: boolean | 'huge' | 'big' | 'default' | 'small' | 'tiny' | string
+	all?: boolean | 'huge' | 'big' | 'default' | 'small' | 'tiny' | string
+	vertical?: boolean | 'huge' | 'big' | 'default' | 'small' | 'tiny' | string
+	horizontal?: boolean | 'huge' | 'big' | 'default' | 'small' | 'tiny' | string
     + common <div> element attributes
     + styled components props e.g `as` => https://www.styled-components.com/docs/api
  ```
