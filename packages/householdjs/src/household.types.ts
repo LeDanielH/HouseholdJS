@@ -1,7 +1,7 @@
 import * as CSS from 'csstype'
 import React from 'react'
 import { GlobalsNumber } from 'csstype'
-import { SpacingEnum, WithTransitionProps } from '@householdjs/utils'
+import { SpacingEnum, WithTransitionPropType } from '@householdjs/utils'
 import { CSSObject } from 'styled-components'
 
 interface PositionedOnlyProps {
@@ -9,18 +9,7 @@ interface PositionedOnlyProps {
 	position?: Extract<CSS.PositionProperty, 'absolute' | 'fixed' | 'relative'>
 }
 
-/**
- * @ignore
- */
-export type RequireAtLeastOne<T, Keys extends keyof T = keyof T> = Pick<
-	T,
-	Exclude<keyof T, Keys>
-> &
-	{
-		[K in Keys]-?: Required<Pick<T, K>> & Partial<Pick<T, Exclude<Keys, K>>>
-	}[Keys]
-
-export interface SidesProps {
+export interface LocationProps {
 	top?: boolean | string
 	right?: boolean | string
 	bottom?: boolean | string
@@ -37,9 +26,7 @@ export type DivProps = Omit<
 
 export type ImageProps = React.HTMLProps<HTMLImageElement>
 
-export interface CommonElementProps
-	extends DivProps,
-		Partial<WithTransitionProps> {
+export interface CommonElementProps extends DivProps {
 	isInline?: boolean
 	withBottomSpacing?: boolean | string | SpacingEnum
 	height?: string
@@ -48,9 +35,8 @@ export interface CommonElementProps
 	withPointer?: boolean
 	fullWidth?: boolean
 	maxWidth?: CSS.MaxWidthProperty<string>
+	withTransition?: WithTransitionPropType
 }
-
-export type LocationProps = RequireAtLeastOne<SidesProps, keyof SidesProps>
 
 export interface FlexParentProps extends CommonElementProps {
 	alignItems?: CSS.AlignItemsProperty
@@ -73,7 +59,7 @@ export interface FlexChildProps
 export type PositionedProps = DivProps &
 	LocationProps &
 	PositionedOnlyProps &
-	Partial<WithTransitionProps>
+	Pick<CommonElementProps, 'withTransition'>
 
 export type SpacerProps = DivProps & LocationProps
 

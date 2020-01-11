@@ -14,24 +14,22 @@ import {
 	withBefore as withBeforeFn,
 	withAfter as withAfterFn,
 	withTransition as withTransitionFn,
-	WithTransitionProps
+	WithTransitionPropType
 } from '@householdjs/utils'
 
-export const getTransitionStyles = ({
-	transitionProperties,
-	transitionOptions,
-	disableTransitions
-}: Partial<WithTransitionProps>): CSSObject | {} => ({
-	...(transitionProperties
-		? {
-				...withTransitionFn(
-					transitionProperties,
-					transitionOptions,
-					disableTransitions
-				)
-		  }
-		: {})
-})
+export const getTransitionStyles = (
+	transitionParams: WithTransitionPropType
+): CSSObject | {} => {
+	if (transitionParams === true) {
+		return withTransitionFn()
+	} else {
+		return withTransitionFn(
+			transitionParams['transitionProperties'],
+			transitionParams['transitionOptions'],
+			transitionParams['disableTransitions']
+		)
+	}
+}
 
 /**
  * @ignore
@@ -44,9 +42,7 @@ export const getCommonStyles = ({
 	withPointer = false,
 	fullWidth = false,
 	maxWidth,
-	transitionProperties,
-	transitionOptions,
-	disableTransitions
+	withTransition
 }: CommonElementProps): CSSObject => ({
 	height,
 	background,
@@ -63,12 +59,8 @@ export const getCommonStyles = ({
 	...(withBottomSpacing && {
 		marginBottom: getSpacingOrValue(withBottomSpacing)
 	}),
-	...(transitionProperties && {
-		...getTransitionStyles({
-			transitionProperties,
-			transitionOptions,
-			disableTransitions
-		})
+	...(withTransition && {
+		...getTransitionStyles(withTransition)
 	})
 })
 
@@ -165,9 +157,7 @@ export const getPositionedStyles = ({
 	horizontal,
 	zIndex,
 	position = 'absolute',
-	transitionProperties,
-	transitionOptions,
-	disableTransitions
+	withTransition
 }: PositionedProps): CSSObject => ({
 	position,
 	zIndex,
@@ -197,12 +187,8 @@ export const getPositionedStyles = ({
 		right: getZeroOrValue(horizontal),
 		left: getZeroOrValue(horizontal)
 	}),
-	...(transitionProperties && {
-		...getTransitionStyles({
-			transitionProperties,
-			transitionOptions,
-			disableTransitions
-		})
+	...(withTransition && {
+		...getTransitionStyles(withTransition)
 	})
 })
 

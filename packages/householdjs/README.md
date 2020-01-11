@@ -17,13 +17,15 @@
 	withPointer?: boolean
 	fullWidth?: boolean
 	maxWidth?: string
-    transitionProperties?: string | Array<string>
-	transitionOptions?: { // won't work without
-        timing?: string
-        durationInMs?: number
-        willChange?: boolean
+    withTransition?: boolean | {
+        transitionProperties?: string | Array<string>
+        transitionOptions?: {
+            timing?: string
+            durationInMs?: number
+            willChange?: boolean
+        }
+        disableTransitions?: boolean
     }
-	disableTransitions?: boolean
     + common <div> element attributes
     + styled components props, e.g `as` => https://www.styled-components.com/docs/api
  ```
@@ -42,13 +44,15 @@
     background?: string
     isRelative?: boolean
     withPointer?: boolean
-    transitionProperties?: string | Array<string>
-	transitionOptions?: { // won't work without
-        timing?: string
-        durationInMs?: number
-        willChange?: boolean
+    withTransition?: boolean | {
+        transitionProperties?: string | Array<string>
+        transitionOptions?: {
+            timing?: string
+            durationInMs?: number
+            willChange?: boolean
+        }
+        disableTransitions?: boolean
     }
-	disableTransitions?: boolean
     + common <div> element attributes
     + styled components props, e.g `as` => https://www.styled-components.com/docs/api
  ```
@@ -67,13 +71,16 @@
 	maxWidth?: string
     withBefore?: CSSObject
 	withAfter?: CSSObject
-    transitionProperties?: string | Array<string>
-	transitionOptions?: { // won't work without
-        timing?: string
-        durationInMs?: number
-        willChange?: boolean
+    withTransition?: boolean | {
+        transitionProperties?: string | Array<string>
+        transitionOptions?: {
+            timing?: string
+            durationInMs?: number
+            willChange?: boolean
+        }
+        disableTransitions?: boolean
     }
-	disableTransitions?: boolean
+    
     + common <div> element attributes
     + styled components props, e.g `as` => https://www.styled-components.com/docs/api
  ```
@@ -90,13 +97,15 @@
     horizontal?: boolean | string
     zIndex?: number
     position?: 'absolute' | 'fixed' | 'relative'
-    transitionProperties?: string | Array<string>
-	transitionOptions?: { // won't work without
-        timing?: string
-        durationInMs?: number
-        willChange?: boolean
+    withTransition?: boolean | {
+        transitionProperties?: string | Array<string>
+        transitionOptions?: {
+            timing?: string
+            durationInMs?: number
+            willChange?: boolean
+        }
+        disableTransitions?: boolean
     }
-	disableTransitions?: boolean
     + common <div> element attributes
     + styled components props, e.g `as` => https://www.styled-components.com/docs/api
  ```
