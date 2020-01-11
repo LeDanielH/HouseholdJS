@@ -11,7 +11,8 @@ export { withPseudo, withAfter, withBefore } from './with-pseudo'
 export {
 	SpacingEnum,
 	WithTransitionProps,
-	TransitionPropertiesType
+	TransitionPropertiesType,
+	WithTransitionPropType
 } from './types'
 export { withTransition } from './with-transition'
 export {

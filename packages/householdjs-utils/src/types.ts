@@ -1,8 +1,5 @@
 import { CSSObject } from 'styled-components'
 
-/**
- * @ignore
- */
 export type UnitType = 'px' | 'em' | 'rem' | 'ms' | 's' | 'deg' | '%' // todo add more units if needed
 
 /**
@@ -10,9 +7,6 @@ export type UnitType = 'px' | 'em' | 'rem' | 'ms' | 's' | 'deg' | '%' // todo ad
  */
 export type ExtractNumberAndUnitType = [number, string]
 
-/**
- * @ignore
- */
 export interface TransitionOptions {
 	timing?: CSSObject['transitionTimingFunction']
 	durationInMs?: number
@@ -27,9 +21,8 @@ export interface WithTransitionProps {
 	disableTransitions: boolean
 }
 
-/**
- * @ignore
- */
+export type WithTransitionPropType = Partial<WithTransitionProps> | true
+
 export enum SpacingEnum {
 	huge = 'huge',
 	big = 'big',
