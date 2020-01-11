@@ -13,6 +13,15 @@ export const Spacing = {
  * @ignore
  */
 export const getSpacingOrValue = (
-	val: boolean | string,
-	spacing: SpacingEnum = SpacingEnum.default
-): string => (isBool(val) ? Spacing[spacing] : (val as string))
+	val: boolean | string | SpacingEnum
+): string => {
+	if (isBool(val)) {
+		return Spacing.default
+	} else {
+		const isSpacingVal = Object.keys(Spacing).includes(val as SpacingEnum)
+		if (isSpacingVal) {
+			return Spacing[val as SpacingEnum]
+		}
+		return val as string
+	}
+}
