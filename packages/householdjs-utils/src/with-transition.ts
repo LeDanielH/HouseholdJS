@@ -8,9 +8,6 @@ import {
 	TRANSITION_EASING_DEFAULT
 } from './constants'
 
-/**
- * @ignore
- */
 const defaultTransitionOptions: Required<TransitionOptions> = {
 	durationInMs: TRANSITION_DURATION_DEFAULT,
 	timing: TRANSITION_EASING_DEFAULT,

@@ -30,9 +30,6 @@ export interface SidesProps {
 	horizontal?: boolean | string
 }
 
-/**
- * @ignore
- */
 export type DivProps = Omit<
 	React.HTMLProps<HTMLDivElement>,
 	'wrap' | 'ref' | 'as'
@@ -78,12 +75,7 @@ export type PositionedProps = DivProps &
 	PositionedOnlyProps &
 	Partial<WithTransitionProps>
 
-export type SpacerPropsWithoutRequired = DivProps & LocationProps
-
-export type SpacerProps = RequireAtLeastOne<
-	SpacerPropsWithoutRequired,
-	'top' | 'right' | 'bottom' | 'left' | 'vertical' | 'horizontal' | 'all'
->
+export type SpacerProps = DivProps & LocationProps
 
 export interface SimpleWrapperProps extends CommonElementProps {
 	center?: boolean

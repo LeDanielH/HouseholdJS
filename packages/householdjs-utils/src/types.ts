@@ -37,5 +37,3 @@ export enum SpacingEnum {
 	small = 'small',
 	tiny = 'tiny'
 }
-
-export type FnParameters<T> = T extends (...args: infer T) => any ? T : never
