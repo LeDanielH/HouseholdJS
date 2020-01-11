@@ -13,10 +13,18 @@ export type HHExtractNumberAndUnitType = [number, string]
 /**
  * @ignore
  */
-export interface HHTransitionOptions {
+export interface TransitionOptions {
 	timing?: CSSObject['transitionTimingFunction']
 	durationInMs?: number
 	willChange?: boolean
+}
+
+export type TransitionPropertiesType = Array<keyof CSSObject> | keyof CSSObject
+
+export interface WithTransitionProps {
+	transitionProperties: TransitionPropertiesType
+	transitionOptions: TransitionOptions
+	disableTransitions: boolean
 }
 
 /**

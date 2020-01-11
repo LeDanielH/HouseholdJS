@@ -1,7 +1,8 @@
 import { withMs } from './with-unit'
 import { oc } from 'ts-optchain'
 import { CSSObject } from 'styled-components'
-import { HHTransitionOptions } from './types'
+import { TransitionOptions, WithTransitionProps } from './types'
+
 import {
 	TRANSITION_DURATION_DEFAULT,
 	TRANSITION_EASING_DEFAULT
@@ -10,16 +11,16 @@ import {
 /**
  * @ignore
  */
-const defaultTransitionOptions: Required<HHTransitionOptions> = {
+const defaultTransitionOptions: Required<TransitionOptions> = {
 	durationInMs: TRANSITION_DURATION_DEFAULT,
 	timing: TRANSITION_EASING_DEFAULT,
 	willChange: false
 }
 
 export const withTransition = (
-	transitionProperties: Array<keyof CSSObject> | keyof CSSObject,
-	transitionOptions: HHTransitionOptions = defaultTransitionOptions,
-	disableTransitions = false // eg. use an .env variable to disable all transitions in the project
+	transitionProperties: WithTransitionProps['transitionProperties'],
+	transitionOptions: WithTransitionProps['transitionOptions'] = defaultTransitionOptions,
+	disableTransitions: WithTransitionProps['disableTransitions'] = false // eg. use an .env variable to disable all transitions in the project
 ): CSSObject => {
 	if (disableTransitions) {
 		return {}
