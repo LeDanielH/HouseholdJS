@@ -33,7 +33,16 @@ const styles: CSSObject = {
         width: '100%'
     })
 }
-
+// generates
+const stylesGenerated: CSSObject = {
+    display: 'block',
+    [`&:before`]: {
+        content: '',
+        display: 'block',
+        height: '2px',
+        width: '100%'
+	}
+}
 /* gerenrates:
     display: 'block',
     [`&:before`]: {
@@ -47,24 +56,75 @@ const styles: CSSObject = {
  - also as a prop to `<SimpleWrapper />`
  
  ```typescript jsx
-    import { SimpleWrapper } from "householdjs";
-    import { CSSObject } from "styled-components";
-    const withAfterStyles: CSSObject = {
-        height: '5px',
-        width: '100%',
-        position: 'absolute',
-        right: 0,
-        bottom: 0,
-        left: 0,
-        backgroundColor: 'red'
-    }
-    const SimpleComponent = () => 
-        <SimpleWrapper 
-            withAfter={withAfterStyles} 
-            isRelative
-        >
-            <p>hello world</p>
-        </SimpleWrapper>
+import { SimpleWrapper } from "householdjs";
+import { CSSObject } from "styled-components";
+const withAfterStyles: CSSObject = {
+    height: '5px',
+    width: '100%',
+    position: 'absolute',
+    right: 0,
+    bottom: 0,
+    left: 0,
+    backgroundColor: 'red'
+}
+const SimpleComponent = () => 
+    <SimpleWrapper 
+        withAfter={withAfterStyles} 
+        isRelative
+    >
+        <p>hello world</p>
+    </SimpleWrapper>
 ```
 
+## ___withTransition___ 
+- quick way to generate css in js transition parameters
+ ```typescript
+/* withTransition = (
+    transitionProperties?: string | Array<string>,
+    transitionOptions?: { durationInMs: number, timing: string, willChange: false},
+    disableTransitions?: boolean // eg. use an .env variable to disable all transitions in the project
+) => CSSObject
+*/
+import { withTransition } from "@householdjs/utils"; 
+import { CSSObject } from "styled-components";
+const divStyles: CSSObject = {
+    backgroundColor: 'green',
+    ...withTransition('backgroundColor'),
+}
+// generates
+const divStylesGenerated: CSSObject = {
+    backgroundColor: 'green',
+    transitionProperty: 'backgroundColor', // will be 'all' if you call withTransition() without a parameter
+    transitionTimingFunction: 'ease',
+    transitionDuration: '300ms'
+}
+ 
+ ```
+- can also be used as a prop to `<FlexParent />`, `<FlexChild />`, `<SimpleWrapper />` and `<Positioned />`
+ ```typescript jsx
+import { SimpleWrapper } from "householdjs"; 
+import { CSSObject } from "styled-components";
+
+interface SimpleComponentProps {
+    isEnabled: boolean
+}
+const ComponentWithAnimatedBackground = ({ isEnabled }: SimpleComponentProps) => {
+    const background = isEnabled ? 'green' : 'gray';
+
+    return (
+        <SimpleWrapper withTransition background={background}>
+            <p>hello world</p>
+        </SimpleWrapper>
+    )
+}
+
+// generates
+const simpleWrapperStyles: CSSObject = {
+    background: 'green', // isEnabled = true
+    transitionProperty: 'all', // will be 'all' if you call withTransition() without a parameter
+    transitionTimingFunction: 'ease',
+    transitionDuration: '300ms'
+}
+
+```
 
