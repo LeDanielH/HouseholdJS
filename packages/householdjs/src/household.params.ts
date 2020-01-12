@@ -38,6 +38,7 @@ export const getCommonStyles = ({
 	withBottomSpacing = false,
 	height,
 	background,
+	backgroundColor,
 	isRelative = false,
 	withPointer = false,
 	fullWidth = false,
@@ -46,6 +47,7 @@ export const getCommonStyles = ({
 }: CommonElementProps): CSSObject => ({
 	height,
 	background,
+	backgroundColor,
 	maxWidth,
 	...(isRelative && {
 		position: 'relative'

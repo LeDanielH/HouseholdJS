@@ -30,7 +30,8 @@ export interface CommonElementProps extends DivProps {
 	isInline?: boolean
 	withBottomSpacing?: boolean | string | SpacingEnum
 	height?: string
-	background?: CSS.BackgroundProperty<string>
+	background?: CSS.BackgroundProperty<string>,
+	backgroundColor?: CSS.BackgroundColorProperty,
 	isRelative?: boolean
 	withPointer?: boolean
 	fullWidth?: boolean
