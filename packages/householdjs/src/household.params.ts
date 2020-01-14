@@ -1,35 +1,53 @@
 import { CSSObject } from 'styled-components'
 import {
-	HHFlexChildProps,
-	HHCommonProps,
-	HHSimpleProps,
-	HHPositionedProps,
-	HHSpacerProps,
-	HHFlexParentProps
+	FlexChildProps,
+	CommonElementProps,
+	SimpleWrapperProps,
+	PositionedProps,
+	SpacerProps,
+	FlexParentProps
 } from './household.types'
 import {
 	getSpacingOrValue,
 	getZeroOrValue,
-	HHSpacingEnum,
 	isBool,
-	HHSpacing
+	withBefore as withBeforeFn,
+	withAfter as withAfterFn,
+	withTransition as withTransitionFn,
+	WithTransitionPropType
 } from '@householdjs/utils'
+
+export const getTransitionStyles = (
+	transitionParams: WithTransitionPropType
+): CSSObject | {} => {
+	if (transitionParams === true) {
+		return withTransitionFn()
+	} else {
+		return withTransitionFn(
+			transitionParams['transitionProperties'],
+			transitionParams['transitionOptions'],
+			transitionParams['disableTransitions']
+		)
+	}
+}
 
 /**
  * @ignore
  */
-export const getHHCommonStyles = ({
-	spacing = HHSpacingEnum.default,
+export const getCommonStyles = ({
 	withBottomSpacing = false,
 	height,
 	background,
+	backgroundColor,
 	isRelative = false,
 	withPointer = false,
 	fullWidth = false,
-	maxWidth
-}: HHCommonProps): CSSObject => ({
+	maxWidth,
+	withTransition
+}: CommonElementProps): CSSObject => ({
 	height,
 	background,
+	backgroundColor,
 	maxWidth,
 	...(isRelative && {
 		position: 'relative'
@@ -41,14 +59,17 @@ export const getHHCommonStyles = ({
 		width: '100%'
 	}),
 	...(withBottomSpacing && {
-		marginBottom: HHSpacing[spacing]
+		marginBottom: getSpacingOrValue(withBottomSpacing)
+	}),
+	...(withTransition && {
+		...getTransitionStyles(withTransition)
 	})
 })
 
 /**
  * @ignore
  */
-export const getHHFlexParentStyles = ({
+export const getFlexParentStyles = ({
 	fillHeight,
 	column,
 	reverse,
@@ -57,8 +78,8 @@ export const getHHFlexParentStyles = ({
 	alignItems,
 	isInline,
 	...rest
-}: HHFlexParentProps): CSSObject => ({
-	...getHHCommonStyles(rest),
+}: FlexParentProps): CSSObject => ({
+	...getCommonStyles(rest),
 	display: isInline ? 'inline-flex' : 'flex',
 	justifyContent,
 	alignItems,
@@ -79,15 +100,15 @@ export const getHHFlexParentStyles = ({
 /**
  * @ignore
  */
-export const getHHFlexChildStyles = ({
+export const getFlexChildStyles = ({
 	grow,
 	shrink,
 	width,
 	noFontSize,
 	justifySelfEnd,
 	...rest
-}: HHFlexChildProps): CSSObject => ({
-	...getHHCommonStyles(rest),
+}: FlexChildProps): CSSObject => ({
+	...getCommonStyles(rest),
 	display: 'inline-block',
 	flexGrow: +isBool(grow) || (grow as number),
 	flexShrink: +isBool(shrink) || (shrink as number),
@@ -106,25 +127,29 @@ export const getHHFlexChildStyles = ({
 /**
  * @ignore
  */
-export const getHHSimpleStyles = ({
+export const getSimpleWrapperStyles = ({
 	center,
 	isInline,
+	withBefore,
+	withAfter,
 	...rest
-}: HHSimpleProps): CSSObject => ({
-	...getHHCommonStyles(rest),
+}: SimpleWrapperProps): CSSObject => ({
+	...getCommonStyles(rest),
 	...(center && {
 		marginLeft: 'auto',
 		marginRight: 'auto'
 	}),
 	...(isInline && {
 		display: 'inline-block'
-	})
+	}),
+	...(withBefore && withBeforeFn(withBefore)),
+	...(withAfter && withAfterFn(withAfter))
 })
 
 /**
  * @ignore
  */
-export const getHHPositionedStyles = ({
+export const getPositionedStyles = ({
 	top,
 	right,
 	bottom,
@@ -133,8 +158,9 @@ export const getHHPositionedStyles = ({
 	vertical,
 	horizontal,
 	zIndex,
-	position = 'absolute'
-}: HHPositionedProps): CSSObject => ({
+	position = 'absolute',
+	withTransition
+}: PositionedProps): CSSObject => ({
 	position,
 	zIndex,
 	...(top && {
@@ -162,52 +188,54 @@ export const getHHPositionedStyles = ({
 	...(horizontal && {
 		right: getZeroOrValue(horizontal),
 		left: getZeroOrValue(horizontal)
+	}),
+	...(withTransition && {
+		...getTransitionStyles(withTransition)
 	})
 })
 
 /**
  * @ignore
  */
-export const getHHSpacerStyles = ({
+export const getSpacerStyles = ({
 	top,
 	right,
 	bottom,
 	left,
 	vertical,
 	horizontal,
-	all,
-	spacing = HHSpacingEnum.default
-}: HHSpacerProps): CSSObject | {} => ({
+	all
+}: SpacerProps): CSSObject | {} => ({
 	// the object can be empty
 	...(top && {
-		paddingTop: getSpacingOrValue(top, spacing)
+		paddingTop: getSpacingOrValue(top)
 	}),
 	...(right && {
-		paddingRight: getSpacingOrValue(right, spacing)
+		paddingRight: getSpacingOrValue(right)
 	}),
 	...(bottom && {
-		paddingBottom: getSpacingOrValue(bottom, spacing)
+		paddingBottom: getSpacingOrValue(bottom)
 	}),
 	...(left && {
-		paddingLeft: getSpacingOrValue(left, spacing)
+		paddingLeft: getSpacingOrValue(left)
 	}),
 	...(vertical && {
-		paddingTop: getSpacingOrValue(vertical, spacing),
-		paddingBottom: getSpacingOrValue(vertical, spacing)
+		paddingTop: getSpacingOrValue(vertical),
+		paddingBottom: getSpacingOrValue(vertical)
 	}),
 	...(horizontal && {
-		paddingLeft: getSpacingOrValue(horizontal, spacing),
-		paddingRight: getSpacingOrValue(horizontal, spacing)
+		paddingLeft: getSpacingOrValue(horizontal),
+		paddingRight: getSpacingOrValue(horizontal)
 	}),
 	...(all && {
-		padding: getSpacingOrValue(all, spacing)
+		padding: getSpacingOrValue(all)
 	})
 })
 
 /**
  * @ignore
  */
-export const getHHImageStyles = (): CSSObject => ({
+export const getImageStyles = (): CSSObject => ({
 	display: 'block',
 	width: '100%',
 	height: 'auto'

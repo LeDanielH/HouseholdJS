@@ -1,4 +1,5 @@
 import { extractNumberAndUnitFromString } from './extract-number-and-unit-from-string'
+// TODO: test
 
 export const multiplyStringValue = (
 	numberWithUnit: string,

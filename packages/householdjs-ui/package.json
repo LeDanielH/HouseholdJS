@@ -1,6 +1,6 @@
 {
 	"name": "@householdjs/ui",
-	"version": "1.3.0",
+	"version": "1.3.1",
 	"description": "premade unstyled ui elements",
 	"keywords": [
 		"ui",
@@ -25,13 +25,13 @@
 		"url": "git+https://github.com/LeDanielH/HouseholdJS.git"
 	},
 	"scripts": {
-		"build": "npm run clean && npm run tsc && npm run docs:generate",
+		"build": "npm run clean && npm run tsc",
 		"clean": "npm run clean:lib && npm run clean:tsbuildinfo && npm run clean:docs",
 		"tsc": "tsc -b tsconfig.json",
 		"clean:docs": "rimraf docs",
 		"clean:lib": "rimraf lib",
 		"clean:tsbuildinfo": "rimraf tsconfig.tsbuildinfo",
-		"docs": "npm run clean:docs & npm run docs:generate",
+		"docs": "npm run clean:docs && npm run docs:generate",
 		"docs:generate": "typedoc --out docs/ src/ --mode file --readme none --theme minimal",
 		"upgrade": "ncu -u"
 	},
@@ -39,15 +39,15 @@
 		"url": "https://github.com/LeDanielH/HouseholdJS/issues"
 	},
 	"dependencies": {
-		"@householdjs/utils": "^1.3.0",
-		"householdjs": "^1.3.0",
-		"react": "^16.11.0",
+		"@householdjs/utils": "^1.3.1",
+		"householdjs": "^1.3.1",
+		"react": "^16.12.0",
 		"styled-components": "^4.4.1"
 	},
 	"devDependencies": {
-		"@types/react": "^16.9.11",
-		"@types/styled-components": "^4.1.21",
-		"typescript": "^3.7.2"
+		"@types/react": "^16.9.17",
+		"@types/styled-components": "^4.4.1",
+		"typescript": "^3.7.4"
 	},
 	"publishConfig": {
 		"access": "public"

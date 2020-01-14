@@ -2,6 +2,13 @@
 	"extends": "../../tsconfig.json",
 	"compilerOptions": {
 		"outDir": "./lib",
-		"rootDir": "./src"
-	}
+		"rootDir": "./src",
+		"composite": true
+	},
+	"references": [{
+		"path": "../householdjs-utils/tsconfig.json"
+	}],
+	"include": [
+		"src/**/*"
+	]
 }

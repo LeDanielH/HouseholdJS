@@ -1,5 +1,5 @@
 import { toTest } from './tests.utils'
-import { isBool } from '../packages/utils/src'
+import { isBool } from '../packages/householdjs-utils/src'
 
 toTest('isBool - 1', isBool, [1], false)
 toTest('isBool - undefined', isBool, [undefined], false)
