@@ -1,7 +1,7 @@
 {
 	"defaultSeverity": "warning",
 	"compilerOptions": {
-		"baseUrl": "./packages",
+		"baseUrl": ".",
 		"paths": {
 			"householdjs": ["householdjs/src"],
 			"@householdjs/ui": ["householdjs-ui/src"],
@@ -24,8 +24,7 @@
 		"noLib": false,
 		"removeComments": true,
 		"emitDecoratorMetadata": true,
-		"experimentalDecorators": true,
-		"composite": true
+		"experimentalDecorators": true
 	},
 	"plugins": [
 		{ "transform": "ts-optchain/transform" }
