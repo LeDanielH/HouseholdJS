@@ -25,6 +25,6 @@
 		"test": "jest",
 		"publish": "lerna publish",
 		"docs": "lerna run docs",
-		"upgrade": "ncu -u"
+		"upgrade": "ncu -u && lerna exec npm upgrade"
 	}
 }
