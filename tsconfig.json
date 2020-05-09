@@ -7,7 +7,8 @@
 			"@householdjs/utils": ["householdjs-utils/src"],
 			"@householdjs/elements": ["householdjs-elements/src"],
 			"@householdjs/ui": ["householdjs-ui/src"],
-			"@householdjs/*": ["*/src"]
+			"@householdjs/*": ["*/src"],
+			"householdjs": ["householdjs/src"]
 		},
 		"target": "es5",
 		"module": "commonjs",
