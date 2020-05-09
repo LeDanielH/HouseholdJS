@@ -1,5 +1,5 @@
 {
-	"name": "householdjs",
+	"name": "@householdjs/elements",
 	"version": "1.3.1",
 	"description": "styled layout components made out of household members",
 	"keywords": [
@@ -37,14 +37,15 @@
 		"url": "https://github.com/LeDanielH/HouseholdJS/issues"
 	},
 	"dependencies": {
-		"@householdjs/utils": "^1.3.1",
-		"react": "^16.12.0",
+		"@householdjs/utils": "1.3.1",
+		"@householdjs/types": "1.3.1",
+		"react": "^16.13.1",
 		"styled-components": "^4.4.1"
 	},
 	"devDependencies": {
-		"@types/react": "^16.9.17",
-		"@types/styled-components": "^4.4.1",
-		"typescript": "^3.7.4"
+		"@types/react": "^16.9.34",
+		"@types/styled-components": "^4.4.3",
+		"typescript": "^3.8.3"
 	},
 	"publishConfig": {
 		"access": "public"

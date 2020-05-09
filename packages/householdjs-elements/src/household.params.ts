@@ -1,12 +1,10 @@
-import { CSSObject } from 'styled-components'
-import {
-	FlexChildProps,
+import { CSSObject, FlexChildProps,
 	CommonElementProps,
 	SimpleWrapperProps,
 	PositionedProps,
 	SpacerProps,
-	FlexParentProps
-} from './household.types'
+	FlexParentProps, WithTransitionPropType } from '@householdjs/types'
+
 import {
 	getSpacingOrValue,
 	getZeroOrValue,
@@ -14,7 +12,6 @@ import {
 	withBefore as withBeforeFn,
 	withAfter as withAfterFn,
 	withTransition as withTransitionFn,
-	WithTransitionPropType
 } from '@householdjs/utils'
 
 export const getTransitionStyles = (

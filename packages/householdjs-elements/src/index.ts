@@ -18,15 +18,3 @@ export {
 	getSimpleWrapperStyles,
 	getImageStyles
 } from './household.params'
-
-export {
-	CommonElementProps,
-	FlexChildProps,
-	SimpleWrapperProps,
-	LocationProps,
-	PositionedProps,
-	DivProps,
-	SpacerProps,
-	FlexParentProps,
-	ImageProps
-} from './household.types'

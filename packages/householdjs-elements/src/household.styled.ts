@@ -1,12 +1,14 @@
-import styled, { CSSObject } from 'styled-components'
+import styled from 'styled-components'
+
 import {
+	CSSObject,
 	FlexParentProps,
 	PositionedProps,
 	SpacerProps,
 	SimpleWrapperProps,
 	ImageProps,
 	FlexChildProps
-} from './household.types'
+} from '@householdjs/types'
 import {
 	getFlexChildStyles,
 	getSimpleWrapperStyles,
