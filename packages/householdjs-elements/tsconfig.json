@@ -6,6 +6,8 @@
 		"composite": true
 	},
 	"references": [{
+		"path": "../householdjs-types/tsconfig.json"
+	},{
 		"path": "../householdjs-utils/tsconfig.json"
 	}],
 	"include": [

@@ -1,11 +1,13 @@
 {
 	"defaultSeverity": "warning",
 	"compilerOptions": {
-		"baseUrl": ".",
+		"baseUrl": "./packages",
 		"paths": {
-			"householdjs": ["householdjs/src"],
+			"@householdjs/types": ["householdjs-types/src"],
+			"@householdjs/utils": ["householdjs-utils/src"],
+			"@householdjs/elements": ["householdjs-elements/src"],
 			"@householdjs/ui": ["householdjs-ui/src"],
-			"@householdjs/utils": ["householdjs-utils/src"]
+			"@householdjs/*": ["*/src"]
 		},
 		"target": "es5",
 		"module": "commonjs",
