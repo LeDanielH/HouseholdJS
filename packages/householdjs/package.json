@@ -1,0 +1,51 @@
+{
+	"name": "householdjs",
+	"version": "1.3.1",
+	"description": "householdjs ui elements library",
+	"keywords": [
+		"layout",
+		"styled-components"
+	],
+	"author": "Daniel Zeman <ledaniel.zeman@gmail.com>",
+	"homepage": "https://github.com/LeDanielH/HouseholdJS#readme",
+	"license": "ISC",
+	"main": "lib/index.js",
+	"types": "lib/index.d.ts",
+	"directories": {
+		"lib": "lib",
+		"test": "__tests__"
+	},
+	"files": [
+		"lib"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/LeDanielH/HouseholdJS.git"
+	},
+	"scripts": {
+		"build": "npm run clean && npm run tsc",
+		"clean": "npm run clean:lib && npm run clean:tsbuildinfo && npm run clean:docs",
+		"tsc": "tsc -b tsconfig.json",
+		"clean:docs": "rimraf docs",
+		"clean:lib": "rimraf lib",
+		"clean:tsbuildinfo": "rimraf tsconfig.tsbuildinfo",
+		"docs": "npm run clean:docs && npm run docs:generate",
+		"docs:generate": "typedoc --out docs/ src/ --mode file --readme none --theme minimal",
+		"upgrade": "ncu -u"
+	},
+	"bugs": {
+		"url": "https://github.com/LeDanielH/HouseholdJS/issues"
+	},
+	"dependencies": {
+		"@householdjs/utils": "1.3.1",
+		"@householdjs/types": "1.3.1",
+		"@householdjs/elements": "1.3.1",
+		"@householdjs/ui": "1.3.1"
+	},
+	"devDependencies": {
+		"typescript": "^3.7.4"
+	},
+	"publishConfig": {
+		"access": "public"
+	}
+}
