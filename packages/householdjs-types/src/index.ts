@@ -1,8 +1,43 @@
-import * as CSS from 'csstype'
 import React from 'react'
-import { GlobalsNumber } from 'csstype'
-import { SpacingEnum, WithTransitionPropType } from '@householdjs/utils'
-import { CSSObject } from 'styled-components'
+import * as CSS from "csstype";
+import { GlobalsNumber } from 'csstype';
+
+// shamelessly copied from styled-components type definitions, because that's all I need at the moment
+export type CSSProperties = CSS.Properties<string | number>;
+export type CSSPseudos = { [K in CSS.Pseudos]?: CSSObject };
+export interface CSSObject extends CSSProperties, CSSPseudos {
+	[key: string]: CSSObject | string | number | undefined;
+}
+export type CSSKeyframes = object & { [key: string]: CSSObject };
+
+export enum SpacingEnum {
+	big = 'big',
+	default = 'default',
+	small = 'small'
+}
+
+export type UnitType = 'px' | 'em' | 'rem' | 'ms' | 's' | 'deg' | '%' // todo add more units if needed
+
+/**
+ * @ignore
+ */
+export type ExtractNumberAndUnitType = [number, string]
+
+export interface TransitionOptions {
+	timing?: CSSObject['transitionTimingFunction']
+	durationInMs?: number
+	willChange?: boolean
+}
+
+export type TransitionPropertiesType = Array<keyof CSSObject> | keyof CSSObject
+
+export interface WithTransitionProps {
+	transitionProperties: TransitionPropertiesType
+	transitionOptions: TransitionOptions
+	disableTransitions: boolean
+}
+
+export type WithTransitionPropType = Partial<WithTransitionProps> | true
 
 interface PositionedOnlyProps {
 	zIndex?: number
@@ -22,7 +57,7 @@ export interface LocationProps {
 export type DivProps = Omit<
 	React.HTMLProps<HTMLDivElement>,
 	'wrap' | 'ref' | 'as'
->
+	>
 
 export type ImageProps = React.HTMLProps<HTMLImageElement>
 
@@ -69,3 +104,4 @@ export interface SimpleWrapperProps extends CommonElementProps {
 	withBefore?: CSSObject
 	withAfter?: CSSObject
 }
+
