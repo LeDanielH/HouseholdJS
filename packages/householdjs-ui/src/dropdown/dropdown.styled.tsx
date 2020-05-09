@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { SimpleWrapper } from 'householdjs'
+import { SimpleWrapper } from '@householdjs/elements'
 import { DropdownStyledProps } from './dropdown.types'
 import { CLASS_IS_OPEN } from '../constants'
 import { pxToRem, withTransition } from '@householdjs/utils'

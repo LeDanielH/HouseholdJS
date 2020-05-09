@@ -1,12 +1,10 @@
 import { isBool } from './is-bool'
-import { SpacingEnum } from './types'
+import { SpacingEnum } from '@householdjs/types'
 
 export const Spacing = {
-	tiny: '0.25rem',
 	small: '0.5rem',
 	default: '1rem',
-	big: '2rem',
-	huge: '4rem'
+	big: '2rem'
 }
 
 /**
