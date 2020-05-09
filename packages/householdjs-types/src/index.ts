@@ -1,14 +1,14 @@
 import React from 'react'
-import * as CSS from "csstype";
-import { GlobalsNumber } from 'csstype';
+import * as CSS from 'csstype'
+import { GlobalsNumber } from 'csstype'
 
 // shamelessly copied from styled-components type definitions, because that's all I need at the moment
-export type CSSProperties = CSS.Properties<string | number>;
-export type CSSPseudos = { [K in CSS.Pseudos]?: CSSObject };
+export type CSSProperties = CSS.Properties<string | number>
+export type CSSPseudos = { [K in CSS.Pseudos]?: CSSObject }
 export interface CSSObject extends CSSProperties, CSSPseudos {
-	[key: string]: CSSObject | string | number | undefined;
+	[key: string]: CSSObject | string | number | undefined
 }
-export type CSSKeyframes = object & { [key: string]: CSSObject };
+export type CSSKeyframes = object & { [key: string]: CSSObject }
 
 export enum SpacingEnum {
 	big = 'big',
@@ -57,7 +57,7 @@ export interface LocationProps {
 export type DivProps = Omit<
 	React.HTMLProps<HTMLDivElement>,
 	'wrap' | 'ref' | 'as'
-	>
+>
 
 export type ImageProps = React.HTMLProps<HTMLImageElement>
 
@@ -65,8 +65,8 @@ export interface CommonElementProps extends DivProps {
 	isInline?: boolean
 	withBottomSpacing?: boolean | string | SpacingEnum
 	height?: string
-	background?: CSS.BackgroundProperty<string>,
-	backgroundColor?: CSS.BackgroundColorProperty,
+	background?: CSS.BackgroundProperty<string>
+	backgroundColor?: CSS.BackgroundColorProperty
 	isRelative?: boolean
 	withPointer?: boolean
 	fullWidth?: boolean
@@ -104,4 +104,3 @@ export interface SimpleWrapperProps extends CommonElementProps {
 	withBefore?: CSSObject
 	withAfter?: CSSObject
 }
-

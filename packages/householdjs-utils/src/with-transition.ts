@@ -1,6 +1,10 @@
 import { withMs } from './with-unit'
 import { oc } from 'ts-optchain'
-import { CSSObject, TransitionOptions, WithTransitionProps } from '@householdjs/types'
+import {
+	CSSObject,
+	TransitionOptions,
+	WithTransitionProps
+} from '@householdjs/types'
 
 import {
 	TRANSITION_DURATION_DEFAULT,
