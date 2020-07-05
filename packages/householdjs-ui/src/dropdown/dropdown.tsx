@@ -28,7 +28,7 @@ export type DropdownState = typeof initialState
 export type DropdownProps = typeof initialProps
 
 export class Dropdown extends PureComponent<DropdownProps, DropdownState> {
-	private content = React.createRef<HTMLDivElement>();
+	private content = React.createRef<HTMLDivElement>()
 	public state = initialState
 	public static defaultProps = initialProps
 
