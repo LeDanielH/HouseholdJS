@@ -1,6 +1,6 @@
 {
 	"name": "@householdjs/utils",
-	"version": "2.0.0-alpha.0",
+	"version": "2.0.2-alpha.0",
 	"description": "style utils to make you worry less about styling and more about application logic",
 	"keywords": [
 		"css",
@@ -37,7 +37,7 @@
 		"url": "https://github.com/LeDanielH/HouseholdJS/issues"
 	},
 	"dependencies": {
-		"@householdjs/types": "^2.0.0-alpha.0",
+		"@householdjs/types": "^2.0.1-alpha.0",
 		"styled-components": "^4.4.1",
 		"ts-optchain": "^0.1.8"
 	},
