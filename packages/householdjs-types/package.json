@@ -37,6 +37,9 @@
 	"bugs": {
 		"url": "https://github.com/LeDanielH/HouseholdJS/issues"
 	},
+	"dependencies": {
+		"ts-optchain": "^0.1.8"
+	},
 	"devDependencies": {
 		"csstype": "^2.6.10",
 		"typescript": "^3.8.3",
