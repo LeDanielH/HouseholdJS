@@ -21,7 +21,7 @@
 		"clean:household": "lerna run clean",
 		"prettier": "prettier --write \"./**/*.{ts,tsx}\"",
 		"test": "jest",
-		"publish": "lerna publish",
+		"publish": "lerna publish --no-push && git push --tags",
 		"upgrade": "ncu -u && lerna exec npm upgrade"
 	}
 }
