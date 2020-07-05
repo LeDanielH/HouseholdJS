@@ -11,8 +11,7 @@
 		"rimraf": "^3.0.2",
 		"ts-jest": "^25.5.1",
 		"ts-optchain": "^0.1.8",
-		"typedoc": "^0.17.6",
-		"typescript": "^3.8.3"
+		"typescript": "^3.9.6"
 	},
 	"scripts": {
 		"install": "lerna exec npm install",
@@ -20,11 +19,9 @@
 		"clean": "npm run clean:household && npm run clean:household",
 		"clean:node_modules": "lerna clean && rimraf node_modules",
 		"clean:household": "lerna run clean",
-		"clean:docs": "lerna run clean:docs",
 		"prettier": "prettier --write \"./**/*.{ts,tsx}\"",
 		"test": "jest",
 		"publish": "lerna publish",
-		"docs": "lerna run docs",
 		"upgrade": "ncu -u && lerna exec npm upgrade"
 	}
 }

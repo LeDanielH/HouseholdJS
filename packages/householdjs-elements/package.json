@@ -24,13 +24,10 @@
 	},
 	"scripts": {
 		"build": "npm run clean && npm run tsc",
-		"clean": "npm run clean:lib && npm run clean:tsbuildinfo && npm run clean:docs",
+		"clean": "npm run clean:lib && npm run clean:tsbuildinfo",
 		"tsc": "tsc -b tsconfig.json",
-		"clean:docs": "rimraf docs",
 		"clean:lib": "rimraf lib",
 		"clean:tsbuildinfo": "rimraf tsconfig.tsbuildinfo",
-		"docs": "npm run clean:docs && npm run docs:generate",
-		"docs:generate": "typedoc --out docs/ src/ --mode file --readme none --theme minimal",
 		"upgrade": "ncu -u"
 	},
 	"bugs": {
