@@ -2,12 +2,12 @@
 /* eslint-disable func-style */
 import { round } from '@householdjs/utils'
 
-export const SVG_MAX_PRECISION = 0.01;
+export const SVG_MAX_PRECISION = 0.01
 
 export type TCalculateSvgSizeReturn = {
-	width: number,
-	height: number,
-};
+	width: number
+	height: number
+}
 
 // eslint-disable-next-line valid-jsdoc
 /**
@@ -22,46 +22,40 @@ export type TCalculateSvgSizeReturn = {
 export const calculateSvgSize = (
 	viewBoxWidth: number,
 	viewBoxHeight: number,
-	sizeWeDefined?: number,
+	sizeWeDefined?: number
 ): TCalculateSvgSizeReturn => {
 	if (typeof sizeWeDefined === 'number') {
 		if (viewBoxHeight !== viewBoxWidth) {
-			const maxSize = Math.max(viewBoxWidth, viewBoxHeight);
-			const minSize = Math.min(viewBoxWidth, viewBoxHeight);
-			const shorterSideCalculatedSize = sizeWeDefined / (maxSize / minSize);
-			const shorterSideCalculatedSizeRounded = round(shorterSideCalculatedSize, SVG_MAX_PRECISION);
+			const maxSize = Math.max(viewBoxWidth, viewBoxHeight)
+			const minSize = Math.min(viewBoxWidth, viewBoxHeight)
+			const shorterSideCalculatedSize =
+				sizeWeDefined / (maxSize / minSize)
+			const shorterSideCalculatedSizeRounded = round(
+				shorterSideCalculatedSize,
+				SVG_MAX_PRECISION
+			)
 
 			if (viewBoxHeight > viewBoxWidth) {
 				return {
 					width: shorterSideCalculatedSizeRounded,
-					height: sizeWeDefined,
-				};
+					height: sizeWeDefined
+				}
 			} else {
 				return {
 					width: sizeWeDefined,
-					height: shorterSideCalculatedSizeRounded,
-				};
+					height: shorterSideCalculatedSizeRounded
+				}
 			}
 		}
 
 		return {
 			width: sizeWeDefined,
-			height: sizeWeDefined,
-		};
+			height: sizeWeDefined
+		}
 	}
-
-	if(viewBoxWidth === 0) {
-		throw new Error('viewBoxWidth cannot be 0')
-	}
-
-	if(viewBoxHeight === 0) {
-		throw new Error('viewBoxHeight cannot be 0')
-	}
-
 
 	return {
 		width: viewBoxWidth,
-		height: viewBoxHeight,
-	};
-
-};
+		height: viewBoxHeight
+	}
+}
