@@ -61,6 +61,8 @@ export type DivProps = Omit<
 
 export type ImageProps = React.HTMLProps<HTMLImageElement>
 
+export type SvgProps = React.SVGProps<HTMLOrSVGElement>
+
 export interface CommonElementProps extends DivProps {
 	isInline?: boolean
 	withBottomSpacing?: boolean | string | SpacingEnum
