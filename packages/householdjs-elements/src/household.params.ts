@@ -50,21 +50,31 @@ export const getCommonStyles = ({
 	background,
 	backgroundColor,
 	maxWidth,
-	...(isRelative && {
-		position: 'relative'
-	}),
-	...(withPointer && {
-		cursor: 'pointer'
-	}),
-	...(fullWidth && {
-		width: '100%'
-	}),
-	...(withBottomSpacing && {
-		marginBottom: getSpacingOrValue(withBottomSpacing)
-	}),
-	...(withTransition && {
-		...getTransitionStyles(withTransition)
-	})
+	...(isRelative
+		? {
+				position: 'relative'
+		  }
+		: {}),
+	...(withPointer
+		? {
+				cursor: 'pointer'
+		  }
+		: {}),
+	...(fullWidth
+		? {
+				width: '100%'
+		  }
+		: {}),
+	...(withBottomSpacing
+		? {
+				marginBottom: getSpacingOrValue(withBottomSpacing)
+		  }
+		: {}),
+	...(withTransition
+		? {
+				...getTransitionStyles(withTransition)
+		  }
+		: {})
 })
 
 /**
@@ -84,18 +94,26 @@ export const getFlexParentStyles = ({
 	display: isInline ? 'inline-flex' : 'flex',
 	justifyContent,
 	alignItems,
-	...(fillHeight && {
-		height: '100%'
-	}),
-	...(column && {
-		flexDirection: 'column'
-	}),
-	...(reverse && {
-		flexDirection: column ? 'column-reverse' : 'row-reverse'
-	}),
-	...(wrap && {
-		flexWrap: 'wrap'
-	})
+	...(fillHeight
+		? {
+				height: '100%'
+		  }
+		: {}),
+	...(column
+		? {
+				flexDirection: 'column'
+		  }
+		: {}),
+	...(reverse
+		? {
+				flexDirection: column ? 'column-reverse' : 'row-reverse'
+		  }
+		: {}),
+	...(wrap
+		? {
+				flexWrap: 'wrap'
+		  }
+		: {})
 })
 
 /**
@@ -113,16 +131,22 @@ export const getFlexChildStyles = ({
 	display: 'inline-block',
 	flexGrow: +isBool(grow) || (grow as number),
 	flexShrink: +isBool(shrink) || (shrink as number),
-	...(width && {
-		maxWidth: width
-	}),
+	...(width
+		? {
+				maxWidth: width
+		  }
+		: {}),
 	flexBasis: width || 'auto',
-	...(noFontSize && {
-		fontSize: 0
-	}),
-	...(justifySelfEnd && {
-		marginLeft: 'auto'
-	})
+	...(noFontSize
+		? {
+				fontSize: 0
+		  }
+		: {}),
+	...(justifySelfEnd
+		? {
+				marginLeft: 'auto'
+		  }
+		: {})
 })
 
 /**
@@ -136,15 +160,19 @@ export const getSimpleWrapperStyles = ({
 	...rest
 }: SimpleWrapperProps): CSSObject => ({
 	...getCommonStyles(rest),
-	...(center && {
-		marginLeft: 'auto',
-		marginRight: 'auto'
-	}),
-	...(isInline && {
-		display: 'inline-block'
-	}),
-	...(withBefore && withBeforeFn(withBefore)),
-	...(withAfter && withAfterFn(withAfter))
+	...(center
+		? {
+				marginLeft: 'auto',
+				marginRight: 'auto'
+		  }
+		: {}),
+	...(isInline
+		? {
+				display: 'inline-block'
+		  }
+		: {}),
+	...(withBefore ? withBeforeFn(withBefore) : {}),
+	...(withAfter ? withAfterFn(withAfter) : {})
 })
 
 /**
@@ -164,35 +192,51 @@ export const getPositionedStyles = ({
 }: PositionedProps): CSSObject => ({
 	position,
 	zIndex,
-	...(top && {
-		top: getZeroOrValue(top)
-	}),
-	...(right && {
-		right: getZeroOrValue(right)
-	}),
-	...(bottom && {
-		bottom: getZeroOrValue(bottom)
-	}),
-	...(left && {
-		left: getZeroOrValue(left)
-	}),
-	...(all && {
-		top: getZeroOrValue(all),
-		right: getZeroOrValue(all),
-		bottom: getZeroOrValue(all),
-		left: getZeroOrValue(all)
-	}),
-	...(vertical && {
-		top: getZeroOrValue(vertical),
-		bottom: getZeroOrValue(vertical)
-	}),
-	...(horizontal && {
-		right: getZeroOrValue(horizontal),
-		left: getZeroOrValue(horizontal)
-	}),
-	...(withTransition && {
-		...getTransitionStyles(withTransition)
-	})
+	...(top
+		? {
+				top: getZeroOrValue(top)
+		  }
+		: {}),
+	...(right
+		? {
+				right: getZeroOrValue(right)
+		  }
+		: {}),
+	...(bottom
+		? {
+				bottom: getZeroOrValue(bottom)
+		  }
+		: {}),
+	...(left
+		? {
+				left: getZeroOrValue(left)
+		  }
+		: {}),
+	...(all
+		? {
+				top: getZeroOrValue(all),
+				right: getZeroOrValue(all),
+				bottom: getZeroOrValue(all),
+				left: getZeroOrValue(all)
+		  }
+		: {}),
+	...(vertical
+		? {
+				top: getZeroOrValue(vertical),
+				bottom: getZeroOrValue(vertical)
+		  }
+		: {}),
+	...(horizontal
+		? {
+				right: getZeroOrValue(horizontal),
+				left: getZeroOrValue(horizontal)
+		  }
+		: {}),
+	...(withTransition
+		? {
+				...getTransitionStyles(withTransition)
+		  }
+		: {})
 })
 
 /**
@@ -208,29 +252,43 @@ export const getSpacerStyles = ({
 	all
 }: SpacerProps): CSSObject | {} => ({
 	// the object can be empty
-	...(top && {
-		paddingTop: getSpacingOrValue(top)
-	}),
-	...(right && {
-		paddingRight: getSpacingOrValue(right)
-	}),
-	...(bottom && {
-		paddingBottom: getSpacingOrValue(bottom)
-	}),
-	...(left && {
-		paddingLeft: getSpacingOrValue(left)
-	}),
-	...(vertical && {
-		paddingTop: getSpacingOrValue(vertical),
-		paddingBottom: getSpacingOrValue(vertical)
-	}),
-	...(horizontal && {
-		paddingLeft: getSpacingOrValue(horizontal),
-		paddingRight: getSpacingOrValue(horizontal)
-	}),
-	...(all && {
-		padding: getSpacingOrValue(all)
-	})
+	...(top
+		? {
+				paddingTop: getSpacingOrValue(top)
+		  }
+		: {}),
+	...(right
+		? {
+				paddingRight: getSpacingOrValue(right)
+		  }
+		: {}),
+	...(bottom
+		? {
+				paddingBottom: getSpacingOrValue(bottom)
+		  }
+		: {}),
+	...(left
+		? {
+				paddingLeft: getSpacingOrValue(left)
+		  }
+		: {}),
+	...(vertical
+		? {
+				paddingTop: getSpacingOrValue(vertical),
+				paddingBottom: getSpacingOrValue(vertical)
+		  }
+		: {}),
+	...(horizontal
+		? {
+				paddingLeft: getSpacingOrValue(horizontal),
+				paddingRight: getSpacingOrValue(horizontal)
+		  }
+		: {}),
+	...(all
+		? {
+				padding: getSpacingOrValue(all)
+		  }
+		: {})
 })
 
 /**

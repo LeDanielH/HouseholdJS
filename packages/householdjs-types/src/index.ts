@@ -45,13 +45,13 @@ interface PositionedOnlyProps {
 }
 
 export interface LocationProps {
-	top?: boolean | string
-	right?: boolean | string
-	bottom?: boolean | string
-	left?: boolean | string
-	all?: boolean | string
-	vertical?: boolean | string
-	horizontal?: boolean | string
+	top?: true | string
+	right?: true | string
+	bottom?: true | string
+	left?: true | string
+	all?: true | string
+	vertical?: true | string
+	horizontal?: true | string
 }
 
 export type DivProps = Omit<
