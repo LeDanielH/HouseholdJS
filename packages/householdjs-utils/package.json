@@ -1,6 +1,6 @@
 {
 	"name": "@householdjs/utils",
-	"version": "2.0.1-alpha.0",
+	"version": "2.0.2-alpha.0",
 	"description": "style utils to make you worry less about styling and more about application logic",
 	"keywords": [
 		"css",
