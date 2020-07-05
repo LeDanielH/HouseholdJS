@@ -1,8 +1,0 @@
-{
-	"scripts": {
-		"publish": "npm publish",
-		"doc": "npm run clean:doc & npm run doc:generate",
-		"doc:generate": "typedoc --out docs/ src/householdjs/ --mode file --readme none --theme minimal"
-	}
-}
-
