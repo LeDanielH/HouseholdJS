@@ -11,7 +11,16 @@ export { withPseudo, withAfter, withBefore } from './with-pseudo'
 export { withTransition } from './with-transition'
 
 // TODO: I need them temporarily, will move them to another package altogether
-export { round, roundDown, roundUp, getNumber, getPositiveNumber, getRoundedNumber, isZeroOrPositiveNumber, isPositiveNumber } from './numbersMod'
+export {
+	round,
+	roundDown,
+	roundUp,
+	getNumber,
+	getPositiveNumber,
+	getRoundedNumber,
+	isZeroOrPositiveNumber,
+	isPositiveNumber
+} from './numbersMod'
 
 export {
 	withUnit,
