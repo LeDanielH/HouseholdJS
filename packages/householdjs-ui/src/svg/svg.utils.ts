@@ -1,5 +1,3 @@
-// @flow
-/* eslint-disable func-style */
 import { round } from '@householdjs/utils'
 
 export const SVG_MAX_PRECISION = 0.01
@@ -9,7 +7,6 @@ export type TCalculateSvgSizeReturn = {
 	height: number
 }
 
-// eslint-disable-next-line valid-jsdoc
 /**
  * for svgs with uneven width and height
  * can't increase width without properly adjusting height to keep the sides ratio

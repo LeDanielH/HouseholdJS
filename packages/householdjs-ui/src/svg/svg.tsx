@@ -1,28 +1,9 @@
 // @flow
 
-import React, { ReactNode } from 'react'
+import React from 'react'
 import { calculateSvgSize } from './svg.utils'
 import { SvgProps } from '@householdjs/types'
-
-type ViewBoxSize = {
-	viewBoxSize: number
-}
-
-type ViewBoxValues = {
-	viewBoxWidth: number
-	viewBoxHeight: number
-}
-
-type ViewBox = ViewBoxSize | ViewBoxValues
-
-type PassedProps = ViewBox & {
-	children: ReactNode
-	size?: number
-	overflowFixScaleRatio?: number
-	overflowFixPosition?: number
-}
-
-export type Props = PassedProps & Partial<SvgProps>
+import { getNumber } from '@householdjs/utils'
 
 export const Svg = ({
 	size,
@@ -33,16 +14,30 @@ export const Svg = ({
 	overflowFixPosition = 0,
 	children,
 	...restProps
-}: Props) => {
+}: SvgProps) => {
 	const vbWidth = viewBoxSize || viewBoxWidth
 	const vbHeight = viewBoxSize || viewBoxHeight
+	const vbWidthNumber = getNumber(vbWidth)
+	const vbHeightNumber = getNumber(vbHeight)
 
-	const { width, height } = calculateSvgSize(vbWidth, vbHeight, size)
+	const { width, height } = calculateSvgSize(
+		vbWidthNumber,
+		vbHeightNumber,
+		size
+	)
 
 	const viewBox = `0 0 ${vbWidth} ${vbHeight}`
 
 	return (
-		<svg width={width} height={height} viewBox={viewBox} {...restProps}>
+		<svg
+			width={width}
+			height={height}
+			viewBox={viewBox}
+			fill="none"
+			xmlns="http://www.w3.org/2000/svg"
+			preserveAspectRatio="xMidYMid meet"
+			{...restProps}
+		>
 			<g
 				fill="none"
 				transform={`scale(${overflowFixScaleRatio} ${overflowFixScaleRatio})`}

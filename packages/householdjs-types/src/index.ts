@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 import * as CSS from 'csstype'
 import { GlobalsNumber } from 'csstype'
 
@@ -61,7 +61,30 @@ export type DivProps = Omit<
 
 export type ImageProps = React.HTMLProps<HTMLImageElement>
 
-export type SvgProps = React.SVGProps<HTMLOrSVGElement>
+type ViewBoxSizeProps = {
+	viewBoxSize: number
+	viewBoxWidth?: number
+	viewBoxHeight?: number
+}
+
+type ViewBoxValuesProps = {
+	viewBoxWidth: number
+	viewBoxHeight: number
+	viewBoxSize?: number
+}
+
+type ViewBoxProps = ViewBoxSizeProps | ViewBoxValuesProps
+
+type SvgSpecificProps = ViewBoxProps & {
+	children: ReactNode
+	size?: number
+	overflowFixScaleRatio?: number
+	overflowFixPosition?: number
+}
+
+// TODO fix any
+type SvgHtmlProps = React.SVGProps<any>
+export type SvgProps = SvgSpecificProps & Partial<SvgHtmlProps>
 
 export interface CommonElementProps extends DivProps {
 	isInline?: boolean
