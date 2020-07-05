@@ -1,5 +1,7 @@
 ## DOCUMENTATION
 
+#### WIP - _PACKAGE READY FOR PERSONAL USE ONLY_
+
 -   TODO - [householdjs](https://github.com/LeDanielH/HouseholdJS/tree/master/packages/householdjs)
 -   TODO - [householdjs-types](https://github.com/LeDanielH/HouseholdJS/tree/master/packages/householdjs-types)
 -   [householdjs-utils](https://github.com/LeDanielH/HouseholdJS/tree/master/packages/householdjs-utils)
