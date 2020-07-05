@@ -2,13 +2,18 @@
 	"extends": "../../tsconfig.json",
 	"compilerOptions": {
 		"outDir": "./lib",
-		"rootDir": "./src",
-		"composite": true
+		"rootDir": "./src"
 	},
-	"references": [{
-		"path": "../householdjs-utils/tsconfig.json"
-	}],
-	"include": [
-		"src/**/*"
+	"include": ["src/**/*"],
+
+	"references": [
+		{
+			"path": "../householdjs-types/tsconfig.json"
+		},
+		{
+			"path": "../householdjs-utils/tsconfig.json"
+		},
+		{ "path": "../householdjs-elements/tsconfig.json"},
+		{ "path": "../householdjs-ui/tsconfig.json"}
 	]
 }

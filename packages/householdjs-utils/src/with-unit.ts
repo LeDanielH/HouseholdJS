@@ -1,4 +1,4 @@
-import { UnitType } from './types'
+import { UnitType } from '@householdjs/types'
 
 /**
  * @ignore

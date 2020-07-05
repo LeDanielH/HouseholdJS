@@ -1,4 +1,4 @@
-import { ExtractNumberAndUnitType } from './types'
+import { ExtractNumberAndUnitType } from '@householdjs/types'
 
 /**
  * @ignore

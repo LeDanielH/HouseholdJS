@@ -28,16 +28,9 @@ export type DropdownState = typeof initialState
 export type DropdownProps = typeof initialProps
 
 export class Dropdown extends PureComponent<DropdownProps, DropdownState> {
-	private content = {
-		current: null
-	}
+	private content = React.createRef<HTMLDivElement>()
 	public state = initialState
 	public static defaultProps = initialProps
-
-	constructor(props: DropdownProps) {
-		super(props)
-		this.content = React.createRef()
-	}
 
 	private componentDidForceUpdate = () => {
 		const mutationObserver = new MutationObserver(this.updateContentHeight)

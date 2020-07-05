@@ -1,4 +1,4 @@
-import { SimpleWrapperProps } from 'householdjs'
+import { SimpleWrapperProps } from '@householdjs/types'
 import { DropdownProps, DropdownState } from './dropdown'
 
 /**

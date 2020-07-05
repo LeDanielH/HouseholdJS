@@ -1,12 +1,11 @@
 {
-	"name": "@householdjs/ui",
+	"name": "@householdjs/types",
 	"version": "1.3.1",
-	"description": "premade unstyled ui elements",
+	"description": "types for householdjs modules",
 	"keywords": [
-		"ui",
-		"elements",
-		"ui",
-		"elements"
+		"types",
+		"type",
+		"householdjs"
 	],
 	"author": "Daniel Zeman <ledaniel.zeman@gmail.com>",
 	"homepage": "https://github.com/LeDanielH/HouseholdJS#readme",
@@ -36,17 +35,12 @@
 		"url": "https://github.com/LeDanielH/HouseholdJS/issues"
 	},
 	"dependencies": {
-		"@householdjs/utils": "1.3.1",
-		"@householdjs/types": "1.3.1",
-		"@householdjs/elements": "1.3.1",
-		"react": "^16.13.1",
-		"styled-components": "^4.4.1",
 		"ts-optchain": "^0.1.8"
 	},
 	"devDependencies": {
 		"@types/react": "^16.9.41",
-		"typescript": "^3.9.6",
-		"@types/styled-components": "^5.1.0"
+		"csstype": "^2.6.11",
+		"typescript": "^3.9.6"
 	},
 	"publishConfig": {
 		"access": "public"
