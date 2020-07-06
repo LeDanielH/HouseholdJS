@@ -1,6 +1,6 @@
 {
 	"name": "householdjs",
-	"version": "2.0.3-alpha.0",
+	"version": "2.0.4-alpha.0",
 	"description": "householdjs ui elements library",
 	"keywords": [
 		"layout",
@@ -34,10 +34,10 @@
 		"url": "https://github.com/LeDanielH/HouseholdJS/issues"
 	},
 	"dependencies": {
-		"@householdjs/elements": "^2.0.3-alpha.0",
-		"@householdjs/types": "^2.0.1-alpha.0",
-		"@householdjs/ui": "^2.0.3-alpha.0",
-		"@householdjs/utils": "^2.0.2-alpha.0",
+		"@householdjs/elements": "^2.0.4-alpha.0",
+		"@householdjs/types": "^2.0.4-alpha.0",
+		"@householdjs/ui": "^2.0.4-alpha.0",
+		"@householdjs/utils": "^2.0.4-alpha.0",
 		"ts-optchain": "^0.1.8"
 	},
 	"devDependencies": {
