@@ -18,6 +18,58 @@ import {
 	withTransition as withTransitionFn
 } from '@householdjs/utils'
 
+/**
+ * @ignore
+ */
+export const getSpacerStyles = ({
+	top,
+	right,
+	bottom,
+	left,
+	vertical,
+	horizontal,
+	all
+}: SpacerProps): CSSObject | {} => ({
+	// the object can be empty
+	...(top
+		? {
+				paddingTop: getSpacingOrValue(top)
+		  }
+		: {}),
+	...(right
+		? {
+				paddingRight: getSpacingOrValue(right)
+		  }
+		: {}),
+	...(bottom
+		? {
+				paddingBottom: getSpacingOrValue(bottom)
+		  }
+		: {}),
+	...(left
+		? {
+				paddingLeft: getSpacingOrValue(left)
+		  }
+		: {}),
+	...(vertical
+		? {
+				paddingTop: getSpacingOrValue(vertical),
+				paddingBottom: getSpacingOrValue(vertical)
+		  }
+		: {}),
+	...(horizontal
+		? {
+				paddingLeft: getSpacingOrValue(horizontal),
+				paddingRight: getSpacingOrValue(horizontal)
+		  }
+		: {}),
+	...(all
+		? {
+				padding: getSpacingOrValue(all)
+		  }
+		: {})
+})
+
 export const getTransitionStyles = (
 	transitionParams: WithTransitionPropType
 ): CSSObject | {} => {
@@ -44,12 +96,16 @@ export const getCommonStyles = ({
 	withPointer = false,
 	fullWidth = false,
 	maxWidth,
-	withTransition
-}: CommonElementProps): CSSObject => ({
+	withTransition,
+	...rest
+}: // TODO hotfix
+CommonElementProps & SpacerProps): CSSObject => ({
 	height,
 	background,
 	backgroundColor,
 	maxWidth,
+	// TODO hotfix
+	...getSpacerStyles(rest),
 	...(isRelative
 		? {
 				position: 'relative'
@@ -241,59 +297,6 @@ export const getPositionedStyles = ({
 		  }
 		: {})
 })
-
-/**
- * @ignore
- */
-export const getSpacerStyles = ({
-	top,
-	right,
-	bottom,
-	left,
-	vertical,
-	horizontal,
-	all
-}: SpacerProps): CSSObject | {} => ({
-	// the object can be empty
-	...(top
-		? {
-				paddingTop: getSpacingOrValue(top)
-		  }
-		: {}),
-	...(right
-		? {
-				paddingRight: getSpacingOrValue(right)
-		  }
-		: {}),
-	...(bottom
-		? {
-				paddingBottom: getSpacingOrValue(bottom)
-		  }
-		: {}),
-	...(left
-		? {
-				paddingLeft: getSpacingOrValue(left)
-		  }
-		: {}),
-	...(vertical
-		? {
-				paddingTop: getSpacingOrValue(vertical),
-				paddingBottom: getSpacingOrValue(vertical)
-		  }
-		: {}),
-	...(horizontal
-		? {
-				paddingLeft: getSpacingOrValue(horizontal),
-				paddingRight: getSpacingOrValue(horizontal)
-		  }
-		: {}),
-	...(all
-		? {
-				padding: getSpacingOrValue(all)
-		  }
-		: {})
-})
-
 /**
  * @ignore
  */
