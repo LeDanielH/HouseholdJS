@@ -16,6 +16,16 @@ isRelative?: boolean
 withPointer?: boolean
 fullWidth?: boolean
 maxWidth?: string
+
+// spacing hotfix -> will change
+top?: boolean | 'big' | 'default' | 'small' | string
+right?: boolean | 'big' | 'default' | 'small' | string
+bottom?: boolean | 'big' | 'default' | 'small' | string
+left?: boolean | 'big' | 'default' | 'small' | string
+all?: boolean | 'big' | 'default' | 'small' | string
+vertical?: boolean | 'big' | 'default' | 'small' | string
+horizontal?: boolean | 'big' | 'default' | 'small' | string
+
 withTransition?: boolean | {
     transitionProperties?: string | Array<string>
     transitionOptions?: {
@@ -45,6 +55,16 @@ background?: string
 backgroundColor?: string
 isRelative?: boolean
 withPointer?: boolean
+
+// spacing hotfix -> will change
+top?: boolean | 'big' | 'default' | 'small' | string
+right?: boolean | 'big' | 'default' | 'small' | string
+bottom?: boolean | 'big' | 'default' | 'small' | string
+left?: boolean | 'big' | 'default' | 'small' | string
+all?: boolean | 'big' | 'default' | 'small' | string
+vertical?: boolean | 'big' | 'default' | 'small' | string
+horizontal?: boolean | 'big' | 'default' | 'small' | string
+
 withTransition?: boolean | {
     transitionProperties?: string | Array<string>
     transitionOptions?: {
@@ -73,6 +93,16 @@ fullWidth?: boolean
 maxWidth?: string
 withBefore?: CSSObject
 withAfter?: CSSObject
+
+// spacing hotfix -> will change
+top?: boolean | 'big' | 'default' | 'small' | string
+right?: boolean | 'big' | 'default' | 'small' | string
+bottom?: boolean | 'big' | 'default' | 'small' | string
+left?: boolean | 'big' | 'default' | 'small' | string
+all?: boolean | 'big' | 'default' | 'small' | string
+vertical?: boolean | 'big' | 'default' | 'small' | string
+horizontal?: boolean | 'big' | 'default' | 'small' | string
+
 withTransition?: boolean | {
     transitionProperties?: string | Array<string>
     transitionOptions?: {
