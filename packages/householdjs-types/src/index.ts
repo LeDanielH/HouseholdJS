@@ -109,7 +109,7 @@ export interface FlexParentProps extends CommonElementProps {
 }
 
 export interface FlexChildProps
-	extends Omit<CommonElementProps, 'maxWidth' | 'fullWidth' | 'isInline'> {
+	extends Omit<CommonElementProps, 'maxWidth' | 'isInline'> {
 	grow?: boolean | number | GlobalsNumber
 	shrink?: boolean | number | GlobalsNumber
 	width?: string
