@@ -86,7 +86,7 @@ type SvgSpecificProps = ViewBoxProps & {
 type SvgHtmlProps = React.SVGProps<any>
 export type SvgProps = SvgSpecificProps & Partial<SvgHtmlProps>
 
-export interface CommonElementProps extends DivProps {
+export interface CommonElementProps extends SpacerProps, DivProps {
 	isInline?: boolean
 	withBottomSpacing?: boolean | string | SpacingEnum
 	height?: string
