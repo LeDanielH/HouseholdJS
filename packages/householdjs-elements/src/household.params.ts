@@ -125,13 +125,16 @@ export const getFlexChildStyles = ({
 	width,
 	noFontSize,
 	justifySelfEnd,
+	// TODO hotfix
+	withIe,
 	...rest
 }: FlexChildProps): CSSObject => ({
 	...getCommonStyles(rest),
 	display: 'inline-block',
 	flexGrow: +isBool(grow) || (grow as number),
 	flexShrink: +isBool(shrink) || (shrink as number),
-	...(width
+	// TODO hotfix
+	...(width && withIe
 		? {
 				maxWidth: width
 		  }

@@ -115,6 +115,7 @@ export interface FlexChildProps
 	width?: string
 	noFontSize?: boolean
 	justifySelfEnd?: boolean
+	withIe?: boolean,
 }
 
 export type PositionedProps = DivProps &
