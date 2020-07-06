@@ -10,6 +10,7 @@ fillHeight?: boolean
 isInline?: boolean
 withBottomSpacing?: boolean | 'big' | 'default' | 'small' | string
 height?: string
+minHeight?: string
 background?: string
 backgroundColor?: string
 isRelative?: boolean
@@ -51,6 +52,7 @@ noFontSize?: boolean
 justifySelfEnd?: boolean
 withBottomSpacing?: boolean | 'big' | 'default' | 'small' | string
 height?: string
+minHeight?: string
 background?: string
 backgroundColor?: string
 isRelative?: boolean
@@ -85,6 +87,7 @@ center?: boolean
 isInline?: boolean
 withBottomSpacing?: boolean | 'big' | 'default' | 'small' | string
 height?: string
+minHeight?: string
 background?: string
 backgroundColor?: string
 isRelative?: boolean
