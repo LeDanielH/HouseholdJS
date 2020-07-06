@@ -36,6 +36,7 @@ withTransition?: boolean | {
 grow?: boolean | number
 shrink?: boolean | number
 width?: string
+fullWidth?: boolean
 noFontSize?: boolean
 justifySelfEnd?: boolean
 withBottomSpacing?: boolean | 'big' | 'default' | 'small' | string
