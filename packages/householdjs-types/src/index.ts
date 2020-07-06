@@ -90,6 +90,7 @@ export interface CommonElementProps extends SpacerProps, DivProps {
 	isInline?: boolean
 	withBottomSpacing?: boolean | string | SpacingEnum
 	height?: string
+	minHeight?: string
 	background?: CSS.BackgroundProperty<string>
 	backgroundColor?: CSS.BackgroundColorProperty
 	isRelative?: boolean

@@ -97,6 +97,7 @@ export const getCommonStyles = ({
 	fullWidth = false,
 	maxWidth,
 	withTransition,
+	minHeight,
 	...rest
 }: // TODO hotfix
 CommonElementProps & SpacerProps): CSSObject => ({
@@ -129,6 +130,11 @@ CommonElementProps & SpacerProps): CSSObject => ({
 	...(withTransition
 		? {
 				...getTransitionStyles(withTransition)
+		  }
+		: {}),
+	...(minHeight
+		? {
+				minHeight
 		  }
 		: {})
 })
