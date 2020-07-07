@@ -1,6 +1,6 @@
 {
 	"name": "@householdjs/ui",
-	"version": "2.0.9-alpha.0",
+	"version": "2.0.10-alpha.0",
 	"description": "premade unstyled ui elements",
 	"keywords": [
 		"ui",
@@ -36,7 +36,7 @@
 		"url": "https://github.com/LeDanielH/HouseholdJS/issues"
 	},
 	"dependencies": {
-		"@householdjs/elements": "^2.0.9-alpha.0",
+		"@householdjs/elements": "^2.0.10-alpha.0",
 		"@householdjs/types": "^2.0.8-alpha.0",
 		"@householdjs/utils": "^2.0.9-alpha.0",
 		"react": "^16.13.1",
