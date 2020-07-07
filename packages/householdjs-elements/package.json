@@ -37,7 +37,7 @@
 		"@householdjs/types": "^2.0.8-alpha.0",
 		"@householdjs/utils": "^2.0.8-alpha.0",
 		"react": "^16.13.1",
-		"styled-components": "^4.4.1",
+		"styled-components": "^5.1.1",
 		"ts-optchain": "^0.1.8"
 	},
 	"devDependencies": {
