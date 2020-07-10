@@ -8,7 +8,7 @@ export const withPseudo = (
 	styles?: CSSObject
 ): CSSObject => ({
 	[`&:${pseudo}`]: {
-		content: '',
+		content: "''",
 		display: 'block',
 		...styles
 	}

@@ -16,7 +16,8 @@ export const getSpacingOrValue = (
 	if (isBool(val)) {
 		return Spacing.default
 	} else {
-		const isSpacingVal = Object.keys(Spacing).indexOf(val as SpacingEnum) > -1;
+		const isSpacingVal =
+			Object.keys(Spacing).indexOf(val as SpacingEnum) > -1
 		if (isSpacingVal) {
 			return Spacing[val as SpacingEnum]
 		}
