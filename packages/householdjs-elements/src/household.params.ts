@@ -98,6 +98,7 @@ export const getCommonStyles = ({
 	maxWidth,
 	withTransition,
 	minHeight,
+	zIndex,
 	...rest
 }: // TODO hotfix
 CommonElementProps & SpacerProps): CSSObject => ({
@@ -109,7 +110,12 @@ CommonElementProps & SpacerProps): CSSObject => ({
 	...getSpacerStyles(rest),
 	...(isRelative
 		? {
-				position: 'relative'
+				position: 'relative',
+				...(zIndex
+					? {
+							zIndex
+					  }
+					: {})
 		  }
 		: {}),
 	...(withPointer

@@ -97,7 +97,8 @@ export interface CommonElementProps extends SpacerProps, DivProps {
 	withPointer?: boolean
 	fullWidth?: boolean
 	maxWidth?: CSS.MaxWidthProperty<string>
-	withTransition?: WithTransitionPropType
+	withTransition?: WithTransitionPropType,
+	zIndex: CSS.ZIndexProperty,
 }
 
 export interface FlexParentProps extends CommonElementProps {
