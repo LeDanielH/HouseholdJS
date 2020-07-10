@@ -1,6 +1,6 @@
 {
 	"name": "@householdjs/elements",
-	"version": "2.0.11-alpha.0",
+	"version": "2.0.12-alpha.0",
 	"description": "styled layout components made out of household members",
 	"keywords": [
 		"layout",
@@ -34,8 +34,8 @@
 		"url": "https://github.com/LeDanielH/HouseholdJS/issues"
 	},
 	"dependencies": {
-		"@householdjs/types": "^2.0.8-alpha.0",
-		"@householdjs/utils": "^2.0.11-alpha.0",
+		"@householdjs/types": "^2.0.12-alpha.0",
+		"@householdjs/utils": "^2.0.12-alpha.0",
 		"react": "^16.13.1",
 		"styled-components": "^5.1.1",
 		"ts-optchain": "^0.1.8"
