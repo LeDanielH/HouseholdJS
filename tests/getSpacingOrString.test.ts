@@ -1,14 +1,14 @@
 import { toTest } from './tests.utils'
 import {
 	getSpacingOrValue,
-	SpacingEnum
+	Spacing,
 } from '../packages/householdjs-utils/src'
 
 toTest('getSpacingOrValue - true', getSpacingOrValue, [true], '1rem')
 toTest('getSpacingOrValue - 2rem', getSpacingOrValue, ['2rem'], '2rem')
 toTest(
-	'getSpacingOrValue - SpacingEnum.huge',
+	'getSpacingOrValue - SpacingEnum.big',
 	getSpacingOrValue,
-	[SpacingEnum.huge],
-	'4rem'
+	[Spacing.big],
+	'2rem'
 )
