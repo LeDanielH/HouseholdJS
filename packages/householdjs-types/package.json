@@ -29,7 +29,8 @@
 		"tsc": "tsc -b tsconfig.json",
 		"clean:lib": "rimraf lib",
 		"clean:tsbuildinfo": "rimraf tsconfig.tsbuildinfo",
-		"upgrade": "ncu -u"
+		"upgrade": "ncu -u",
+		"fix:packages": "npm audit fix"
 	},
 	"bugs": {
 		"url": "https://github.com/LeDanielH/HouseholdJS/issues"
@@ -38,9 +39,9 @@
 		"ts-optchain": "^0.1.8"
 	},
 	"devDependencies": {
-		"@types/react": "^16.9.41",
-		"csstype": "^2.6.11",
-		"typescript": "^3.9.6"
+		"@types/react": "^16.9.44",
+		"csstype": "^2.6.13",
+		"typescript": "^3.9.7"
 	},
 	"publishConfig": {
 		"access": "public"
