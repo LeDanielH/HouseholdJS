@@ -6,7 +6,8 @@ import {
 	PositionedProps,
 	SpacerProps,
 	FlexParentProps,
-	WithTransitionPropType
+	WithTransitionPropType,
+	ImageProps
 } from '@householdjs/types'
 
 import {
@@ -19,57 +20,68 @@ import {
 } from '@householdjs/utils'
 
 /**
- * @ignore
+ * @param sTop - true sets 'padding-top; 1rem;', string e.g. 'padding-top; 10rem;'
+ * @param sRight - true sets 'padding-right; 1rem;', string e.g. 'padding-right; 10rem;'
+ * @param sBottom - true sets 'padding-bottom; 1rem;', string e.g. 'padding-bottom; 10rem;'
+ * @param sLeft - true sets 'padding-left; 1rem;', string e.g. 'padding-left; 10rem;'
+ * @param sVertical - true sets 'padding-top; 1rem; padding-bottom; 1rem;', string e.g. 'padding-top; 10rem; padding-bottom; 10rem;'
+ * @param sHorizontal - true sets 'padding-left; 1rem; padding-right; 1rem;', string e.g. 'padding-left; 10rem; padding-right; 10rem;'
+ * @param sAll - true sets 'padding; 1rem;', string e.g. 'padding; 10rem;'
+ * @returns CSSObject (can be empty).
  */
 export const getSpacerStyles = ({
-	top,
-	right,
-	bottom,
-	left,
-	vertical,
-	horizontal,
-	all
+	sTop,
+	sRight,
+	sBottom,
+	sLeft,
+	sVertical,
+	sHorizontal,
+	sAll
 }: SpacerProps): CSSObject | {} => ({
 	// the object can be empty
-	...(top
+	...(sTop
 		? {
-				paddingTop: getSpacingOrValue(top)
+				paddingTop: getSpacingOrValue(sTop)
 		  }
 		: {}),
-	...(right
+	...(sRight
 		? {
-				paddingRight: getSpacingOrValue(right)
+				paddingRight: getSpacingOrValue(sRight)
 		  }
 		: {}),
-	...(bottom
+	...(sBottom
 		? {
-				paddingBottom: getSpacingOrValue(bottom)
+				paddingBottom: getSpacingOrValue(sBottom)
 		  }
 		: {}),
-	...(left
+	...(sLeft
 		? {
-				paddingLeft: getSpacingOrValue(left)
+				paddingLeft: getSpacingOrValue(sLeft)
 		  }
 		: {}),
-	...(vertical
+	...(sVertical
 		? {
-				paddingTop: getSpacingOrValue(vertical),
-				paddingBottom: getSpacingOrValue(vertical)
+				paddingTop: getSpacingOrValue(sVertical),
+				paddingBottom: getSpacingOrValue(sVertical)
 		  }
 		: {}),
-	...(horizontal
+	...(sHorizontal
 		? {
-				paddingLeft: getSpacingOrValue(horizontal),
-				paddingRight: getSpacingOrValue(horizontal)
+				paddingLeft: getSpacingOrValue(sHorizontal),
+				paddingRight: getSpacingOrValue(sHorizontal)
 		  }
 		: {}),
-	...(all
+	...(sAll
 		? {
-				padding: getSpacingOrValue(all)
+				padding: getSpacingOrValue(sAll)
 		  }
 		: {})
 })
 
+/**
+ * @param transitionParams - to enable css transitions.
+ * @returns CSSObject (can be empty).
+ */
 export const getTransitionStyles = (
 	transitionParams: WithTransitionPropType
 ): CSSObject | {} => {
@@ -85,10 +97,20 @@ export const getTransitionStyles = (
 }
 
 /**
- * @ignore
+ * @param height - sets css height property
+ * @param background - sets css background property
+ * @param backgroundColor - sets css background-color property
+ * @param isRelative - sets css 'position: relative;'
+ * @param withPointer - sets css 'cursor: pointer;'
+ * @param fullWidth - sets css 'width: 100%;'
+ * @param maxWidth - sets css max-width property
+ * @param withTransition - enable transitions on an element
+ * @param minHeight - sets css min-height property
+ * @param zIndex - works only if isRelative is set -> sets css z-index property
+ * @param rest - other props evaluated by getSpacerStyles.
+ * @returns CSSObject
  */
 export const getCommonStyles = ({
-	withBottomSpacing = false,
 	height,
 	background,
 	backgroundColor,
@@ -100,13 +122,11 @@ export const getCommonStyles = ({
 	minHeight,
 	zIndex,
 	...rest
-}: // TODO hotfix
-CommonElementProps & SpacerProps): CSSObject => ({
+}: CommonElementProps & SpacerProps): CSSObject => ({
 	height,
 	background,
 	backgroundColor,
 	maxWidth,
-	// TODO hotfix
 	...getSpacerStyles(rest),
 	...(isRelative
 		? {
@@ -128,11 +148,6 @@ CommonElementProps & SpacerProps): CSSObject => ({
 				width: '100%'
 		  }
 		: {}),
-	...(withBottomSpacing
-		? {
-				marginBottom: getSpacingOrValue(withBottomSpacing)
-		  }
-		: {}),
 	...(withTransition
 		? {
 				...getTransitionStyles(withTransition)
@@ -146,7 +161,15 @@ CommonElementProps & SpacerProps): CSSObject => ({
 })
 
 /**
- * @ignore
+ * @param fillHeight - true sets css 'height: 100%;'.
+ * @param column - true sets css 'flex-direction: column;'
+ * @param reverse - true sets css flex-direction to row-reverse or column-reverse
+ * @param wrap - true sets 'flex-wrap: 'wrap'
+ * @param justifyContent - set css justify-content property
+ * @param alignItems - set css align-items property
+ * @param isInline - true sets css to 'display: inline-flex;'
+ * @param rest - other css evaluated by getCommonStyles
+ * @returns CSSObject
  */
 export const getFlexParentStyles = ({
 	fillHeight,
@@ -185,15 +208,21 @@ export const getFlexParentStyles = ({
 })
 
 /**
- * @ignore
+ * @param grow - true sets css to 'flexGrow: 1;' / number e.g 'flexGrow: 5;'
+ * @param shrink - true sets css to 'flexShrink: 1;' / number e.g 'flexShrink: 5;'
+ * @param flexBasis - sets css flex-basis property, when withIe is enabled, also the css max-width property to flex-basis defined value
+ * @param noFontSize - true sets elements css 'fontSize: 0;' -> FlexChild element sometimes inherits fontSize, which is sometimes messing up elements position within flex layout
+ * @param justifySelfEnd - true sets css 'margin-left: auto;', moving the FlexChild element to the right size of FlexParent element
+ * @param withIe - if flexBasis is defined, true sets css max-width to css flex-basis defined value -> prevents some flex layout issues in Internet Explorer
+ * @param rest - other css evaluated by getCommonStyles
+ * @returns CSSObject
  */
 export const getFlexChildStyles = ({
 	grow,
 	shrink,
-	width,
+	flexBasis,
 	noFontSize,
 	justifySelfEnd,
-	// TODO hotfix
 	withIe,
 	...rest
 }: FlexChildProps): CSSObject => ({
@@ -201,13 +230,12 @@ export const getFlexChildStyles = ({
 	display: 'inline-block',
 	flexGrow: +isBool(grow) || (grow as number),
 	flexShrink: +isBool(shrink) || (shrink as number),
-	// TODO hotfix
-	...(width && withIe
+	...(flexBasis && withIe
 		? {
-				maxWidth: width
+				maxWidth: flexBasis
 		  }
 		: {}),
-	flexBasis: width || 'auto',
+	flexBasis: flexBasis || 'auto',
 	...(noFontSize
 		? {
 				fontSize: 0
@@ -221,7 +249,12 @@ export const getFlexChildStyles = ({
 })
 
 /**
- * @ignore
+ * @param center - true sets css 'margin-left: auto; margin-right: auto;'
+ * @param isInline - true sets css 'display: inline-block;'
+ * @param withBefore - add ':before' element and set its css properties
+ * @param withAfter - add ':after' element and set its css properties
+ * @param rest - other css evaluated by getCommonStyles
+ * @returns CSSObject
  */
 export const getSimpleWrapperStyles = ({
 	center,
@@ -247,7 +280,17 @@ export const getSimpleWrapperStyles = ({
 })
 
 /**
- * @ignore
+ * @param top - true sets css to 'top:0;' / string e.g css 'top: 10px;'
+ * @param right - true sets css to 'right:0;' / string e.g css 'right: 10px;'
+ * @param bottom - true sets css to 'bottom:0;' / string e.g css 'bottom: 10px;'
+ * @param left - true sets css to 'left:0;' / string e.g css 'left: 10px;'
+ * @param all - true sets css to 'top:0; right:0; bottom:0; left:0;' / string e.g css 'sets top:10px; right:10px; bottom:10px; left:10px;'
+ * @param vertical - true sets css to 'top:0; bottom:0;' / string e.g css 'top: 10px; bottom: 10px;'
+ * @param horizontal - true sets css to 'left:0; right:0;' / string e.g css 'left: 10px; right: 10px;'
+ * @param zIndex - sets css z-index property
+ * @param position - sets css position property (cannot be static).
+ * @param withTransition - enable css transitions on element.
+ * @returns CSSObject
  */
 export const getPositionedStyles = ({
 	top,
@@ -309,11 +352,13 @@ export const getPositionedStyles = ({
 		  }
 		: {})
 })
+
 /**
- * @ignore
+ * @param isInline - true replaces "display: block" by "display: inline-block".
+ * @returns CSSObject
  */
-export const getImageStyles = (): CSSObject => ({
-	display: 'block',
+export const getImageStyles = ({ isInline }: ImageProps): CSSObject => ({
+	display: isInline ? 'inline-block' : 'block',
 	width: '100%',
 	height: 'auto'
 })

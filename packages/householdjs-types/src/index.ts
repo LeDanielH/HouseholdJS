@@ -44,22 +44,32 @@ interface PositionedOnlyProps {
 	position?: Extract<CSS.PositionProperty, 'absolute' | 'fixed' | 'relative'>
 }
 
-export interface LocationProps {
-	top?: true | string
-	right?: true | string
-	bottom?: true | string
-	left?: true | string
-	all?: true | string
-	vertical?: true | string
-	horizontal?: true | string
+export interface SpacingProps {
+	sTop?: boolean | string
+	sRight?: boolean | string
+	sBottom?: boolean | string
+	sLeft?: boolean | string
+	sAll?: boolean | string
+	sVertical?: boolean | string
+	sHorizontal?: boolean | string
 }
 
-export type DivProps = Omit<
+export interface LocationProps {
+	top?: boolean | string
+	right?: boolean | string
+	bottom?: boolean | string
+	left?: boolean | string
+	all?: boolean | string
+	vertical?: boolean | string
+	horizontal?: boolean | string
+}
+
+export type DivHtmlProps = Omit<
 	React.HTMLProps<HTMLDivElement>,
 	'wrap' | 'ref' | 'as'
 >
 
-export type ImageProps = React.HTMLProps<HTMLImageElement>
+type ImageHtmlProps = React.HTMLProps<HTMLImageElement>
 
 type ViewBoxSizeProps = {
 	viewBoxSize: number
@@ -86,9 +96,8 @@ type SvgSpecificProps = ViewBoxProps & {
 type SvgHtmlProps = React.SVGProps<any>
 export type SvgProps = SvgSpecificProps & Partial<SvgHtmlProps>
 
-export interface CommonElementProps extends SpacerProps, DivProps {
+export interface CommonElementProps extends SpacerProps, DivHtmlProps {
 	isInline?: boolean
-	withBottomSpacing?: boolean | string | SpacingEnum
 	height?: string
 	minHeight?: string
 	background?: CSS.BackgroundProperty<string>
@@ -97,9 +106,11 @@ export interface CommonElementProps extends SpacerProps, DivProps {
 	withPointer?: boolean
 	fullWidth?: boolean
 	maxWidth?: CSS.MaxWidthProperty<string>
-	withTransition?: WithTransitionPropType,
-	zIndex?: CSS.ZIndexProperty,
+	withTransition?: WithTransitionPropType
+	zIndex?: CSS.ZIndexProperty
 }
+
+export type ImageProps = Pick<CommonElementProps, 'isInline'> & ImageHtmlProps
 
 export interface FlexParentProps extends CommonElementProps {
 	alignItems?: CSS.AlignItemsProperty
@@ -114,18 +125,18 @@ export interface FlexChildProps
 	extends Omit<CommonElementProps, 'maxWidth' | 'isInline'> {
 	grow?: boolean | number | GlobalsNumber
 	shrink?: boolean | number | GlobalsNumber
-	width?: string
+	flexBasis?: string
 	noFontSize?: boolean
 	justifySelfEnd?: boolean
 	withIe?: boolean
 }
 
-export type PositionedProps = DivProps &
+export type PositionedProps = DivHtmlProps &
 	LocationProps &
 	PositionedOnlyProps &
 	Pick<CommonElementProps, 'withTransition'>
 
-export type SpacerProps = DivProps & LocationProps
+export type SpacerProps = DivHtmlProps & SpacingProps
 
 export interface SimpleWrapperProps extends CommonElementProps {
 	center?: boolean

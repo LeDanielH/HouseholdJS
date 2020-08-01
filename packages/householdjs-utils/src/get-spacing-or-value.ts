@@ -1,20 +1,19 @@
-import { isBool } from './is-bool'
 import { SpacingEnum } from '@householdjs/types'
 
 export const Spacing = {
-	small: '0.5rem',
-	default: '1rem',
-	big: '2rem'
+	[SpacingEnum.small]: '0.5rem',
+	[SpacingEnum.default]: '1rem',
+	[SpacingEnum.big]: '2rem'
 }
 
 /**
  * @ignore
  */
 export const getSpacingOrValue = (
-	val: boolean | string | SpacingEnum
-): string => {
-	if (isBool(val)) {
-		return Spacing.default
+	val: true | string | SpacingEnum
+): string | null => {
+	if (val === true) {
+		return Spacing[SpacingEnum.default]
 	} else {
 		const isSpacingVal =
 			Object.keys(Spacing).indexOf(val as SpacingEnum) > -1

@@ -8,7 +8,6 @@ column?: boolean
 reverse?: boolean
 fillHeight?: boolean
 isInline?: boolean
-withBottomSpacing?: boolean | 'big' | 'default' | 'small' | string
 height?: string
 minHeight?: string
 background?: string
@@ -17,16 +16,13 @@ isRelative?: boolean
 withPointer?: boolean
 fullWidth?: boolean
 maxWidth?: string
-
-// spacing hotfix -> will change
-top?: boolean | 'big' | 'default' | 'small' | string
-right?: boolean | 'big' | 'default' | 'small' | string
-bottom?: boolean | 'big' | 'default' | 'small' | string
-left?: boolean | 'big' | 'default' | 'small' | string
-all?: boolean | 'big' | 'default' | 'small' | string
-vertical?: boolean | 'big' | 'default' | 'small' | string
-horizontal?: boolean | 'big' | 'default' | 'small' | string
-
+sTop?: boolean | 'big' | 'default' | 'small' | string
+sRight?: boolean | 'big' | 'default' | 'small' | string
+sBottom?: boolean | 'big' | 'default' | 'small' | string
+sLeft?: boolean | 'big' | 'default' | 'small' | string
+sAll?: boolean | 'big' | 'default' | 'small' | string
+sVertical?: boolean | 'big' | 'default' | 'small' | string
+sHorizontal?: boolean | 'big' | 'default' | 'small' | string
 withTransition?: boolean | {
     transitionProperties?: string | Array<string>
     transitionOptions?: {
@@ -46,27 +42,23 @@ withTransition?: boolean | {
 ```
 grow?: boolean | number
 shrink?: boolean | number
-width?: string
+flexBasis?: string
 fullWidth?: boolean
 noFontSize?: boolean
 justifySelfEnd?: boolean
-withBottomSpacing?: boolean | 'big' | 'default' | 'small' | string
 height?: string
 minHeight?: string
 background?: string
 backgroundColor?: string
 isRelative?: boolean
 withPointer?: boolean
-
-// spacing hotfix -> will change
-top?: boolean | 'big' | 'default' | 'small' | string
-right?: boolean | 'big' | 'default' | 'small' | string
-bottom?: boolean | 'big' | 'default' | 'small' | string
-left?: boolean | 'big' | 'default' | 'small' | string
-all?: boolean | 'big' | 'default' | 'small' | string
-vertical?: boolean | 'big' | 'default' | 'small' | string
-horizontal?: boolean | 'big' | 'default' | 'small' | string
-
+sTop?: boolean | 'big' | 'default' | 'small' | string
+sRight?: boolean | 'big' | 'default' | 'small' | string
+sBottom?: boolean | 'big' | 'default' | 'small' | string
+sLeft?: boolean | 'big' | 'default' | 'small' | string
+sAll?: boolean | 'big' | 'default' | 'small' | string
+sVertical?: boolean | 'big' | 'default' | 'small' | string
+sHorizontal?: boolean | 'big' | 'default' | 'small' | string
 withTransition?: boolean | {
     transitionProperties?: string | Array<string>
     transitionOptions?: {
@@ -85,7 +77,6 @@ withTransition?: boolean | {
  ```
 center?: boolean
 isInline?: boolean
-withBottomSpacing?: boolean | 'big' | 'default' | 'small' | string
 height?: string
 minHeight?: string
 background?: string
@@ -96,16 +87,13 @@ fullWidth?: boolean
 maxWidth?: string
 withBefore?: CSSObject
 withAfter?: CSSObject
-
-// spacing hotfix -> will change
-top?: boolean | 'big' | 'default' | 'small' | string
-right?: boolean | 'big' | 'default' | 'small' | string
-bottom?: boolean | 'big' | 'default' | 'small' | string
-left?: boolean | 'big' | 'default' | 'small' | string
-all?: boolean | 'big' | 'default' | 'small' | string
-vertical?: boolean | 'big' | 'default' | 'small' | string
-horizontal?: boolean | 'big' | 'default' | 'small' | string
-
+sTop?: boolean | 'big' | 'default' | 'small' | string
+sRight?: boolean | 'big' | 'default' | 'small' | string
+sBottom?: boolean | 'big' | 'default' | 'small' | string
+sLeft?: boolean | 'big' | 'default' | 'small' | string
+sAll?: boolean | 'big' | 'default' | 'small' | string
+sVertical?: boolean | 'big' | 'default' | 'small' | string
+sHorizontal?: boolean | 'big' | 'default' | 'small' | string
 withTransition?: boolean | {
     transitionProperties?: string | Array<string>
     transitionOptions?: {
@@ -148,13 +136,13 @@ withTransition?: boolean | {
 ## `<Spacer />`
 + #### props:
  ```
-top?: boolean | 'big' | 'default' | 'small' | string
-right?: boolean | 'big' | 'default' | 'small' | string
-bottom?: boolean | 'big' | 'default' | 'small' | string
-left?: boolean | 'big' | 'default' | 'small' | string
-all?: boolean | 'big' | 'default' | 'small' | string
-vertical?: boolean | 'big' | 'default' | 'small' | string
-horizontal?: boolean | 'big' | 'default' | 'small' | string
+sTop?: boolean | 'big' | 'default' | 'small' | string
+sRight?: boolean | 'big' | 'default' | 'small' | string
+sBottom?: boolean | 'big' | 'default' | 'small' | string
+sLeft?: boolean | 'big' | 'default' | 'small' | string
+sAll?: boolean | 'big' | 'default' | 'small' | string
+sVertical?: boolean | 'big' | 'default' | 'small' | string
+sHorizontal?: boolean | 'big' | 'default' | 'small' | string
 + common <div> element attributes
 + styled components props e.g `as` => https://www.styled-components.com/docs/api
  ```
