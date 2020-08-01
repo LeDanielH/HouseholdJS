@@ -38,4 +38,6 @@ export const Spacer = styled('div')<SpacerProps>(
 	(props: SpacerProps): CSSObject => getSpacerStyles(props)
 )
 
-export const Image = styled('img')<ImageProps>(getImageStyles())
+export const Image = styled('img')<ImageProps>((props: ImageProps) =>
+	getImageStyles(props)
+)
