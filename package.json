@@ -1,6 +1,6 @@
 {
 	"name": "householdjs-monorepo",
-	"version": "2.0.11-alpha.0",
+	"version": "2.1.0-alpha.0",
 	"private": true,
 	"devDependencies": {
 		"@types/jest": "^26.0.8",
@@ -20,8 +20,8 @@
 		"clean": "npm run clean:household",
 		"clean:node_modules": "lerna clean && rimraf node_modules",
 		"clean:household": "lerna run clean",
-		"prettier": "prettier --write \"./**/*.{ts,tsx}\"",
 		"test": "jest",
+		"prettier": "prettier --write \"./**/*.{ts,tsx}\"",
 		"publish": "lerna publish",
 		"upgrade": "ncu -u && lerna exec npm upgrade",
 		"fix:packages": "lerna run fix:packages"
