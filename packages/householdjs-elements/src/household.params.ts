@@ -7,7 +7,8 @@ import {
 	SpacerProps,
 	FlexParentProps,
 	WithTransitionPropType,
-	ImageProps
+	ImageProps,
+	ContainerOnlyProps
 } from '@householdjs/types'
 
 import {
@@ -18,6 +19,16 @@ import {
 	withAfter as withAfterFn,
 	withTransition as withTransitionFn
 } from '@householdjs/utils'
+
+export const getContainerOnlyProps = ({
+	withBottomMargin
+}: ContainerOnlyProps): CSSObject | {} => ({
+	...(withBottomMargin
+		? {
+				marginBottom: getSpacingOrValue(withBottomMargin)
+		  }
+		: {})
+})
 
 /**
  * @param sTop - true sets 'padding-top; 1rem;', string e.g. 'padding-top; 10rem;'
@@ -179,9 +190,11 @@ export const getFlexParentStyles = ({
 	justifyContent,
 	alignItems,
 	isInline,
+	withBottomMargin,
 	...rest
 }: FlexParentProps): CSSObject => ({
 	...getCommonStyles(rest),
+	...getContainerOnlyProps({ withBottomMargin }),
 	display: isInline ? 'inline-flex' : 'flex',
 	justifyContent,
 	alignItems,
@@ -254,6 +267,7 @@ export const getFlexChildStyles = ({
  * @param withBefore - add ':before' element and set its css properties
  * @param withAfter - add ':after' element and set its css properties
  * @param rest - other css evaluated by getCommonStyles
+ * @param withBottomMargin - true sets 'margin-bottom: 1rem;', string sets e.g. 'margin-bottom: 10rem;'
  * @returns CSSObject
  */
 export const getSimpleWrapperStyles = ({
@@ -261,9 +275,11 @@ export const getSimpleWrapperStyles = ({
 	isInline,
 	withBefore,
 	withAfter,
+	withBottomMargin,
 	...rest
 }: SimpleWrapperProps): CSSObject => ({
 	...getCommonStyles(rest),
+	...getContainerOnlyProps({ withBottomMargin }),
 	...(center
 		? {
 				marginLeft: 'auto',

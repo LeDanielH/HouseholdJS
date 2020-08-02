@@ -23,6 +23,7 @@ sLeft?: boolean | 'big' | 'default' | 'small' | string
 sAll?: boolean | 'big' | 'default' | 'small' | string
 sVertical?: boolean | 'big' | 'default' | 'small' | string
 sHorizontal?: boolean | 'big' | 'default' | 'small' | string
+withBottomMargin?: boolean | 'big' | 'default' | 'small' | string
 withTransition?: boolean | {
     transitionProperties?: string | Array<string>
     transitionOptions?: {
@@ -94,6 +95,7 @@ sLeft?: boolean | 'big' | 'default' | 'small' | string
 sAll?: boolean | 'big' | 'default' | 'small' | string
 sVertical?: boolean | 'big' | 'default' | 'small' | string
 sHorizontal?: boolean | 'big' | 'default' | 'small' | string
+withBottomMargin?: boolean | 'big' | 'default' | 'small' | string
 withTransition?: boolean | {
     transitionProperties?: string | Array<string>
     transitionOptions?: {

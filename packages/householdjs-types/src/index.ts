@@ -96,6 +96,10 @@ type SvgSpecificProps = ViewBoxProps & {
 type SvgHtmlProps = React.SVGProps<any>
 export type SvgProps = SvgSpecificProps & Partial<SvgHtmlProps>
 
+export type ContainerOnlyProps = {
+	withBottomMargin?: boolean | string
+}
+
 export interface CommonElementProps extends SpacerProps, DivHtmlProps {
 	isInline?: boolean
 	height?: string
@@ -112,7 +116,9 @@ export interface CommonElementProps extends SpacerProps, DivHtmlProps {
 
 export type ImageProps = Pick<CommonElementProps, 'isInline'> & ImageHtmlProps
 
-export interface FlexParentProps extends CommonElementProps {
+export interface FlexParentProps
+	extends CommonElementProps,
+		ContainerOnlyProps {
 	alignItems?: CSS.AlignItemsProperty
 	justifyContent?: CSS.JustifyContentProperty
 	wrap?: boolean
@@ -138,7 +144,9 @@ export type PositionedProps = DivHtmlProps &
 
 export type SpacerProps = DivHtmlProps & SpacingProps
 
-export interface SimpleWrapperProps extends CommonElementProps {
+export interface SimpleWrapperProps
+	extends CommonElementProps,
+		ContainerOnlyProps {
 	center?: boolean
 	withBefore?: CSSObject
 	withAfter?: CSSObject
