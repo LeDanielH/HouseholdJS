@@ -20,14 +20,20 @@ import {
 	withTransition as withTransitionFn
 } from '@householdjs/utils'
 
+/**
+ * @param withBottomMargin - true sets 'margin-bottom: 1rem;', string sets e.g. 'margin-bottom: 10rem;'
+ * @param width - sets css max-width property
+ */
 export const getContainerOnlyProps = ({
-	withBottomMargin
+	withBottomMargin,
+	width
 }: ContainerOnlyProps): CSSObject | {} => ({
 	...(withBottomMargin
 		? {
 				marginBottom: getSpacingOrValue(withBottomMargin)
 		  }
-		: {})
+		: {}),
+	...(width ? { width } : {})
 })
 
 /**
@@ -179,6 +185,8 @@ export const getCommonStyles = ({
  * @param justifyContent - set css justify-content property
  * @param alignItems - set css align-items property
  * @param isInline - true sets css to 'display: inline-flex;'
+ * @param withBottomMargin - true sets 'margin-bottom: 1rem;', string sets e.g. 'margin-bottom: 10rem;'
+ * @param width - sets css max-width property
  * @param rest - other css evaluated by getCommonStyles
  * @returns CSSObject
  */
@@ -191,10 +199,11 @@ export const getFlexParentStyles = ({
 	alignItems,
 	isInline,
 	withBottomMargin,
+	width,
 	...rest
 }: FlexParentProps): CSSObject => ({
 	...getCommonStyles(rest),
-	...getContainerOnlyProps({ withBottomMargin }),
+	...getContainerOnlyProps({ withBottomMargin, width }),
 	display: isInline ? 'inline-flex' : 'flex',
 	justifyContent,
 	alignItems,
@@ -268,6 +277,7 @@ export const getFlexChildStyles = ({
  * @param withAfter - add ':after' element and set its css properties
  * @param rest - other css evaluated by getCommonStyles
  * @param withBottomMargin - true sets 'margin-bottom: 1rem;', string sets e.g. 'margin-bottom: 10rem;'
+ * @param width - sets css max-width property
  * @returns CSSObject
  */
 export const getSimpleWrapperStyles = ({
@@ -276,10 +286,11 @@ export const getSimpleWrapperStyles = ({
 	withBefore,
 	withAfter,
 	withBottomMargin,
+	width,
 	...rest
 }: SimpleWrapperProps): CSSObject => ({
 	...getCommonStyles(rest),
-	...getContainerOnlyProps({ withBottomMargin }),
+	...getContainerOnlyProps({ withBottomMargin, width }),
 	...(center
 		? {
 				marginLeft: 'auto',

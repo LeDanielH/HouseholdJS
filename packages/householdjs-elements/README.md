@@ -16,6 +16,7 @@ isRelative?: boolean
 withPointer?: boolean
 fullWidth?: boolean
 maxWidth?: string
+width?: string
 sTop?: boolean | 'big' | 'default' | 'small' | string
 sRight?: boolean | 'big' | 'default' | 'small' | string
 sBottom?: boolean | 'big' | 'default' | 'small' | string
@@ -86,6 +87,7 @@ isRelative?: boolean
 withPointer?: boolean
 fullWidth?: boolean
 maxWidth?: string
+width?: string
 withBefore?: CSSObject
 withAfter?: CSSObject
 sTop?: boolean | 'big' | 'default' | 'small' | string

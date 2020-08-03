@@ -66,7 +66,7 @@ export interface LocationProps {
 
 export type DivHtmlProps = Omit<
 	React.HTMLProps<HTMLDivElement>,
-	'wrap' | 'ref' | 'as'
+	'wrap' | 'ref' | 'as' | 'width'
 >
 
 type ImageHtmlProps = React.HTMLProps<HTMLImageElement>
@@ -97,7 +97,8 @@ type SvgHtmlProps = React.SVGProps<any>
 export type SvgProps = SvgSpecificProps & Partial<SvgHtmlProps>
 
 export type ContainerOnlyProps = {
-	withBottomMargin?: boolean | string
+	withBottomMargin?: boolean | string,
+	width?: string,
 }
 
 export interface CommonElementProps extends SpacerProps, DivHtmlProps {
