@@ -1,7 +1,7 @@
 import React from 'react'
 import { SvgIconWrapper } from './svg-icon.styled'
 import { Svg } from '@householdjs/elements'
-import type { SvgIconProps } from './svg-icon.types.ts'
+import type { SvgIconProps } from './svg-icon.types'
 
 export const SvgIcon = ({
 	pointingTo,

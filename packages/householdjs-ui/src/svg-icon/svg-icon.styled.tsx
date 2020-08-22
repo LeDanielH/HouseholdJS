@@ -1,4 +1,4 @@
-import { SvgIconWrapperProps } from './svg-icon.types.ts'
+import { SvgIconWrapperProps } from './svg-icon.types'
 import styled from 'styled-components'
 import {
 	getRotationBasedOnPointingTo,

@@ -1,13 +1,13 @@
-import { CssPointingToType } from '@householdjs/types'
+import { PointingToEnum } from '@householdjs/types'
 
-export const POINTING_TO_TO_DEGREES_MAP: Record<CssPointingToType, number> = {
-	top: 0,
-	right: 90,
-	bottom: 180,
-	left: 270
+export const POINTING_TO_TO_DEGREES_MAP = {
+	[PointingToEnum.top]: 0,
+	[PointingToEnum.right]: 90,
+	[PointingToEnum.bottom]: 180,
+	[PointingToEnum.left]: 270
 }
 
 // element has to be initially pointing upwards for this to work as expected
 export const getRotationBasedOnPointingTo = (
-	pointingTo: CssPointingToType = POINTING_TO_TO_DEGREES_MAP.top
+	pointingTo: PointingToEnum = PointingToEnum.top
 ): number => POINTING_TO_TO_DEGREES_MAP[pointingTo]
