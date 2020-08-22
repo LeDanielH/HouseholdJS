@@ -2,7 +2,7 @@ import { round } from '@householdjs/utils'
 
 export const SVG_MAX_PRECISION = 0.01
 
-export type TCalculateSvgSizeReturn = {
+export type TCalculateSizeReturn = {
 	width: number
 	height: number
 }
@@ -10,21 +10,21 @@ export type TCalculateSvgSizeReturn = {
 /**
  * for svgs with uneven width and height
  * can't increase width without properly adjusting height to keep the sides ratio
- * enables us to set svg size prop - it calculates the shorter side based on the sizeWeDefined
+ * enables us to set svg-icon size prop - it calculates the shorter side based on the sizeWeDefined
  * @param {number} sizeWeDefined - how big do we want the longest side to be
- * @param {number} viewBoxWidth - that the svg was exported with
- * @param {number} viewBoxHeight - that the svg was exported with
+ * @param {number} width - that the svg-icon was exported with
+ * @param {number} height - that the svg-icon was exported with
  * @returns {{width: *, height: number}|{width: number, height: *}|{width: number, height: number}}
  */
-export const calculateSvgSize = (
-	viewBoxWidth: number,
-	viewBoxHeight: number,
+export const calculateSize = (
+	width: number,
+	height: number,
 	sizeWeDefined?: number
-): TCalculateSvgSizeReturn => {
+): TCalculateSizeReturn => {
 	if (typeof sizeWeDefined === 'number') {
-		if (viewBoxHeight !== viewBoxWidth) {
-			const maxSize = Math.max(viewBoxWidth, viewBoxHeight)
-			const minSize = Math.min(viewBoxWidth, viewBoxHeight)
+		if (height !== width) {
+			const maxSize = Math.max(width, height)
+			const minSize = Math.min(width, height)
 			const shorterSideCalculatedSize =
 				sizeWeDefined / (maxSize / minSize)
 			const shorterSideCalculatedSizeRounded = round(
@@ -32,7 +32,7 @@ export const calculateSvgSize = (
 				SVG_MAX_PRECISION
 			)
 
-			if (viewBoxHeight > viewBoxWidth) {
+			if (height > width) {
 				return {
 					width: shorterSideCalculatedSizeRounded,
 					height: sizeWeDefined
@@ -52,7 +52,7 @@ export const calculateSvgSize = (
 	}
 
 	return {
-		width: viewBoxWidth,
-		height: viewBoxHeight
+		width,
+		height
 	}
 }

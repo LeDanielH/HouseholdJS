@@ -17,6 +17,7 @@ export enum SpacingEnum {
 }
 
 export type UnitType = 'px' | 'em' | 'rem' | 'ms' | 's' | 'deg' | '%' // todo add more units if needed
+export type CssDirectionType = 'top' | 'right' | 'bottom' | 'left'
 
 /**
  * @ignore
@@ -95,10 +96,14 @@ type SvgSpecificProps = ViewBoxProps & {
 // TODO fix any
 type SvgHtmlProps = React.SVGProps<any>
 export type SvgProps = SvgSpecificProps & Partial<SvgHtmlProps>
+export type SvgParamsReturn = Omit<
+	SvgProps,
+	'size' | 'viewBoxWidth' | 'viewBoxHeight' | 'viewBoxSize'
+>
 
 export type ContainerOnlyProps = {
-	withBottomMargin?: boolean | string,
-	width?: string,
+	withBottomMargin?: boolean | string
+	width?: string
 }
 
 export interface CommonElementProps extends SpacerProps, DivHtmlProps {

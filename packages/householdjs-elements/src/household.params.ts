@@ -8,7 +8,9 @@ import {
 	FlexParentProps,
 	WithTransitionPropType,
 	ImageProps,
-	ContainerOnlyProps
+	ContainerOnlyProps,
+	SvgProps,
+	SvgParamsReturn
 } from '@householdjs/types'
 
 import {
@@ -17,8 +19,11 @@ import {
 	isBool,
 	withBefore as withBeforeFn,
 	withAfter as withAfterFn,
-	withTransition as withTransitionFn
+	withTransition as withTransitionFn,
+	getNumber
 } from '@householdjs/utils'
+
+import { calculateSize } from './svg/svg.utils'
 
 /**
  * @param withBottomMargin - true sets 'margin-bottom: 1rem;', string sets e.g. 'margin-bottom: 10rem;'
@@ -389,3 +394,33 @@ export const getImageStyles = ({ isInline }: ImageProps): CSSObject => ({
 	width: '100%',
 	height: 'auto'
 })
+
+export const getSvgParams = ({
+	size,
+	viewBoxWidth,
+	viewBoxHeight,
+	viewBoxSize,
+	overflowFixScaleRatio = 1,
+	overflowFixPosition = 0,
+	children,
+	...restProps
+}: SvgProps): SvgParamsReturn => {
+	const vbWidth = viewBoxSize || viewBoxWidth
+	const vbHeight = viewBoxSize || viewBoxHeight
+	const vbWidthNumber = getNumber(vbWidth)
+	const vbHeightNumber = getNumber(vbHeight)
+
+	const { width, height } = calculateSize(vbWidthNumber, vbHeightNumber, size)
+
+	const viewBox = `0 0 ${vbWidth} ${vbHeight}`
+
+	return {
+		...restProps,
+		width,
+		height,
+		viewBox,
+		overflowFixScaleRatio,
+		overflowFixPosition,
+		children
+	}
+}

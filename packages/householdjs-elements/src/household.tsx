@@ -7,6 +7,7 @@ import {
 	Spacer,
 	Image
 } from './household.styled'
+import { Svg } from './svg/svg'
 
 export class HH extends PureComponent {
 	static FlexParent = FlexParent
@@ -15,4 +16,5 @@ export class HH extends PureComponent {
 	static Positioned = Positioned
 	static SimpleWrapper = SimpleWrapper
 	static Image = Image
+	static Svg = Svg
 }
