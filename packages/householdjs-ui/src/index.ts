@@ -1,5 +1,4 @@
 export { Dropdown } from './dropdown/dropdown'
-export { Svg } from './svg/svg'
 export {
 	CLASS_IS_OPEN,
 	CLASS_IS_COMPLETED,

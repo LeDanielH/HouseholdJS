@@ -1,5 +1,4 @@
 import {
-	CSSObject,
 	FlexChildProps,
 	CommonElementProps,
 	SimpleWrapperProps,
@@ -8,7 +7,9 @@ import {
 	FlexParentProps,
 	WithTransitionPropType,
 	ImageProps,
-	ContainerOnlyProps
+	ContainerOnlyProps,
+	SvgProps,
+	SvgParamsReturn
 } from '@householdjs/types'
 
 import {
@@ -17,8 +18,13 @@ import {
 	isBool,
 	withBefore as withBeforeFn,
 	withAfter as withAfterFn,
-	withTransition as withTransitionFn
+	withTransition as withTransitionFn,
+	getNumber
 } from '@householdjs/utils'
+
+import { calculateSize } from './svg/svg.utils'
+
+import { CSSObject } from 'styled-components'
 
 /**
  * @param withBottomMargin - true sets 'margin-bottom: 1rem;', string sets e.g. 'margin-bottom: 10rem;'
@@ -125,6 +131,7 @@ export const getTransitionStyles = (
  * @param minHeight - sets css min-height property
  * @param zIndex - works only if isRelative is set -> sets css z-index property
  * @param rest - other props evaluated by getSpacerStyles.
+ * @param onClick - sets css 'cursor: pointer; when onClick prop is applied'.
  * @returns CSSObject
  */
 export const getCommonStyles = ({
@@ -138,6 +145,8 @@ export const getCommonStyles = ({
 	withTransition,
 	minHeight,
 	zIndex,
+	onClick,
+	noFontSize,
 	...rest
 }: CommonElementProps & SpacerProps): CSSObject => ({
 	height,
@@ -155,7 +164,7 @@ export const getCommonStyles = ({
 					: {})
 		  }
 		: {}),
-	...(withPointer
+	...(withPointer || onClick
 		? {
 				cursor: 'pointer'
 		  }
@@ -173,6 +182,11 @@ export const getCommonStyles = ({
 	...(minHeight
 		? {
 				minHeight
+		  }
+		: {}),
+	...(noFontSize
+		? {
+				fontSize: 0
 		  }
 		: {})
 })
@@ -258,11 +272,6 @@ export const getFlexChildStyles = ({
 		  }
 		: {}),
 	flexBasis: flexBasis || 'auto',
-	...(noFontSize
-		? {
-				fontSize: 0
-		  }
-		: {}),
 	...(justifySelfEnd
 		? {
 				marginLeft: 'auto'
@@ -389,3 +398,33 @@ export const getImageStyles = ({ isInline }: ImageProps): CSSObject => ({
 	width: '100%',
 	height: 'auto'
 })
+
+export const getSvgParams = ({
+	size,
+	viewBoxWidth,
+	viewBoxHeight,
+	viewBoxSize,
+	overflowFixScaleRatio = 1,
+	overflowFixPosition = 0,
+	children,
+	...restProps
+}: SvgProps): SvgParamsReturn => {
+	const vbWidth = viewBoxSize || viewBoxWidth
+	const vbHeight = viewBoxSize || viewBoxHeight
+	const vbWidthNumber = getNumber(vbWidth)
+	const vbHeightNumber = getNumber(vbHeight)
+
+	const { width, height } = calculateSize(vbWidthNumber, vbHeightNumber, size)
+
+	const viewBox = `0 0 ${vbWidth} ${vbHeight}`
+
+	return {
+		...restProps,
+		width,
+		height,
+		viewBox,
+		overflowFixScaleRatio,
+		overflowFixPosition,
+		children
+	}
+}

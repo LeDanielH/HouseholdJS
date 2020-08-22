@@ -9,6 +9,8 @@ export {
 	Image
 } from './household.styled'
 
+export { Svg } from './svg/svg'
+
 export {
 	getFlexChildStyles,
 	getFlexParentStyles,
@@ -16,5 +18,6 @@ export {
 	getCommonStyles,
 	getSpacerStyles,
 	getSimpleWrapperStyles,
-	getImageStyles
+	getImageStyles,
+	getSvgParams
 } from './household.params'

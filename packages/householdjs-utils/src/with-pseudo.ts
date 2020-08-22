@@ -1,4 +1,4 @@
-import { CSSObject } from '@householdjs/types'
+import { CSSObject } from 'styled-components'
 
 /**
  * @ignore

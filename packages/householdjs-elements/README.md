@@ -7,6 +7,7 @@ wrap?: boolean
 column?: boolean
 reverse?: boolean
 fillHeight?: boolean
+noFontSize?: boolean
 isInline?: boolean
 height?: string
 minHeight?: string
@@ -86,6 +87,7 @@ backgroundColor?: string
 isRelative?: boolean
 withPointer?: boolean
 fullWidth?: boolean
+noFontSize?: boolean
 maxWidth?: string
 width?: string
 withBefore?: CSSObject
@@ -163,5 +165,40 @@ sHorizontal?: boolean | 'big' | 'default' | 'small' | string
     <Image src="path_to_image">
 </SimpleWrapper>
 ```
+## `<Svg />`
 
+#### props:
+
+```
+   viewBoxSize?: number - must be defined if viewBoxWidth and viewBoxHeight are not
+   viewBoxWidth?: number - must be defined if viewBoxSize is not
+   viewBoxHeight?: number - must be defined if viewBoxSize is not
+   size?: number
+   overflowFixScaleRatio?: number
+   overflowFixPosition?: number
+   children: ReactNode
+```
+
+#### props in detail:
+
+-   **viewBoxSize**
+    -   you copy it from original svg element
+    -   never change this value!! - paths inside svg are calculations based on `viewBox`
+    -   when `viewBoxWidth` and `viewBoxHeight` are the same -> you don't have to define `viewBoxWidth` & `viewBoxHeight` then
+-   **viewBoxWidth**
+    -   you copy it from original svg element
+    -   never change this value!! - paths inside svg are calculations based on `viewBox`
+    -   don't define it if you defined `viewBoxSize`
+-   **viewBoxHeight**
+    -   you copy it from original svg element - never change this value!! - paths inside svg are calculations based on `viewBox`
+    -   don't define it if you defined `viewBoxSize`
+-   **size**
+    -   if not defined, it takes `(viewBoxWidth && viewBoxHeight) || viewBoxSize` as it's width and height parameters
+    -   if width and height are not the same, it defines the longer side length -> the other side is ratio calculated
+-   **overflowFixScaleRatio**
+    -   useful for charts => when you define a stroke, it can overflow the `viewBox`, making part of the svg invisible
+-   **overflowFixPosition**
+    -   useful for charts => when you use `overflowFixScaleRatio`, the paths inside viewBox might need a little adjustment nudge
+-   **children**
+    -   all other svg elements but `<svg />`
 
