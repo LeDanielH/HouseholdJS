@@ -40,8 +40,9 @@
 	},
 	"devDependencies": {
 		"@types/react": "^16.9.46",
-		"csstype": "^2.6.13",
-		"typescript": "^3.9.7"
+		"csstype": "^3.0.2",
+		"typescript": "^4.0.2",
+		"@types/styled-components": "^5.1.2"
 	},
 	"publishConfig": {
 		"access": "public"
