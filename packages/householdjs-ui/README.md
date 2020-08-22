@@ -24,7 +24,8 @@
 
 #### props:
 
-```pointingTo?: 'top' | 'right' | 'bottom' | 'left'
+```
+   pointingTo?: 'top' | 'right' | 'bottom' | 'left'
    withPointer?: boolean
    viewBoxSize?: number - must be defined if viewBoxWidth and viewBoxHeight are not
    viewBoxWidth?: number - must be defined if viewBoxSize is not
