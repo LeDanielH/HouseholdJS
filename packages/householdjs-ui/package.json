@@ -43,7 +43,8 @@
 		"react": "^16.13.1",
 		"react-dom": "^16.13.1",
 		"styled-components": "^5.1.1",
-		"ts-optchain": "^0.1.8"
+		"ts-optchain": "^0.1.8",
+		"polished": "3.6.5"
 	},
 	"devDependencies": {
 		"@types/react": "^16.9.44",
