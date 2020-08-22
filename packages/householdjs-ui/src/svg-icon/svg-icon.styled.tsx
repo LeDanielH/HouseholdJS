@@ -6,13 +6,24 @@ import {
 	withDeg
 } from '@householdjs/utils'
 import { size as sizePolished } from 'polished'
+import { CSSObject } from '@householdjs/types'
+import { getFlexChildStyles, getFlexParentStyles } from '@householdjs/elements'
 
 export const SvgIconWrapper = styled('i')<SvgIconWrapperProps>(
-	({ pointingTo, withPointer, size }: SvgIconWrapperProps) => ({
-		display: 'inline-flex',
-		justifyContent: 'center',
-		alignItems: 'center',
-		fontSize: 0,
+	({
+		pointingTo,
+		withPointer,
+		size,
+		onClick
+	}: SvgIconWrapperProps): CSSObject => ({
+		...getFlexParentStyles({
+			isInline: true,
+			justifyContent: 'center',
+			alignItems: 'center',
+			noFontSize: true,
+			onClick,
+			withPointer,
+		}),
 		...(pointingTo
 			? {
 					transform: `rotate(${withDeg(
@@ -20,16 +31,12 @@ export const SvgIconWrapper = styled('i')<SvgIconWrapperProps>(
 					)})`
 			  }
 			: {}),
-		...(withPointer
-			? {
-					cursor: 'pointer'
-			  }
-			: {}),
 		...sizePolished(pxToRem(size)),
 		svg: {
-			display: 'inline-block',
-			maxWidth: pxToRem(size),
-			flex: `0 0 ${pxToRem(size)}`
+			...getFlexChildStyles({
+				flexBasis: pxToRem(size),
+				withIe: true,
+			})
 		}
 	})
 )

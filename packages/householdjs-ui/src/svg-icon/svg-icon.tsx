@@ -9,6 +9,7 @@ export const SvgIcon = ({
 	size,
 	viewBoxWidth,
 	viewBoxHeight,
+	viewBoxSize,
 	children,
 	...restProps
 }: SvgIconProps) => {
@@ -23,6 +24,7 @@ export const SvgIcon = ({
 				size={size}
 				viewBoxWidth={viewBoxWidth}
 				viewBoxHeight={viewBoxHeight}
+				viewBoxSize={viewBoxSize}
 			>
 				{children}
 			</Svg>
