@@ -9,7 +9,10 @@ export { multiplyStringValue, mvws } from './multiply-string-value'
 export { pxToRem } from './px-to-rem'
 export { withPseudo, withAfter, withBefore } from './with-pseudo'
 export { withTransition } from './with-transition'
-export { getRotationBasedOnPointingTo, POINTING_TO_TO_DEGREES_MAP } from './getRotationBasedOnPointingTo'
+export {
+	getRotationBasedOnPointingTo,
+	POINTING_TO_TO_DEGREES_MAP
+} from './getRotationBasedOnPointingTo'
 
 // TODO: I need them temporarily, will move them to another package altogether
 export {

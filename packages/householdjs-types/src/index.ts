@@ -118,6 +118,7 @@ export interface CommonElementProps extends SpacerProps, DivHtmlProps {
 	maxWidth?: CSS.MaxWidthProperty<string>
 	withTransition?: WithTransitionPropType
 	zIndex?: CSS.ZIndexProperty
+	noFontSize?: boolean
 }
 
 export type ImageProps = Pick<CommonElementProps, 'isInline'> & ImageHtmlProps
@@ -138,7 +139,6 @@ export interface FlexChildProps
 	grow?: boolean | number | GlobalsNumber
 	shrink?: boolean | number | GlobalsNumber
 	flexBasis?: string
-	noFontSize?: boolean
 	justifySelfEnd?: boolean
 	withIe?: boolean
 }

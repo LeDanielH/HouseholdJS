@@ -130,6 +130,7 @@ export const getTransitionStyles = (
  * @param minHeight - sets css min-height property
  * @param zIndex - works only if isRelative is set -> sets css z-index property
  * @param rest - other props evaluated by getSpacerStyles.
+ * @param onClick - sets css 'cursor: pointer; when onClick prop is applied'.
  * @returns CSSObject
  */
 export const getCommonStyles = ({
@@ -143,6 +144,8 @@ export const getCommonStyles = ({
 	withTransition,
 	minHeight,
 	zIndex,
+	onClick,
+	noFontSize,
 	...rest
 }: CommonElementProps & SpacerProps): CSSObject => ({
 	height,
@@ -160,7 +163,7 @@ export const getCommonStyles = ({
 					: {})
 		  }
 		: {}),
-	...(withPointer
+	...(withPointer || onClick
 		? {
 				cursor: 'pointer'
 		  }
@@ -178,6 +181,11 @@ export const getCommonStyles = ({
 	...(minHeight
 		? {
 				minHeight
+		  }
+		: {}),
+	...(noFontSize
+		? {
+				fontSize: 0
 		  }
 		: {})
 })
@@ -263,11 +271,6 @@ export const getFlexChildStyles = ({
 		  }
 		: {}),
 	flexBasis: flexBasis || 'auto',
-	...(noFontSize
-		? {
-				fontSize: 0
-		  }
-		: {}),
 	...(justifySelfEnd
 		? {
 				marginLeft: 'auto'
