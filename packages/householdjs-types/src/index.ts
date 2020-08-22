@@ -92,7 +92,7 @@ type ViewBoxValuesProps = {
 
 type ViewBoxProps = ViewBoxSizeProps | ViewBoxValuesProps
 
-type SvgSpecificProps = ViewBoxProps & {
+export type SvgSpecificProps = ViewBoxProps & {
 	children: ReactNode
 	size?: number
 	overflowFixScaleRatio?: number

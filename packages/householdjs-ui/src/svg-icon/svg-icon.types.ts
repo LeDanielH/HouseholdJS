@@ -1,5 +1,5 @@
 import { HTMLProps } from 'react'
-import { SvgProps, PointingToEnum } from '@householdjs/types'
+import { PointingToEnum, SvgSpecificProps } from '@householdjs/types'
 
 export type SvgIconWrapperProps = {
 	pointingTo?: PointingToEnum
@@ -8,7 +8,7 @@ export type SvgIconWrapperProps = {
 } & HTMLProps<HTMLElement>
 
 export type SvgIconProps = Omit<
-	SvgProps,
+	SvgSpecificProps,
 	'overflowFixScaleRatio' | 'overflowFixPosition' | 'size'
 > &
 	SvgIconWrapperProps

@@ -22,7 +22,7 @@ export const SvgIconWrapper = styled('i')<SvgIconWrapperProps>(
 			alignItems: 'center',
 			noFontSize: true,
 			onClick,
-			withPointer,
+			withPointer
 		}),
 		...(pointingTo
 			? {
@@ -35,7 +35,7 @@ export const SvgIconWrapper = styled('i')<SvgIconWrapperProps>(
 		svg: {
 			...getFlexChildStyles({
 				flexBasis: pxToRem(size),
-				withIe: true,
+				withIe: true
 			})
 		}
 	})
