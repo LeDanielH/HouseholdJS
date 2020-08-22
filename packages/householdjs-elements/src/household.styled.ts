@@ -1,7 +1,6 @@
-import styled from 'styled-components'
+import styled, { CSSObject } from 'styled-components'
 
 import {
-	CSSObject,
 	FlexParentProps,
 	PositionedProps,
 	SpacerProps,

@@ -1,5 +1,4 @@
 import {
-	CSSObject,
 	FlexChildProps,
 	CommonElementProps,
 	SimpleWrapperProps,
@@ -24,6 +23,8 @@ import {
 } from '@householdjs/utils'
 
 import { calculateSize } from './svg/svg.utils'
+
+import { CSSObject } from 'styled-components'
 
 /**
  * @param withBottomMargin - true sets 'margin-bottom: 1rem;', string sets e.g. 'margin-bottom: 10rem;'
