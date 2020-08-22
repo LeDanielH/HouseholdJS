@@ -4,7 +4,7 @@ import { Svg } from '@householdjs/elements'
 import type { SvgIconProps } from './svg-icon.types.ts'
 
 export const SvgIcon = ({
-	direction,
+	pointingTo,
 	withPointer,
 	size,
 	viewBoxWidth,
@@ -14,7 +14,7 @@ export const SvgIcon = ({
 }: SvgIconProps) => {
 	return (
 		<SvgIconWrapper
-			direction={direction}
+			pointingTo={pointingTo}
 			withPointer={withPointer}
 			size={size}
 			{...restProps}

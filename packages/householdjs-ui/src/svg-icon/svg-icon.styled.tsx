@@ -1,22 +1,22 @@
 import { SvgIconWrapperProps } from './svg-icon.types.ts'
 import styled from 'styled-components'
 import {
-	getRotationBasedOnDirection,
+	getRotationBasedOnPointingTo,
 	pxToRem,
 	withDeg
 } from '@householdjs/utils'
 import { size as sizePolished } from 'polished'
 
 export const SvgIconWrapper = styled('i')<SvgIconWrapperProps>(
-	({ direction, withPointer, size }: SvgIconWrapperProps) => ({
+	({ pointingTo, withPointer, size }: SvgIconWrapperProps) => ({
 		display: 'inline-flex',
 		justifyContent: 'center',
 		alignItems: 'center',
 		fontSize: 0,
-		...(direction
+		...(pointingTo
 			? {
 					transform: `rotate(${withDeg(
-						getRotationBasedOnDirection(direction)
+						getRotationBasedOnPointingTo(pointingTo)
 					)})`
 			  }
 			: {}),

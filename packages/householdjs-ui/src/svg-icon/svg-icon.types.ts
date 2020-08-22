@@ -1,8 +1,8 @@
 import { HTMLProps } from 'react'
-import { SvgProps, CssDirectionType } from '@householdjs/types'
+import { SvgProps, CssPointingToType } from '@householdjs/types'
 
 export type SvgIconWrapperProps = {
-	direction?: CssDirectionType
+	pointingTo?: CssPointingToType
 	withPointer?: boolean
 	size: number // in px
 } & HTMLProps<HTMLElement>
