@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react'
 import { Property } from 'csstype'
 import { CSSObject as CSSObjectStyled } from 'styled-components'
 
-export type CSSObject = CSSObjectStyled;
+export type CSSObject = CSSObjectStyled
 
 export enum SpacingEnum {
 	big = 'big',
