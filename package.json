@@ -1,6 +1,6 @@
 {
 	"name": "householdjs-monorepo",
-	"version": "2.1.2-alpha.0",
+	"version": "2.2.0-alpha.0",
 	"private": true,
 	"devDependencies": {
 		"@types/jest": "^26.0.10",
