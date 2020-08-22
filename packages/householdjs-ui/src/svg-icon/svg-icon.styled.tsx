@@ -6,7 +6,7 @@ import {
 	withDeg
 } from '@householdjs/utils'
 import { size as sizePolished } from 'polished'
-import { CSSObject } from '@householdjs/types'
+import { CSSObject } from 'styled-components'
 import { getFlexChildStyles, getFlexParentStyles } from '@householdjs/elements'
 
 export const SvgIconWrapper = styled('i')<SvgIconWrapperProps>(

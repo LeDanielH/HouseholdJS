@@ -1,8 +1,6 @@
 import React, { ReactNode } from 'react'
 import { Property } from 'csstype'
-import { CSSObject as CSSObjectStyled } from 'styled-components'
-
-export type CSSObject = CSSObjectStyled
+import { CSSObject } from 'styled-components'
 
 export enum SpacingEnum {
 	big = 'big',
