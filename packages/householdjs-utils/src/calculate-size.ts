@@ -1,4 +1,4 @@
-import { round } from './numbers-mod.ts'
+import { round } from './numbers-mod'
 
 export const SVG_MAX_PRECISION = 0.01
 

@@ -1,5 +1,5 @@
-import { mathAnimations, MathAnimationsEnum } from './scroll-to.animations.ts'
-import { TRANSITION_DURATION_DEFAULT } from './constants.ts'
+import { mathAnimations, MathAnimationsEnum } from './scroll-to.animations'
+import { TRANSITION_DURATION_DEFAULT } from './constants'
 
 type ScrollToParamsType = {
 	parent: HTMLElement

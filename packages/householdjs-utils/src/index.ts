@@ -12,7 +12,10 @@ export { withTransition } from './with-transition'
 export {
 	getRotationBasedOnPointingTo,
 	POINTING_TO_TO_DEGREES_MAP
-} from './getRotationBasedOnPointingTo'
+} from './get-rotation-based-on-pointing-to'
+export { getElementPosition } from './get-element-position'
+export { scrollTo } from './scroll-to'
+export { MathAnimationsEnum } from './scroll-to.animations'
 
 // TODO: I need them temporarily, will move them to another package altogether
 export {
@@ -24,7 +27,7 @@ export {
 	getRoundedNumber,
 	isZeroOrPositiveNumber,
 	isPositiveNumber
-} from './numbersMod'
+} from './numbers-mod'
 
 export {
 	withUnit,
