@@ -1,6 +1,6 @@
-import { round } from './numbersMod.ts'
+import { round } from './numbers-mod.ts'
 
-export function getItemsPosition(item: HTMLElement) {
+export function getElementPosition(item: HTMLElement) {
 	const box = item.getBoundingClientRect()
 
 	const { body } = document
